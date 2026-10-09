@@ -6,6 +6,8 @@ import {
 import { FaInstagram, FaFacebookF, FaYoutube } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
+import Confetti from 'react-confetti';
+import { useMeasure, useWindowSize } from 'react-use';
 import './index.css';
 
 function App() {
@@ -16,6 +18,9 @@ function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formStatus, setFormStatus] = useState(''); // '', 'submitting', 'success', 'error'
   const [mousePos, setMousePos] = useState({ x: -500, y: -500 }); // Start off-screen
+  
+  const { width: windowWidth } = useWindowSize();
+  const [confettiRef, { width: confettiWidth, height: confettiHeight }] = useMeasure();
 
   useEffect(() => {
     const targetDate = new Date('October 25, 2026 00:00:00').getTime();
@@ -302,8 +307,18 @@ function App() {
         </div>
       </header>
 
+      {/* Confetti Animation Wrapper */}
+      <div ref={confettiRef} style={{ position: 'relative', background: 'var(--bg-cream)', zIndex: 1, overflow: 'hidden' }}>
+        <Confetti 
+          width={confettiWidth || windowWidth} 
+          height={confettiHeight || 2000} 
+          numberOfPieces={50} 
+          gravity={0.05} 
+          style={{ position: 'absolute', top: 0, left: 0, zIndex: 0, opacity: 0.6 }} 
+        />
+        
       {/* About Section */}
-      <section id="about" className="section-padding" style={{ background: 'white', borderTop: '1px solid rgba(0,0,0,0.05)' }}>
+      <section id="about" className="section-padding" style={{ position: 'relative', zIndex: 1, background: 'rgba(255,255,255,0.8)', borderTop: '1px solid rgba(0,0,0,0.05)' }}>
         <motion.div 
           className="container center-text"
           initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
@@ -321,7 +336,7 @@ function App() {
       </section>
 
       {/* Body / Categories Section */}
-      <section id="categories" className="section-padding" style={{ background: 'var(--bg-cream)' }}>
+      <section id="categories" className="section-padding" style={{ position: 'relative', zIndex: 1, background: 'transparent' }}>
         <div className="container">
           <motion.h2 
             className="section-heading center-text" style={{ color: 'var(--primary-purple)' }}
@@ -396,7 +411,7 @@ function App() {
       </section>
 
       {/* Registration / Google Form Section - Premium Integration */}
-      <section id="register" className="section-padding" style={{ background: 'linear-gradient(to bottom, #ffffff, var(--bg-cream))', position: 'relative' }}>
+      <section id="register" className="section-padding" style={{ position: 'relative', zIndex: 1, background: 'linear-gradient(to bottom, rgba(255,255,255,0), rgba(252,250,242,0.9))' }}>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <motion.h2 
             className="section-heading center-text" style={{ color: 'var(--text-dark)' }}
@@ -438,7 +453,7 @@ function App() {
       </section>
 
       {/* Interactive Map & Contact Section */}
-      <section id="contact" className="section-padding" style={{ background: 'white', borderTop: '2px solid rgba(226, 43, 34, 0.1)', textAlign: 'center' }}>
+      <section id="contact" className="section-padding" style={{ position: 'relative', zIndex: 1, background: 'rgba(252,250,242,0.95)', borderTop: '2px solid rgba(226, 43, 34, 0.1)', textAlign: 'center' }}>
         <div className="container">
           <motion.h2 
             className="footer-heading"
@@ -476,6 +491,7 @@ function App() {
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
           </motion.div>
+      </div> {/* End Confetti Wrapper */}
 
           {/* Expanded Footer Grid */}
           <div className="footer-grid">
