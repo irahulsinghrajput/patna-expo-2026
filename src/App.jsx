@@ -312,7 +312,7 @@ function App() {
         <Confetti 
           width={confettiWidth || windowWidth} 
           height={confettiHeight || 2000} 
-          numberOfPieces={50} 
+          numberOfPieces={200} 
           gravity={0.05} 
           style={{ position: 'absolute', top: 0, left: 0, zIndex: 0, opacity: 0.6 }} 
         />
