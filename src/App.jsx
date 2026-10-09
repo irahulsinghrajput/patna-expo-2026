@@ -496,7 +496,16 @@ function App() {
 
       {/* Footer Section */}
       <footer style={{ background: 'var(--bg-cream)', padding: '60px 0', borderTop: '1px solid rgba(0,0,0,0.05)' }}>
-        <div className="container">          {/* Expanded Footer Grid */}
+        <div className="container">
+          {/* Dussehra Banner */}
+          <div style={{ width: '100%', marginBottom: '60px' }}>
+            <img 
+              src="/images/dussehra-banner.png" 
+              alt="Dussehra to Dhanteras" 
+              style={{ width: '100%', height: 'auto', borderRadius: '15px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }} 
+            />
+          </div>
+          {/* Expanded Footer Grid */}
           <div className="footer-grid">
             <div className="footer-col">
               <h1 className="logo" style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', marginBottom: '15px' }}>
