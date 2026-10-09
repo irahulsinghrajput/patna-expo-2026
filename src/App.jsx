@@ -476,7 +476,7 @@ function App() {
               </div>
               <div className="contact-item">
                 <Mail size={20} color="var(--primary-cyan)" />
-                <a href="mailto:expopatna@gmail.com" style={{ color: 'inherit', textDecoration: 'none' }}>expopatna@gmail.com</a>
+                <a href="mailto:info@patnaexpo.com" style={{ color: 'inherit', textDecoration: 'none' }}>info@patnaexpo.com</a>
               </div>
               <div className="contact-item">
                 <Phone size={20} color="var(--primary-purple)" />
