@@ -491,9 +491,13 @@ function App() {
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
           </motion.div>
+        </div>
+      </section>
       </div> {/* End Confetti Wrapper */}
 
-          {/* Expanded Footer Grid */}
+      {/* Footer Section */}
+      <footer style={{ background: 'var(--bg-cream)', padding: '60px 0', borderTop: '1px solid rgba(0,0,0,0.05)' }}>
+        <div className="container">          {/* Expanded Footer Grid */}
           <div className="footer-grid">
             <div className="footer-col">
               <h1 className="logo" style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', marginBottom: '15px' }}>
@@ -534,7 +538,7 @@ function App() {
             Website created by <a href="https://www.brandmarksolutions.site/" target="_blank" rel="noreferrer" style={{ color: 'var(--primary-red)', textDecoration: 'none', fontWeight: 600 }}>Brandmark Solutions</a>
           </p>
         </div>
-      </section>
+      </footer>
     </div>
   );
 }
