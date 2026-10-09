@@ -372,14 +372,13 @@ function App() {
 
       {/* Bobis Entertainment Section - Custom Background Image Design */}
       <section className="section-padding" style={{ 
-        backgroundColor: '#ffffff',
+        background: 'transparent',
         backgroundImage: 'url(/images/bobis-logo.png)',
         backgroundSize: 'contain',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         position: 'relative', 
-        overflow: 'hidden',
-        boxShadow: 'inset 0 15px 30px -15px rgba(0,0,0,0.1)'
+        zIndex: 1
       }}>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} perspective={1000} scale={1.02} transitionSpeed={1000}>
