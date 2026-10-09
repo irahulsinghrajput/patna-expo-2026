@@ -357,12 +357,14 @@ function App() {
 
       {/* Bobis Entertainment Section - Custom Background Image Design */}
       <section className="section-padding" style={{ 
+        backgroundColor: '#ffffff',
         backgroundImage: 'url(/images/bobis-bg.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         position: 'relative', 
-        overflow: 'hidden' 
+        overflow: 'hidden',
+        boxShadow: 'inset 0 15px 30px -15px rgba(0,0,0,0.1)'
       }}>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} perspective={1000} scale={1.02} transitionSpeed={1000}>
@@ -394,15 +396,15 @@ function App() {
       </section>
 
       {/* Registration / Google Form Section - Premium Integration */}
-      <section id="register" className="section-padding" style={{ background: 'linear-gradient(to bottom, #0a0a0a, var(--bg-cream))', position: 'relative' }}>
+      <section id="register" className="section-padding" style={{ background: 'linear-gradient(to bottom, #ffffff, var(--bg-cream))', position: 'relative' }}>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <motion.h2 
-            className="section-heading center-text" style={{ color: 'white' }}
+            className="section-heading center-text" style={{ color: 'var(--text-dark)' }}
             initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           >
             Register Your <span className="gradient-text-red-orange">Interest</span>
           </motion.h2>
-          <p className="section-text center-text" style={{ color: 'rgba(255,255,255,0.8)', maxWidth: '800px', margin: '0 auto 50px', fontSize: '1.2rem' }}>
+          <p className="section-text center-text" style={{ color: 'var(--text-muted)', maxWidth: '800px', margin: '0 auto 50px', fontSize: '1.2rem' }}>
             Ready to showcase your brand at the biggest shopping carnival in Bihar? Fill out the official registration form below to secure your spot at Patna Expo 2026.
           </p>
 
