@@ -105,9 +105,9 @@ function App() {
     <div className="min-h-screen">
       {/* Floating Social Media Bar (Left) */}
       <div className="floating-socials">
-        <a href="#" className="social-icon instagram" title="Instagram"><FaInstagram size={22} /></a>
-        <a href="#" className="social-icon facebook" title="Facebook"><FaFacebookF size={22} /></a>
-        <a href="#" className="social-icon youtube" title="YouTube"><FaYoutube size={22} /></a>
+        <a href="https://www.instagram.com/bobisgroup/" target="_blank" rel="noreferrer" className="social-icon instagram" title="Instagram"><FaInstagram size={22} /></a>
+        <a href="https://www.facebook.com/BobisGroup" target="_blank" rel="noreferrer" className="social-icon facebook" title="Facebook"><FaFacebookF size={22} /></a>
+        <a href="https://www.youtube.com/@bobisgroup" target="_blank" rel="noreferrer" className="social-icon youtube" title="YouTube"><FaYoutube size={22} /></a>
       </div>
 
       {/* Custom Interactive Cursor Trailer */}
@@ -462,6 +462,11 @@ function App() {
               <p>
                 Patna Expo 2026 is Bihar's largest shopping carnival—a grand celebration of business, shopping, entertainment, and opportunities under one roof. Conceptualised and executed by Bobis Entertainment.
               </p>
+              <div style={{ display: 'flex', gap: '15px', marginTop: '20px' }}>
+                <a href="https://www.instagram.com/bobisgroup/" target="_blank" rel="noreferrer" style={{ color: 'var(--primary-purple)' }}><FaInstagram size={24} /></a>
+                <a href="https://www.facebook.com/BobisGroup" target="_blank" rel="noreferrer" style={{ color: 'var(--primary-blue)' }}><FaFacebookF size={24} /></a>
+                <a href="https://www.youtube.com/@bobisgroup" target="_blank" rel="noreferrer" style={{ color: 'var(--primary-red)' }}><FaYoutube size={24} /></a>
+              </div>
             </div>
             <div className="footer-col footer-col-contact">
               <h3>Contact Information</h3>
