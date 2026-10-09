@@ -355,56 +355,79 @@ function App() {
         </div>
       </section>
 
-      {/* Bobis Entertainment Section */}
-      <section className="section-padding" style={{ background: 'white', borderTop: '1px solid rgba(0,0,0,0.05)' }}>
-        <div className="container">
-          <motion.div 
-            className="glass-panel" style={{ textAlign: 'center' }}
-            initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
-          >
-            <h2 className="section-heading" style={{ color: 'var(--text-dark)' }}>
-              Conceptualised, Planned & Executed by <span style={{ color: 'var(--primary-red)' }}>Bobis Entertainment</span>
-            </h2>
-            <p className="section-text">
-              Patna Expo 2026 is a vision brought to life by Team Bobis — from the initial ideation and planning to complete event management and execution.
-            </p>
-            <p className="section-text">
-              With extensive experience in large-scale events, event production, brand activations, and on-ground execution, Bobis Entertainment is bringing together the scale, creativity, and expertise needed to create a landmark expo experience in Patna.
-            </p>
-          </motion.div>
+      {/* Bobis Entertainment Section - Premium Dark Mode Design */}
+      <section className="section-padding" style={{ background: '#0a0a0a', position: 'relative', overflow: 'hidden' }}>
+        {/* Decorative glowing orbs */}
+        <div style={{ position: 'absolute', top: '-150px', left: '-150px', width: '400px', height: '400px', background: 'var(--primary-red)', filter: 'blur(200px)', opacity: 0.4, zIndex: 0 }}></div>
+        <div style={{ position: 'absolute', bottom: '-150px', right: '-150px', width: '400px', height: '400px', background: 'var(--primary-purple)', filter: 'blur(200px)', opacity: 0.4, zIndex: 0 }}></div>
+
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+          <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} perspective={1000} scale={1.02} transitionSpeed={1000}>
+            <motion.div 
+              style={{ 
+                background: 'rgba(255,255,255,0.03)', 
+                border: '1px solid rgba(255,255,255,0.1)', 
+                borderRadius: '30px', 
+                padding: '60px 40px', 
+                textAlign: 'center',
+                boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
+                backdropFilter: 'blur(20px)'
+              }}
+              initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
+            >
+              <h2 className="section-heading" style={{ color: 'white', fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
+                Conceptualised, Planned & Executed by <br/>
+                <span className="gradient-text-red-orange" style={{ textShadow: '0 0 30px rgba(226,43,34,0.5)' }}>Bobis Entertainment</span>
+              </h2>
+              <p className="section-text" style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1.25rem', maxWidth: '800px', margin: '0 auto 20px', lineHeight: '1.6' }}>
+                Patna Expo 2026 is a vision brought to life by Team Bobis — from the initial ideation and planning to complete event management and execution.
+              </p>
+              <p className="section-text" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.1rem', maxWidth: '800px', margin: '0 auto', lineHeight: '1.6' }}>
+                With extensive experience in large-scale events, event production, brand activations, and on-ground execution, Bobis Entertainment is bringing together the scale, creativity, and expertise needed to create a landmark expo experience in Patna.
+              </p>
+            </motion.div>
+          </Tilt>
         </div>
       </section>
 
-      {/* Registration / Google Form Section */}
-      <section id="register" className="section-padding" style={{ background: 'var(--bg-cream)' }}>
-        <div className="container">
+      {/* Registration / Google Form Section - Premium Integration */}
+      <section id="register" className="section-padding" style={{ background: 'linear-gradient(to bottom, #0a0a0a, var(--bg-cream))', position: 'relative' }}>
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <motion.h2 
-            className="section-heading center-text" style={{ color: 'var(--text-dark)' }}
+            className="section-heading center-text" style={{ color: 'white' }}
             initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           >
-            Register Your <span style={{ color: 'var(--primary-red)' }}>Interest</span>
+            Register Your <span className="gradient-text-red-orange">Interest</span>
           </motion.h2>
-          <p className="section-text center-text" style={{ maxWidth: '800px', margin: '0 auto 40px' }}>
+          <p className="section-text center-text" style={{ color: 'rgba(255,255,255,0.8)', maxWidth: '800px', margin: '0 auto 50px', fontSize: '1.2rem' }}>
             Ready to showcase your brand at the biggest shopping carnival in Bihar? Fill out the official registration form below to secure your spot at Patna Expo 2026.
           </p>
 
           <motion.div 
-            className="glass-panel"
             initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
-            style={{ padding: '0', overflow: 'hidden', borderRadius: '24px', border: '1px solid rgba(0,0,0,0.1)', background: 'white' }}
+            style={{ 
+              padding: '5px', 
+              borderRadius: '30px', 
+              background: 'linear-gradient(135deg, var(--primary-red), var(--primary-purple), var(--primary-blue))',
+              backgroundSize: '200% 200%',
+              animation: 'gradientBG 10s ease infinite',
+              boxShadow: '0 30px 60px rgba(226,43,34,0.3)' 
+            }}
           >
-            <iframe 
-              src="https://docs.google.com/forms/d/e/1FAIpQLSdPFmKqWUMI_ieJLl9hhz-xAw9abIPpia6w3ZL7BZV-E4z-tw/viewform?embedded=true" 
-              width="100%" 
-              height="800" 
-              frameBorder="0" 
-              marginHeight="0" 
-              marginWidth="0"
-              title="Google Registration Form"
-              style={{ display: 'block', background: 'transparent' }}
-            >
-              Loading…
-            </iframe>
+            <div style={{ background: 'var(--bg-cream)', borderRadius: '25px', overflow: 'hidden' }}>
+              <iframe 
+                src="https://docs.google.com/forms/d/e/1FAIpQLSdPFmKqWUMI_ieJLl9hhz-xAw9abIPpia6w3ZL7BZV-E4z-tw/viewform?embedded=true" 
+                width="100%" 
+                height="800" 
+                frameBorder="0" 
+                marginHeight="0" 
+                marginWidth="0"
+                title="Google Registration Form"
+                style={{ display: 'block', background: 'transparent' }}
+              >
+                Loading…
+              </iframe>
+            </div>
           </motion.div>
         </div>
       </section>
