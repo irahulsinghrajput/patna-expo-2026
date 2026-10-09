@@ -373,8 +373,8 @@ function App() {
       {/* Bobis Entertainment Section - Custom Background Image Design */}
       <section className="section-padding" style={{ 
         backgroundColor: '#ffffff',
-        backgroundImage: 'url(/images/bobis-bg.png)',
-        backgroundSize: 'cover',
+        backgroundImage: 'url(/images/bobis-logo.png)',
+        backgroundSize: 'contain',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         position: 'relative', 
