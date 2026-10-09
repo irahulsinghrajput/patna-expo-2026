@@ -380,14 +380,14 @@ function App() {
               }}
               initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
             >
-              <h2 className="section-heading" style={{ color: 'var(--text-dark)', fontSize: 'clamp(2rem, 4vw, 3rem)', textShadow: '0 0 15px rgba(255,255,255,1)' }}>
+              <h2 className="section-heading" style={{ color: 'var(--text-dark)', fontSize: 'clamp(2rem, 4vw, 3rem)', textShadow: '0 0 5px rgba(255,255,255,0.8)' }}>
                 Conceptualised, Planned & Executed by <br/>
-                <span className="gradient-text-red-orange" style={{ textShadow: '0 2px 10px rgba(255,255,255,1)' }}>Bobis Entertainment</span>
+                <span style={{ color: 'var(--primary-red)', fontWeight: 900 }}>Bobis Entertainment</span>
               </h2>
-              <p className="section-text" style={{ color: 'var(--text-dark)', fontSize: '1.25rem', maxWidth: '800px', margin: '0 auto 20px', lineHeight: '1.6', fontWeight: 800, textShadow: '0 0 10px rgba(255,255,255,1)' }}>
+              <p className="section-text" style={{ color: 'var(--text-dark)', fontSize: '1.25rem', maxWidth: '800px', margin: '0 auto 20px', lineHeight: '1.6', fontWeight: 800, textShadow: '0 0 5px rgba(255,255,255,0.8)' }}>
                 Patna Expo 2026 is a vision brought to life by Team Bobis — from the initial ideation and planning to complete event management and execution.
               </p>
-              <p className="section-text" style={{ color: 'var(--text-dark)', fontSize: '1.1rem', maxWidth: '800px', margin: '0 auto', lineHeight: '1.6', fontWeight: 600, textShadow: '0 0 10px rgba(255,255,255,1)' }}>
+              <p className="section-text" style={{ color: 'var(--text-dark)', fontSize: '1.1rem', maxWidth: '800px', margin: '0 auto', lineHeight: '1.6', fontWeight: 700, textShadow: '0 0 5px rgba(255,255,255,0.8)' }}>
                 With extensive experience in large-scale events, event production, brand activations, and on-ground execution, Bobis Entertainment is bringing together the scale, creativity, and expertise needed to create a landmark expo experience in Patna.
               </p>
             </motion.div>
