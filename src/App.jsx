@@ -384,7 +384,7 @@ function App() {
           <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} perspective={1000} scale={1.02} transitionSpeed={1000}>
             <motion.div 
               style={{ 
-                background: 'rgba(255,255,255,0.25)', 
+                background: 'rgba(255,255,255,0.15)', 
                 border: '1px solid rgba(255,255,255,0.6)', 
                 borderRadius: '30px', 
                 padding: '60px 40px', 
