@@ -431,16 +431,18 @@ function App() {
           </motion.h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '30px', marginTop: '40px' }}>
             {packages.map((p, i) => (
-              <Tilt key={i} glareEnable={true} glareMaxOpacity={0.3} scale={1.02} transitionSpeed={400}>
-                <div style={{ background: 'white', borderRadius: '20px', padding: '30px', border: '1px solid rgba(0,0,0,0.1)', boxShadow: '0 10px 30px rgba(0,0,0,0.08)', position: 'relative', overflow: 'hidden' }}>
+              <Tilt key={i} glareEnable={true} glareMaxOpacity={0.3} scale={1.02} transitionSpeed={400} style={{ height: '100%' }}>
+                <div style={{ height: '100%', display: 'flex', flexDirection: 'column', background: 'white', borderRadius: '20px', padding: '30px', border: '1px solid rgba(0,0,0,0.1)', boxShadow: '0 10px 30px rgba(0,0,0,0.08)', position: 'relative', overflow: 'hidden' }}>
                   <div style={{ position: 'absolute', top: '-20px', right: '-20px', opacity: 0.05 }}>
                     <p.icon size={120} />
                   </div>
                   <p.icon size={36} color="var(--primary-red)" style={{ marginBottom: '20px' }} />
                   <h3 style={{ fontSize: '1.4rem', color: 'var(--text-dark)', marginBottom: '10px' }}>{p.title}</h3>
                   <p style={{ color: '#666', marginBottom: '20px', fontSize: '0.9rem', fontWeight: 600 }}>Stall Size: {p.details}</p>
-                  <div style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--primary-purple)' }}>{p.price}</div>
-                  <div style={{ fontSize: '0.8rem', color: '#888' }}>+GST</div>
+                  <div style={{ marginTop: 'auto' }}>
+                    <div style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--primary-purple)' }}>{p.price}</div>
+                    <div style={{ fontSize: '0.8rem', color: '#888' }}>+GST</div>
+                  </div>
                 </div>
               </Tilt>
             ))}
@@ -456,10 +458,12 @@ function App() {
           </motion.h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '25px', marginTop: '40px' }}>
             {activities.map((act, i) => (
-              <motion.div key={i} style={{ display: 'flex', alignItems: 'center', gap: '15px', background: 'white', padding: '20px', borderRadius: '15px', borderLeft: '4px solid var(--primary-red)', boxShadow: '0 5px 15px rgba(0,0,0,0.05)' }} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
-                <act.icon size={28} color="var(--primary-blue)" />
-                <span style={{ fontWeight: 600, color: 'var(--text-dark)' }}>{act.name}</span>
-              </motion.div>
+              <div key={i} style={{ height: '100%' }}>
+                <motion.div style={{ height: '100%', display: 'flex', alignItems: 'center', gap: '15px', background: 'white', padding: '20px', borderRadius: '15px', borderLeft: '4px solid var(--primary-red)', boxShadow: '0 5px 15px rgba(0,0,0,0.05)' }} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
+                  <act.icon size={28} color="var(--primary-blue)" style={{ flexShrink: 0 }} />
+                  <span style={{ fontWeight: 600, color: 'var(--text-dark)', lineHeight: '1.4' }}>{act.name}</span>
+                </motion.div>
+              </div>
             ))}
           </div>
         </div>
