@@ -456,16 +456,16 @@ function App() {
           <motion.h2 className="section-heading center-text" style={{ color: 'var(--primary-cyan)' }} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
             Daily Activities
           </motion.h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '25px', marginTop: '40px' }}>
-            {activities.map((act, i) => (
-              <div key={i} style={{ height: '100%' }}>
-                <motion.div style={{ height: '100%', display: 'flex', alignItems: 'center', gap: '15px', background: 'white', padding: '20px', borderRadius: '15px', borderLeft: '4px solid var(--primary-red)', boxShadow: '0 5px 15px rgba(0,0,0,0.05)' }} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
-                  <act.icon size={28} color="var(--primary-blue)" style={{ flexShrink: 0 }} />
-                  <span style={{ fontWeight: 600, color: 'var(--text-dark)', lineHeight: '1.4' }}>{act.name}</span>
-                </motion.div>
-              </div>
-            ))}
-          </div>
+          <motion.div 
+            style={{ marginTop: '40px', textAlign: 'center' }}
+            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
+          >
+            <img 
+              src="/images/daily-activities.jpg" 
+              alt="Daily Activities at Patna Expo" 
+              style={{ width: '100%', maxWidth: '900px', height: 'auto', borderRadius: '20px', boxShadow: '0 15px 40px rgba(0,0,0,0.15)', margin: '0 auto', display: 'block' }} 
+            />
+          </motion.div>
         </div>
       </section>
 
