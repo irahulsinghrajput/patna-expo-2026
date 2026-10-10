@@ -461,9 +461,9 @@ function App() {
             initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
           >
             <img 
-              src="/images/daily-activities.jpg" 
+              src="/images/daily-activities.png" 
               alt="Daily Activities at Patna Expo" 
-              style={{ width: '100%', maxWidth: '900px', height: 'auto', borderRadius: '20px', boxShadow: '0 15px 40px rgba(0,0,0,0.15)', margin: '0 auto', display: 'block' }} 
+              style={{ width: '100%', maxWidth: '900px', height: 'auto', borderRadius: '20px', boxShadow: 'none', margin: '0 auto', display: 'block' }} 
             />
           </motion.div>
         </div>
