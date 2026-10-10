@@ -22,20 +22,12 @@ body {
   background-color: var(--bg-cream);
   color: var(--text-dark);
   overflow-x: hidden;
+  cursor: url('/images/cursor-b-32.png') 16 16, auto;
 }
 
-/* Custom Cursor Effect */
-.cursor-logo {
-  position: fixed;
-  top: 0; left: 0;
-  width: 32px; height: 32px;
-  background-image: url('/images/cursor-b.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  pointer-events: none;
-  z-index: 10000;
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+/* Make sure all clickable items also use the custom cursor */
+a, button, .category-card, .highlight-item, .social-icon, .floating-widget, input, textarea {
+  cursor: url('/images/cursor-b-32.png') 16 16, pointer !important;
 }
 
 /* Layout Utilities */

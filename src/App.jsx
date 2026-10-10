@@ -151,13 +151,6 @@ function App() {
         <a href="https://www.youtube.com/@bobisgroup" target="_blank" rel="noreferrer" className="social-icon youtube" title="YouTube"><FaYoutube size={22} /></a>
       </div>
 
-      {/* Custom Interactive Cursor Trailer */}
-      <motion.div 
-        className="cursor-logo"
-        animate={{ x: mousePos.x - 16, y: mousePos.y - 16 }}
-        transition={{ type: "tween", duration: 0.1 }}
-      />
-
       {/* Floating WhatsApp Widget */}
       <a href="https://wa.me/917903670000" target="_blank" rel="noreferrer" className="floating-widget">
         <MessageCircle size={28} />
