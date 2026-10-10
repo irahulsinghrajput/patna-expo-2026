@@ -414,8 +414,8 @@ function App() {
           </motion.h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '30px', marginTop: '40px' }}>
             {highlights.map((h, i) => (
-              <motion.div key={i} className="highlight-item" style={{ textAlign: 'center', padding: '15px', background: 'white', borderRadius: '15px', boxShadow: '0 5px 20px rgba(0,0,0,0.06)' }} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
-                <img src={h.img} alt={`Highlight ${i+1}`} style={{ width: '100%', height: 'auto', display: 'block' }} />
+              <motion.div key={i} className="highlight-item" style={{ textAlign: 'center', padding: '15px', background: 'white', borderRadius: '15px', boxShadow: '0 5px 20px rgba(0,0,0,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '180px' }} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
+                <img src={h.img} alt={`Highlight ${i+1}`} style={{ width: '100%', height: '100%', maxHeight: '150px', objectFit: 'contain', display: 'block' }} />
               </motion.div>
             ))}
           </div>
