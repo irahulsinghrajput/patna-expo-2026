@@ -630,7 +630,7 @@ function App() {
             </div>
           </div>
 
-          <p style={{ marginTop: '50px', color: '#888', fontSize: '0.9rem', lineHeight: '1.8' }}>
+          <p style={{ marginTop: '50px', color: '#888', fontSize: '0.9rem', lineHeight: '1.8', textAlign: 'center', width: '100%' }}>
             © 2026 Patna Expo. Executed by Bobis Entertainment. All rights reserved.<br />
             Website created by <a href="https://www.brandmarksolutions.site/" target="_blank" rel="noreferrer" style={{ color: 'var(--primary-red)', textDecoration: 'none', fontWeight: 600 }}>Brandmark Solutions</a>
           </p>
