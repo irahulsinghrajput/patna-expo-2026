@@ -451,9 +451,9 @@ function App() {
       </section>
 
       {/* Daily Activities Section */}
-      <section className="section-padding" style={{ position: 'relative', zIndex: 1, background: 'rgba(255,255,255,0.9)' }}>
+      <section className="section-padding" style={{ position: 'relative', zIndex: 1, background: '#000000' }}>
         <div className="container">
-          <motion.h2 className="section-heading center-text" style={{ color: 'var(--primary-cyan)' }} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
+          <motion.h2 className="section-heading center-text" style={{ color: 'white', textShadow: '0 0 10px rgba(255,255,255,0.3)' }} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
             Daily Activities
           </motion.h2>
           <motion.div 
@@ -461,9 +461,9 @@ function App() {
             initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
           >
             <img 
-              src="/images/daily-activities.png" 
+              src="/images/daily-activities.jpg" 
               alt="Daily Activities at Patna Expo" 
-              style={{ width: '100%', maxWidth: '900px', height: 'auto', borderRadius: '20px', boxShadow: 'none', margin: '0 auto', display: 'block' }} 
+              style={{ width: '100%', maxWidth: '900px', height: 'auto', margin: '0 auto', display: 'block' }} 
             />
           </motion.div>
         </div>
