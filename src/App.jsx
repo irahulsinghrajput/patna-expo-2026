@@ -153,14 +153,9 @@ function App() {
 
       {/* Custom Interactive Cursor Trailer */}
       <motion.div 
-        className="cursor-dot"
-        animate={{ x: mousePos.x - 5, y: mousePos.y - 5 }}
-        transition={{ type: "tween", duration: 0 }}
-      />
-      <motion.div 
-        className="cursor-outline"
-        animate={{ x: mousePos.x - 20, y: mousePos.y - 20 }}
-        transition={{ type: "spring", damping: 25, stiffness: 250, mass: 0.5 }}
+        className="cursor-logo"
+        animate={{ x: mousePos.x - 16, y: mousePos.y - 16 }}
+        transition={{ type: "tween", duration: 0.1 }}
       />
 
       {/* Floating WhatsApp Widget */}
