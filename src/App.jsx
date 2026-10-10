@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { 
   Menu, X, Phone, Calendar, MapPin, MessageCircle, Mail,
-  ShoppingCart, Building, GraduationCap, Gem, Car, Tractor, Laptop, Activity, HeartPulse, Landmark, Hammer, Armchair, Tv
+  ShoppingCart, Building, GraduationCap, Gem, Car, Tractor, Laptop, Activity, HeartPulse, Landmark, Hammer, Armchair, Tv,
+  CalendarDays, Store, Users, Handshake, PartyPopper, Grid, Lightbulb, Trophy, Baby, Cpu, Utensils,
+  Bike, AirVent, Tent, Palette, Camera, Video, Music, PawPrint, Star, Crown, Mic, ChevronRight
 } from 'lucide-react';
 import { FaInstagram, FaFacebookF, FaYoutube } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -56,6 +58,40 @@ function App() {
     { name: "Consumers", icon: ShoppingCart, grad: "card-grad-1" },
     { name: "Home Decor and Interior", icon: Armchair, grad: "card-grad-2" },
     { name: "Electronics", icon: Tv, grad: "card-grad-3" }
+  ];
+
+  const highlights = [
+    { name: "13 Days of Festive Trade", icon: CalendarDays },
+    { name: "120+ Exhibitor Booths", icon: Store },
+    { name: "10 Lakh+ Expected Footfall", icon: Users },
+    { name: "Prime Location of Festive Trade", icon: MapPin },
+    { name: "B2B & B2C Engagement", icon: Handshake },
+    { name: "Festive Season Advantage", icon: PartyPopper },
+    { name: "Diverse Industry Participation", icon: Grid },
+    { name: "Innovation Showcase", icon: Lightbulb },
+    { name: "Awards & Recognition", icon: Trophy },
+    { name: "KIDS Play Zone", icon: Baby },
+    { name: "AI Zone", icon: Cpu },
+    { name: "Food Court", icon: Utensils }
+  ];
+
+  const packages = [
+    { title: "Automobile Exhibit", details: "20x10 FT", price: "₹6 Lakh", icon: Car },
+    { title: "Two Wheeler Exhibit", details: "20x10 FT", price: "₹6 Lakh", icon: Bike },
+    { title: "Real Estate Exhibit", details: "10x10 FT", price: "₹5 Lakh", icon: Building },
+    { title: "AC Hanger Stall", details: "10x10 FT", price: "₹2 Lac", icon: AirVent },
+    { title: "Non-AC Hanger Stall", details: "10x10 FT", price: "₹1.5 Lac", icon: Tent }
+  ];
+
+  const activities = [
+    { name: "Painting Competition", icon: Palette },
+    { name: "Photography Competition", icon: Camera },
+    { name: "Reel-Making Competition", icon: Video },
+    { name: "Dance Competition", icon: Music },
+    { name: "Dog Show", icon: PawPrint },
+    { name: "Evening Cultural Show", icon: Star },
+    { name: "Mr. & Miss Bihar", icon: Crown },
+    { name: "Everyday Artists Performance", icon: Mic }
   ];
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -366,6 +402,65 @@ function App() {
                 </motion.div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Key Highlights Section */}
+      <section className="section-padding" style={{ position: 'relative', zIndex: 1, background: 'rgba(255,255,255,0.9)' }}>
+        <div className="container">
+          <motion.h2 className="section-heading center-text" style={{ color: 'var(--primary-red)' }} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
+            Key Highlights
+          </motion.h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '20px', marginTop: '40px' }}>
+            {highlights.map((h, i) => (
+              <motion.div key={i} className="highlight-item" style={{ textAlign: 'center', padding: '20px', background: 'white', borderRadius: '15px', boxShadow: '0 5px 15px rgba(0,0,0,0.05)' }} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
+                <h.icon size={40} color="var(--primary-purple)" style={{ marginBottom: '15px', margin: '0 auto' }} />
+                <h4 style={{ color: 'var(--text-dark)', fontSize: '1rem', fontWeight: 700 }}>{h.name}</h4>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Exhibitor Packages Section */}
+      <section className="section-padding" style={{ position: 'relative', zIndex: 1, background: 'linear-gradient(to right, rgba(226, 43, 34, 0.05), rgba(71, 39, 154, 0.05))' }}>
+        <div className="container">
+          <motion.h2 className="section-heading center-text" style={{ color: 'var(--primary-blue)' }} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
+            Exhibitor Package Details
+          </motion.h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '30px', marginTop: '40px' }}>
+            {packages.map((p, i) => (
+              <Tilt key={i} glareEnable={true} glareMaxOpacity={0.3} scale={1.02} transitionSpeed={400}>
+                <div style={{ background: 'white', borderRadius: '20px', padding: '30px', border: '1px solid rgba(0,0,0,0.1)', boxShadow: '0 10px 30px rgba(0,0,0,0.08)', position: 'relative', overflow: 'hidden' }}>
+                  <div style={{ position: 'absolute', top: '-20px', right: '-20px', opacity: 0.05 }}>
+                    <p.icon size={120} />
+                  </div>
+                  <p.icon size={36} color="var(--primary-red)" style={{ marginBottom: '20px' }} />
+                  <h3 style={{ fontSize: '1.4rem', color: 'var(--text-dark)', marginBottom: '10px' }}>{p.title}</h3>
+                  <p style={{ color: '#666', marginBottom: '20px', fontSize: '0.9rem', fontWeight: 600 }}>Stall Size: {p.details}</p>
+                  <div style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--primary-purple)' }}>{p.price}</div>
+                  <div style={{ fontSize: '0.8rem', color: '#888' }}>+GST</div>
+                </div>
+              </Tilt>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Daily Activities Section */}
+      <section className="section-padding" style={{ position: 'relative', zIndex: 1, background: 'rgba(255,255,255,0.9)' }}>
+        <div className="container">
+          <motion.h2 className="section-heading center-text" style={{ color: 'var(--primary-cyan)' }} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
+            Daily Activities
+          </motion.h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '25px', marginTop: '40px' }}>
+            {activities.map((act, i) => (
+              <motion.div key={i} style={{ display: 'flex', alignItems: 'center', gap: '15px', background: 'white', padding: '20px', borderRadius: '15px', borderLeft: '4px solid var(--primary-red)', boxShadow: '0 5px 15px rgba(0,0,0,0.05)' }} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
+                <act.icon size={28} color="var(--primary-blue)" />
+                <span style={{ fontWeight: 600, color: 'var(--text-dark)' }}>{act.name}</span>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
