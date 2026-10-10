@@ -61,18 +61,18 @@ function App() {
   ];
 
   const highlights = [
-    { name: "13 Days of Festive Trade", icon: CalendarDays },
-    { name: "120+ Exhibitor Booths", icon: Store },
-    { name: "10 Lakh+ Expected Footfall", icon: Users },
-    { name: "Prime Location of Festive Trade", icon: MapPin },
-    { name: "B2B & B2C Engagement", icon: Handshake },
-    { name: "Festive Season Advantage", icon: PartyPopper },
-    { name: "Diverse Industry Participation", icon: Grid },
-    { name: "Innovation Showcase", icon: Lightbulb },
-    { name: "Awards & Recognition", icon: Trophy },
-    { name: "KIDS Play Zone", icon: Baby },
-    { name: "AI Zone", icon: Cpu },
-    { name: "Food Court", icon: Utensils }
+    { img: "/images/highlight_0.png" },
+    { img: "/images/highlight_1.png" },
+    { img: "/images/highlight_2.png" },
+    { img: "/images/highlight_3.png" },
+    { img: "/images/highlight_4.png" },
+    { img: "/images/highlight_5.png" },
+    { img: "/images/highlight_6.png" },
+    { img: "/images/highlight_7.png" },
+    { img: "/images/highlight_8.png" },
+    { img: "/images/highlight_9.png" },
+    { img: "/images/highlight_10.png" },
+    { img: "/images/highlight_11.png" }
   ];
 
   const packages = [
@@ -412,11 +412,10 @@ function App() {
           <motion.h2 className="section-heading center-text" style={{ color: 'var(--primary-red)' }} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
             Key Highlights
           </motion.h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '20px', marginTop: '40px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '30px', marginTop: '40px' }}>
             {highlights.map((h, i) => (
-              <motion.div key={i} className="highlight-item" style={{ textAlign: 'center', padding: '20px', background: 'white', borderRadius: '15px', boxShadow: '0 5px 15px rgba(0,0,0,0.05)' }} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
-                <h.icon size={40} color="var(--primary-purple)" style={{ marginBottom: '15px', margin: '0 auto' }} />
-                <h4 style={{ color: 'var(--text-dark)', fontSize: '1rem', fontWeight: 700 }}>{h.name}</h4>
+              <motion.div key={i} className="highlight-item" style={{ textAlign: 'center', padding: '15px', background: 'white', borderRadius: '15px', boxShadow: '0 5px 20px rgba(0,0,0,0.06)' }} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
+                <img src={h.img} alt={`Highlight ${i+1}`} style={{ width: '100%', height: 'auto', display: 'block' }} />
               </motion.div>
             ))}
           </div>
