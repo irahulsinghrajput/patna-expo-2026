@@ -412,13 +412,16 @@ function App() {
           <motion.h2 className="section-heading center-text" style={{ color: 'var(--primary-red)' }} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
             Key Highlights
           </motion.h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '30px', marginTop: '40px' }}>
-            {highlights.map((h, i) => (
-              <motion.div key={i} className="highlight-item" style={{ textAlign: 'center', padding: '15px', background: 'white', borderRadius: '15px', boxShadow: '0 5px 20px rgba(0,0,0,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '180px' }} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
-                <img src={h.img} alt={`Highlight ${i+1}`} style={{ width: '100%', height: '100%', maxHeight: '150px', objectFit: 'contain', display: 'block' }} />
-              </motion.div>
-            ))}
-          </div>
+          <motion.div 
+            style={{ marginTop: '40px', textAlign: 'center', background: 'white', padding: '40px 20px', borderRadius: '30px', boxShadow: '0 10px 40px rgba(0,0,0,0.08)' }}
+            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
+          >
+            <img 
+              src="/images/key-highlights.png" 
+              alt="Key Highlights of Patna Expo" 
+              style={{ width: '100%', maxWidth: '1000px', height: 'auto', margin: '0 auto', display: 'block' }} 
+            />
+          </motion.div>
         </div>
       </section>
 
