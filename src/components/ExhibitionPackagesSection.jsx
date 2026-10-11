@@ -542,7 +542,7 @@ export default function ExhibitionPackagesSection({ onBookPackage }) {
                 </button>
 
                 <a 
-                  href={`https://wa.me/917903670000?text=${encodeURIComponent(`Hello, I am interested in booking the ${selectedPkg.name} (${selectedPkg.price}) for Patna Expo 2026. Please share further booking details.`)}`}
+                  href={`https://wa.me/919821070563?text=${encodeURIComponent(`Hello, I am interested in booking the ${selectedPkg.name} (${selectedPkg.price}) for Patna Expo 2026. Please share further booking details.`)}`}
                   target="_blank" 
                   rel="noreferrer"
                   className="showcase-btn-secondary"
@@ -552,8 +552,8 @@ export default function ExhibitionPackagesSection({ onBookPackage }) {
                 </a>
 
                 <div className="showcase-helpline">
-                  <span>Direct Hotline:</span>
-                  <strong style={{ color: 'var(--text-dark, #1A1A1A)' }}>790367 0000 / 790377 0000</strong>
+                  <span>VIP Executive Hotline:</span>
+                  <strong style={{ color: 'var(--text-dark, #1A1A1A)' }}>+91 982107 0563</strong>
                 </div>
               </div>
             </motion.div>
