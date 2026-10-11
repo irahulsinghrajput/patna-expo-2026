@@ -4,7 +4,7 @@ import Tilt from 'react-parallax-tilt';
 import { 
   Crown, Gem, Award, Sparkles, Maximize2, MapPin, Users,
   Presentation, Coffee, Trophy, CheckCircle2, ArrowRight,
-  Phone, ShieldCheck, Layers, Car, Bike, Building, AirVent, Tent
+  Phone, ShieldCheck, Layers, Car, Bike, Building, AirVent, Tent, X
 } from 'lucide-react';
 import './ExhibitionPackagesSection.css';
 
@@ -205,12 +205,12 @@ const STANDARD_PACKAGES = [
 ];
 
 export default function ExhibitionPackagesSection({ onBookPackage }) {
-  const [activeTier, setActiveTier] = useState('platinum');
+  const [activeTier, setActiveTier] = useState(null);
 
-  const selectedPkg = PREMIUM_PACKAGES.find(p => p.id === activeTier) || PREMIUM_PACKAGES[0];
+  const selectedPkg = activeTier ? PREMIUM_PACKAGES.find(p => p.id === activeTier) : null;
 
   const handleSelectTier = (tierId) => {
-    setActiveTier(tierId);
+    setActiveTier(prev => prev === tierId ? null : tierId);
   };
 
   const handleBook = (pkgName) => {
@@ -222,7 +222,7 @@ export default function ExhibitionPackagesSection({ onBookPackage }) {
   return (
     <section 
       id="packages" 
-      className={`premium-packages-section theme-${activeTier}`}
+      className={`premium-packages-section theme-${activeTier || 'none'}`}
       aria-label="Exhibition Package Details"
     >
       <div className="container">
@@ -262,6 +262,11 @@ export default function ExhibitionPackagesSection({ onBookPackage }) {
             Our premium sponsorship suites deliver unmatched prime visibility beside the main stage, 
             exclusive VVIP ministerial networking, stage presentation privileges, and full 10-day hospitality.
           </motion.p>
+
+          <div className="pkg-click-hint">
+            <Sparkles size={15} />
+            <span>Click on any package card below to view 3D booth architecture & detailed inclusions</span>
+          </div>
         </div>
 
         {/* Quick Tier Tab Switcher */}
@@ -348,12 +353,12 @@ export default function ExhibitionPackagesSection({ onBookPackage }) {
                 >
                   {isActive ? (
                     <>
-                      <span>Active Package Details</span>
-                      <ArrowRight size={16} />
+                      <span>Hide Details</span>
+                      <X size={16} />
                     </>
                   ) : (
                     <>
-                      <span>Explore {pkg.name.split(' ')[0]}</span>
+                      <span>View Full Details & Inclusions</span>
                       <ArrowRight size={16} />
                     </>
                   )}
@@ -364,131 +369,144 @@ export default function ExhibitionPackagesSection({ onBookPackage }) {
         </div>
 
         {/* ==================================================================
-            C. SELECTED PACKAGE DETAILS (DYNAMIC ATMOSPHERE & DEEP DIVE)
+            C. SELECTED PACKAGE DETAILS (HIDDEN BY DEFAULT; OPENS ON CLICK)
             ================================================================== */}
-        <AnimatePresence mode="wait">
-          <motion.div 
-            key={selectedPkg.id}
-            id={`panel-${selectedPkg.id}`}
-            role="tabpanel"
-            className="pkg-details-showcase"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.45 }}
-          >
-            {/* Showcase Top Bar */}
-            <div className="showcase-topbar">
-              <div className="showcase-title-area">
-                <img 
-                  src={selectedPkg.emblemImg} 
-                  alt={selectedPkg.name} 
-                  className="showcase-emblem" 
-                />
-                <div>
-                  <h3 className="showcase-name">{selectedPkg.name} — Comprehensive Inclusions</h3>
-                  <div className="showcase-specs">
-                    <span><strong>Booth Size:</strong> {selectedPkg.boothSize} ({selectedPkg.boothSqFt})</span>
-                    <span>•</span>
-                    <span><strong>Location:</strong> {selectedPkg.primeLocation}</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="showcase-price-tag">
-                <div className="showcase-price-amount">{selectedPkg.price}</div>
-                <div style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)' }}>Exclusive Sponsorship Suite</div>
-              </div>
-            </div>
-
-            {/* Showcase Main Content (Booth Visual + Executive Privileges) */}
-            <div className="showcase-content-grid">
-              
-              {/* 3D Booth Architectural Preview */}
-              <div className="booth-preview-card">
-                <div className="booth-preview-header">
-                  <span className="booth-preview-title">
-                    <Layers size={18} />
-                    Exhibitor Booth Architecture
-                  </span>
-                  <span className="booth-size-badge">{selectedPkg.boothSize}</span>
-                </div>
-                <div className="booth-img-container">
-                  <img 
-                    src={selectedPkg.boothImg} 
-                    alt={`${selectedPkg.name} 3D Architecture`} 
-                    className="booth-img" 
-                  />
-                </div>
-                <p className="booth-desc">
-                  Official architectural concept render for {selectedPkg.name}. Features prime fascia branding, 
-                  carpeted flooring, luxury seating lounge, dedicated spotlighting, and prime positioning 
-                  for maximum brand prestige at Gandhi Maidan, Patna.
-                </p>
-              </div>
-
-              {/* Core Executive Privileges Grid */}
-              <div className="benefits-cards-grid">
-                {selectedPkg.features.map((feat, fIdx) => {
-                  const IconComp = feat.icon;
-                  return (
-                    <div key={fIdx} className="benefit-feature-box">
-                      <div className="benefit-icon-box">
-                        <IconComp size={20} />
-                      </div>
-                      <div className="benefit-info">
-                        <h4>{feat.title}</h4>
-                        <p>{feat.desc}</p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Stall Infrastructure & Furnishing Inclusions */}
-            <div className="inclusions-strip">
-              <div className="inclusions-strip-header">
-                <ShieldCheck size={20} color="#4ade80" />
-                <span>Stall Infrastructure & On-Ground Inclusions (Page 6–10 Verified)</span>
-              </div>
-              <div className="inclusions-pills-list">
-                {selectedPkg.inclusions.map((item, iIdx) => (
-                  <span key={iIdx} className="inclusion-pill">
-                    <CheckCircle2 size={15} />
-                    <span>{item}</span>
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Action CTAs */}
-            <div className="showcase-actions">
+        <AnimatePresence>
+          {selectedPkg && (
+            <motion.div 
+              key={selectedPkg.id}
+              id={`panel-${selectedPkg.id}`}
+              role="tabpanel"
+              className="pkg-details-showcase"
+              initial={{ opacity: 0, y: 20, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -20, scale: 0.98 }}
+              transition={{ duration: 0.35 }}
+            >
+              {/* Close Button */}
               <button 
                 type="button"
-                className="showcase-btn-primary"
-                onClick={() => handleBook(selectedPkg.name)}
+                className="showcase-close-btn"
+                onClick={() => setActiveTier(null)}
+                title="Close details panel"
+                aria-label="Close details panel"
               >
-                <span>Reserve {selectedPkg.name} ({selectedPkg.price})</span>
-                <ArrowRight size={18} />
+                <X size={18} />
               </button>
 
-              <a 
-                href={`https://wa.me/917903670000?text=${encodeURIComponent(`Hello, I am interested in booking the ${selectedPkg.name} (${selectedPkg.price}) for Patna Expo 2026. Please share further booking details.`)}`}
-                target="_blank" 
-                rel="noreferrer"
-                className="showcase-btn-secondary"
-              >
-                <Phone size={18} />
-                <span>Executive WhatsApp Enquiry</span>
-              </a>
+              {/* Showcase Top Bar */}
+              <div className="showcase-topbar">
+                <div className="showcase-title-area">
+                  <img 
+                    src={selectedPkg.emblemImg} 
+                    alt={selectedPkg.name} 
+                    className="showcase-emblem" 
+                  />
+                  <div>
+                    <h3 className="showcase-name">{selectedPkg.name} — Comprehensive Inclusions</h3>
+                    <div className="showcase-specs">
+                      <span><strong>Booth Size:</strong> {selectedPkg.boothSize} ({selectedPkg.boothSqFt})</span>
+                      <span>•</span>
+                      <span><strong>Location:</strong> {selectedPkg.primeLocation}</span>
+                    </div>
+                  </div>
+                </div>
 
-              <div className="showcase-helpline">
-                <span>Direct Hotline:</span>
-                <strong style={{ color: '#ffffff' }}>790367 0000 / 790377 0000</strong>
+                <div className="showcase-price-tag">
+                  <div className="showcase-price-amount">{selectedPkg.price}</div>
+                  <div style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>Exclusive Sponsorship Suite</div>
+                </div>
               </div>
-            </div>
-          </motion.div>
+
+              {/* Showcase Main Content (Booth Visual + Executive Privileges) */}
+              <div className="showcase-content-grid">
+                
+                {/* 3D Booth Architectural Preview */}
+                <div className="booth-preview-card">
+                  <div className="booth-preview-header">
+                    <span className="booth-preview-title">
+                      <Layers size={18} />
+                      Exhibitor Booth Architecture
+                    </span>
+                    <span className="booth-size-badge">{selectedPkg.boothSize}</span>
+                  </div>
+                  <div className="booth-img-container">
+                    <img 
+                      src={selectedPkg.boothImg} 
+                      alt={`${selectedPkg.name} 3D Architecture`} 
+                      className="booth-img" 
+                    />
+                  </div>
+                  <p className="booth-desc">
+                    Official architectural concept render for {selectedPkg.name}. Features prime fascia branding, 
+                    carpeted flooring, luxury seating lounge, dedicated spotlighting, and prime positioning 
+                    for maximum brand prestige at Gandhi Maidan, Patna.
+                  </p>
+                </div>
+
+                {/* Core Executive Privileges Grid */}
+                <div className="benefits-cards-grid">
+                  {selectedPkg.features.map((feat, fIdx) => {
+                    const IconComp = feat.icon;
+                    return (
+                      <div key={fIdx} className="benefit-feature-box">
+                        <div className="benefit-icon-box">
+                          <IconComp size={20} />
+                        </div>
+                        <div className="benefit-info">
+                          <h4>{feat.title}</h4>
+                          <p>{feat.desc}</p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Stall Infrastructure & Furnishing Inclusions */}
+              <div className="inclusions-strip">
+                <div className="inclusions-strip-header">
+                  <ShieldCheck size={20} color="#16a34a" />
+                  <span>Stall Infrastructure & On-Ground Inclusions (Page 6–10 Verified)</span>
+                </div>
+                <div className="inclusions-pills-list">
+                  {selectedPkg.inclusions.map((item, iIdx) => (
+                    <span key={iIdx} className="inclusion-pill">
+                      <CheckCircle2 size={15} />
+                      <span>{item}</span>
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Action CTAs */}
+              <div className="showcase-actions">
+                <button 
+                  type="button"
+                  className="showcase-btn-primary"
+                  onClick={() => handleBook(selectedPkg.name)}
+                >
+                  <span>Reserve {selectedPkg.name} ({selectedPkg.price})</span>
+                  <ArrowRight size={18} />
+                </button>
+
+                <a 
+                  href={`https://wa.me/917903670000?text=${encodeURIComponent(`Hello, I am interested in booking the ${selectedPkg.name} (${selectedPkg.price}) for Patna Expo 2026. Please share further booking details.`)}`}
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="showcase-btn-secondary"
+                >
+                  <Phone size={18} />
+                  <span>Executive WhatsApp Enquiry</span>
+                </a>
+
+                <div className="showcase-helpline">
+                  <span>Direct Hotline:</span>
+                  <strong style={{ color: 'var(--text-dark, #1A1A1A)' }}>790367 0000 / 790377 0000</strong>
+                </div>
+              </div>
+            </motion.div>
+          )}
         </AnimatePresence>
 
         {/* ==================================================================
