@@ -602,18 +602,39 @@ function App() {
               </div>
             </div>
             <div className="footer-col footer-col-contact">
-              <h3>Contact Information</h3>
-              <div className="contact-item">
-                <MapPin size={20} color="var(--primary-red)" />
-                <span>Gandhi Maidan, Patna, Bihar</span>
-              </div>
-              <div className="contact-item">
-                <Mail size={20} color="var(--primary-cyan)" />
-                <a href="mailto:info@patnaexpo.com" style={{ color: 'inherit', textDecoration: 'none' }}>info@patnaexpo.com</a>
-              </div>
-              <div className="contact-item">
-                <Phone size={20} color="var(--primary-purple)" />
-                <span>790367 0000 / 790377 0000</span>
+              <h3>Venue & Contact</h3>
+              <div className="footer-contact-wrapper">
+                <div className="contact-details-list">
+                  <div className="contact-item">
+                    <MapPin size={22} color="var(--primary-red)" style={{ flexShrink: 0 }} />
+                    <div>
+                      <strong style={{ display: 'block', color: 'var(--text-dark)', fontSize: '1.05rem' }}>Gandhi Maidan</strong>
+                      <span style={{ color: 'var(--text-muted)' }}>Patna, Bihar, India</span>
+                    </div>
+                  </div>
+                  <div className="contact-item">
+                    <Mail size={20} color="var(--primary-cyan)" style={{ flexShrink: 0 }} />
+                    <a href="mailto:info@patnaexpo.com" style={{ color: 'inherit', textDecoration: 'none' }}>info@patnaexpo.com</a>
+                  </div>
+                  <div className="contact-item">
+                    <Phone size={20} color="var(--primary-purple)" style={{ flexShrink: 0 }} />
+                    <span>790367 0000 / 790377 0000</span>
+                  </div>
+                </div>
+
+                <div className="footer-venue-card">
+                  <div className="venue-img-wrap">
+                    <img 
+                      src="/images/gandhi-maidan-patna.jpg" 
+                      alt="Gandhi Maidan, Patna - Official Venue for Patna Expo 2026" 
+                      className="venue-img"
+                    />
+                    <div className="venue-badge">
+                      <MapPin size={13} />
+                      <span>Official Event Venue</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
