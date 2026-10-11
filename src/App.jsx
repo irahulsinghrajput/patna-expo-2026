@@ -602,9 +602,9 @@ function App() {
               </div>
             </div>
             <div className="footer-col footer-col-contact">
-              <h3>Venue & Contact</h3>
               <div className="footer-contact-wrapper">
                 <div className="contact-details-list">
+                  <h3>Venue & Contact</h3>
                   <div className="contact-item">
                     <MapPin size={22} color="var(--primary-red)" style={{ flexShrink: 0 }} />
                     <div>
@@ -622,19 +622,29 @@ function App() {
                   </div>
                 </div>
 
-                <div className="footer-venue-card">
+                <motion.a 
+                  href="https://www.google.com/maps/search/?api=1&query=place&query_place_id=ChIJNU9f-Nh3jDkRCBN747H5gSI"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="footer-venue-card"
+                  title="Open Gandhi Maidan on Google Maps"
+                  whileHover={{ scale: 1.04, y: -4 }}
+                  whileTap={{ scale: 0.96 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                >
                   <div className="venue-img-wrap">
                     <img 
                       src="/images/gandhi-maidan-patna.jpg" 
                       alt="Gandhi Maidan, Patna - Official Venue for Patna Expo 2026" 
                       className="venue-img"
                     />
+                    <div className="venue-overlay-shine"></div>
                     <div className="venue-badge">
-                      <MapPin size={13} />
-                      <span>Official Event Venue</span>
+                      <MapPin size={14} className="venue-pin-pulse" />
+                      <span>View on Google Maps</span>
                     </div>
                   </div>
-                </div>
+                </motion.a>
               </div>
             </div>
           </div>

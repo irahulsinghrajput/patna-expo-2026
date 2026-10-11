@@ -472,39 +472,47 @@ a, button, .category-card, .highlight-item, .social-icon, .floating-widget, inpu
 .footer-contact-wrapper {
   display: flex;
   align-items: stretch;
-  gap: 18px;
-  max-width: 460px;
+  gap: 24px;
+  width: 100%;
 }
 
 .contact-details-list {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 14px;
-  flex: 1;
+  justify-content: flex-start;
+  gap: 16px;
+  flex: 1.1;
+}
+
+.contact-details-list h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 4px;
 }
 
 .footer-venue-card {
   flex-shrink: 0;
-  width: 145px;
+  width: 185px;
   display: flex;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .venue-img-wrap {
   position: relative;
-  border-radius: 14px;
+  border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.06);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.14), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.35s ease, border-color 0.35s ease;
   background: #f1f5f9;
   width: 100%;
   height: 100%;
-  min-height: 145px;
+  min-height: 195px;
 }
 
-.venue-img-wrap:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 14px 30px rgba(226, 43, 34, 0.18), 0 0 0 1px rgba(226, 43, 34, 0.25);
+.footer-venue-card:hover .venue-img-wrap {
+  box-shadow: 0 18px 40px rgba(226, 43, 34, 0.25), 0 0 0 2px var(--primary-red);
 }
 
 .venue-img {
@@ -512,27 +520,55 @@ a, button, .category-card, .highlight-item, .social-icon, .floating-widget, inpu
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.45s ease;
+}
+
+.footer-venue-card:hover .venue-img {
+  transform: scale(1.05);
+}
+
+.venue-overlay-shine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.7) 100%);
+  pointer-events: none;
 }
 
 .venue-badge {
   position: absolute;
-  bottom: 6px;
-  left: 6px;
-  right: 6px;
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(6px);
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
   color: #ffffff;
-  padding: 4px 6px;
-  border-radius: 6px;
-  font-size: 0.68rem;
-  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 0.76rem;
+  font-weight: 800;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 6px;
   letter-spacing: 0.2px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  white-space: nowrap;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: background 0.3s ease;
+}
+
+.footer-venue-card:hover .venue-badge {
+  background: var(--primary-red);
+  border-color: #ffffff;
+}
+
+.venue-pin-pulse {
+  color: var(--primary-yellow);
+}
+.footer-venue-card:hover .venue-pin-pulse {
+  color: #ffffff;
 }
 
 .contact-item {
@@ -549,12 +585,13 @@ a, button, .category-card, .highlight-item, .social-icon, .floating-widget, inpu
   .footer-contact-wrapper {
     flex-direction: column-reverse;
     align-items: flex-start;
-    gap: 16px;
+    gap: 20px;
     max-width: 100%;
   }
   .footer-venue-card {
-    width: 180px;
-    height: 180px;
+    width: 100%;
+    max-width: 280px;
+    height: 220px;
   }
 }
 
