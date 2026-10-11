@@ -555,12 +555,12 @@ function App() {
               <span className="desktop-pipe">|</span>
               <span className="contact-number-item">
                 <Phone fill="var(--primary-red)" color="var(--primary-red)" size={20} className="single-phone-icon" />
-                <a href="tel:9308357668" style={{ color: 'inherit', textDecoration: 'none' }}>9308357668</a>
+                <a href="tel:9308357668" style={{ color: 'inherit', textDecoration: 'none' }}>930835 7668</a>
               </span>
               <span className="desktop-pipe">|</span>
               <span className="contact-number-item">
                 <Phone fill="var(--primary-red)" color="var(--primary-red)" size={20} className="single-phone-icon" />
-                <a href="tel:8340487341" style={{ color: 'inherit', textDecoration: 'none' }}>8340487341</a>
+                <a href="tel:8340487341" style={{ color: 'inherit', textDecoration: 'none' }}>834048 7341</a>
               </span>
             </div>
           </motion.div>
