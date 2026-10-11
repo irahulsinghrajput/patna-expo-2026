@@ -22,7 +22,7 @@ const PREMIUM_PACKAGES = [
     boothSize: '30 ft. × 30 ft.',
     boothSqFt: '900 Sq. Ft.',
     emblemImg: '/images/platinum-badge.png',
-    boothImg: '/images/platinum-booth.png',
+    boothImg: '/images/platinum-booth.jpg',
     primeLocation: 'Exhibitor booth beside main stage',
     tagline: 'Top-tier supreme sponsorship with prime main-stage presence & VVIP privileges.',
     accentColor: '#cbd5e1',
@@ -83,7 +83,7 @@ const PREMIUM_PACKAGES = [
     boothSize: '20 ft. × 20 ft.',
     boothSqFt: '400 Sq. Ft.',
     emblemImg: '/images/diamond-badge.png',
-    boothImg: '/images/diamond-booth.png',
+    boothImg: '/images/diamond-booth.jpg',
     primeLocation: 'Exhibitor booth near main stage',
     tagline: 'High-visibility crystal tier pavilion with executive stage access & hospitality.',
     accentColor: '#38bdf8',
@@ -144,7 +144,7 @@ const PREMIUM_PACKAGES = [
     boothSize: '10 ft. × 10 ft.',
     boothSqFt: '100 Sq. Ft.',
     emblemImg: '/images/gold-badge.png',
-    boothImg: '/images/gold-booth.png',
+    boothImg: '/images/gold-booth.jpg',
     primeLocation: 'Exhibitor booth near stage area',
     tagline: 'Prominent stage-area exhibition suite offering prime visibility & live demo slots.',
     accentColor: '#fbbf24',
@@ -415,7 +415,7 @@ export default function ExhibitionPackagesSection({ onBookPackage }) {
           <AnimatePresence>
             {selectedPkg && (
               <motion.div 
-                className="pkg-modal-overlay"
+                className={`pkg-modal-overlay theme-${selectedPkg.id}`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
