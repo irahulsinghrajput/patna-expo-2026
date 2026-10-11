@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
 import { 
@@ -407,40 +408,41 @@ export default function ExhibitionPackagesSection({ onBookPackage }) {
         </div>
 
         {/* ==================================================================
-            C. SELECTED PACKAGE DETAILS MODAL POPUP (OPENS ON SCREEN AS MODAL)
+            C. SELECTED PACKAGE DETAILS MODAL POPUP (RENDERED TO BODY VIA PORTAL)
             ================================================================== */}
-        <AnimatePresence>
-          {selectedPkg && (
-            <motion.div 
-              className="pkg-modal-overlay"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setActiveTier(null)}
-            >
+        {typeof document !== 'undefined' && createPortal(
+          <AnimatePresence>
+            {selectedPkg && (
               <motion.div 
-                key={selectedPkg.id}
-                id={`panel-${selectedPkg.id}`}
-                role="dialog"
-                aria-modal="true"
-                aria-label={`${selectedPkg.name} Details`}
-                className="pkg-modal-content"
-                initial={{ y: 50, scale: 0.9, opacity: 0 }}
-                animate={{ y: 0, scale: 1, opacity: 1 }}
-                exit={{ y: 20, scale: 0.9, opacity: 0 }}
-                transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-                onClick={(e) => e.stopPropagation()}
+                className="pkg-modal-overlay"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setActiveTier(null)}
               >
-                {/* Close Button */}
-                <button 
-                  type="button"
-                  className="close-modal pkg-modal-close"
-                  onClick={() => setActiveTier(null)}
-                  title="Close details popup"
-                  aria-label="Close details popup"
+                <motion.div 
+                  key={selectedPkg.id}
+                  id={`panel-${selectedPkg.id}`}
+                  role="dialog"
+                  aria-modal="true"
+                  aria-label={`${selectedPkg.name} Details`}
+                  className="pkg-modal-content"
+                  initial={{ y: 50, scale: 0.92, opacity: 0 }}
+                  animate={{ y: 0, scale: 1, opacity: 1 }}
+                  exit={{ y: 30, scale: 0.92, opacity: 0 }}
+                  transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+                  onClick={(e) => e.stopPropagation()}
                 >
-                  <X size={20} />
-                </button>
+                  {/* Close Button */}
+                  <button 
+                    type="button"
+                    className="pkg-modal-close"
+                    onClick={() => setActiveTier(null)}
+                    title="Close details popup"
+                    aria-label="Close details popup"
+                  >
+                    <X size={22} />
+                  </button>
 
               {/* Showcase Top Bar */}
               <div className="showcase-topbar">
@@ -556,7 +558,9 @@ export default function ExhibitionPackagesSection({ onBookPackage }) {
             </motion.div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence>,
+      document.body
+    )}
 
         {/* ==================================================================
             D. TRANSITION TO STANDARD EXHIBITION STALLS
