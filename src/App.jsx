@@ -9,6 +9,7 @@ import { FaInstagram, FaFacebookF, FaYoutube } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
 import Confetti from 'react-confetti';
+import { useMeasure, useWindowSize } from 'react-use';
 import ExhibitionPackagesSection from './components/ExhibitionPackagesSection';
 import BookingForm from './components/BookingForm';
 import './index.css';
