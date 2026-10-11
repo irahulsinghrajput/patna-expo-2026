@@ -120,9 +120,15 @@ function App() {
       </div>
 
       {/* Floating WhatsApp Widget */}
-      <a href="https://wa.me/917903670000" target="_blank" rel="noreferrer" className="floating-widget" aria-label="WhatsApp Contact">
-        <FaWhatsapp size={32} style={{ flexShrink: 0 }} />
-        <span style={{ fontSize: '1.2rem', fontWeight: 800, letterSpacing: '0.5px' }}>790367 0000</span>
+      <a 
+        href="https://wa.me/917903670000" 
+        target="_blank" 
+        rel="noreferrer" 
+        className="floating-widget" 
+        aria-label="Chat on WhatsApp"
+        title="Chat on WhatsApp (+91 790367 0000)"
+      >
+        <FaWhatsapp size={35} />
       </a>
 
       {/* Glassmorphism Booking Modal */}

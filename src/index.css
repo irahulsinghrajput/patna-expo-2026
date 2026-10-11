@@ -331,20 +331,36 @@ a, button, .category-card, .highlight-item, .social-icon, .floating-widget, inpu
 /* Floating Widget (Right) */
 .floating-widget {
   position: fixed;
-  bottom: 30px; right: 30px;
+  bottom: 30px; 
+  right: 30px;
   background: #25D366;
   color: white;
+  width: 60px;
   height: 60px;
-  border-radius: 50px;
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
-  cursor: pointer; z-index: 99;
-  transition: transform 0.3s;
-  padding: 0 25px;
-  gap: 12px;
+  border-radius: 50%;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.55);
+  cursor: pointer; 
+  z-index: 99;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s;
+  padding: 0;
   text-decoration: none;
 }
-.floating-widget:hover { transform: scale(1.05); }
+.floating-widget:hover { 
+  transform: scale(1.12); 
+  box-shadow: 0 14px 30px rgba(37, 211, 102, 0.7);
+}
+
+@media (max-width: 768px) {
+  .floating-widget {
+    bottom: 20px;
+    right: 20px;
+    width: 54px;
+    height: 54px;
+  }
+}
 
 /* Floating Socials (Left) */
 .floating-socials {
