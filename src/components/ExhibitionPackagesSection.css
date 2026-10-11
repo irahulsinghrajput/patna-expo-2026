@@ -399,41 +399,80 @@
 }
 
 /* ==========================================================================
-   SELECTED PACKAGE DEEP DIVE PANEL (LIGHT & LUXURY AESTHETIC)
-   Hidden by default; Appears smoothly only upon user click
+   SELECTED PACKAGE DEEP DIVE MODAL POPUP (SCREEN CENTERED GLASSMORPHISM)
+   Appears smoothly only upon user clicking "View Full Details & Inclusions"
    ========================================================================== */
-.pkg-details-showcase {
+.pkg-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.pkg-modal-content {
   position: relative;
-  z-index: 1;
-  border-radius: 26px;
-  padding: 40px;
+  border-radius: 28px;
+  padding: 36px 40px;
   background: #ffffff;
-  border: 2px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
-  margin-bottom: 70px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+  max-width: 980px;
+  width: 100%;
+  max-height: 88vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   transition: all 0.4s ease;
 }
 
+/* Custom smooth scrollbar for popup */
+.pkg-modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+.pkg-modal-content::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 10px;
+}
+.pkg-modal-content::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+.pkg-modal-content::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
 @media (max-width: 768px) {
-  .pkg-details-showcase {
-    padding: 26px 18px;
+  .pkg-modal-overlay {
+    padding: 12px;
+  }
+  .pkg-modal-content {
+    padding: 28px 18px;
+    border-radius: 20px;
+    max-height: 92vh;
   }
 }
 
-.theme-platinum .pkg-details-showcase {
+.theme-platinum .pkg-modal-content {
   border-color: #94a3b8;
-  box-shadow: 0 20px 50px rgba(100, 116, 139, 0.18);
 }
-.theme-diamond .pkg-details-showcase {
+.theme-diamond .pkg-modal-content {
   border-color: #38bdf8;
-  box-shadow: 0 20px 50px rgba(2, 132, 199, 0.18);
 }
-.theme-gold .pkg-details-showcase {
+.theme-gold .pkg-modal-content {
   border-color: #fbbf24;
-  box-shadow: 0 20px 50px rgba(217, 119, 6, 0.18);
 }
 
 /* Close / Minimize Button */
+.pkg-modal-close,
 .showcase-close-btn {
   position: absolute;
   top: 20px;
@@ -441,18 +480,21 @@
   background: #f1f5f9;
   border: 1px solid #e2e8f0;
   border-radius: 50%;
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   color: var(--text-dark, #1A1A1A);
-  transition: all 0.2s ease;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 20;
 }
+.pkg-modal-close:hover,
 .showcase-close-btn:hover {
-  background: #e2e8f0;
-  transform: scale(1.08);
+  background: #fee2e2;
+  color: #dc2626;
+  transform: rotate(90deg) scale(1.08);
 }
 
 /* Showcase Top Bar */

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
 import { 
@@ -239,11 +239,28 @@ export default function ExhibitionPackagesSection({ onBookPackage }) {
 
   const selectedPkg = activeTier ? PREMIUM_PACKAGES.find(p => p.id === activeTier) : null;
 
+  useEffect(() => {
+    if (activeTier) {
+      document.body.style.overflow = 'hidden';
+      const handleKeyDown = (e) => {
+        if (e.key === 'Escape') setActiveTier(null);
+      };
+      window.addEventListener('keydown', handleKeyDown);
+      return () => {
+        document.body.style.overflow = 'unset';
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [activeTier]);
+
   const handleSelectTier = (tierId) => {
-    setActiveTier(prev => prev === tierId ? null : tierId);
+    setActiveTier(tierId);
   };
 
   const handleBook = (pkgName) => {
+    setActiveTier(null); // Close the details modal when user clicks to reserve/book
     if (onBookPackage) {
       onBookPackage(pkgName);
     }
@@ -381,17 +398,8 @@ export default function ExhibitionPackagesSection({ onBookPackage }) {
                     handleSelectTier(pkg.id);
                   }}
                 >
-                  {isActive ? (
-                    <>
-                      <span>Hide Details</span>
-                      <X size={16} />
-                    </>
-                  ) : (
-                    <>
-                      <span>View Full Details & Inclusions</span>
-                      <ArrowRight size={16} />
-                    </>
-                  )}
+                  <span>View Full Details & Inclusions</span>
+                  <ArrowRight size={16} />
                 </button>
               </motion.div>
             );
@@ -399,30 +407,40 @@ export default function ExhibitionPackagesSection({ onBookPackage }) {
         </div>
 
         {/* ==================================================================
-            C. SELECTED PACKAGE DETAILS (HIDDEN BY DEFAULT; OPENS ON CLICK)
+            C. SELECTED PACKAGE DETAILS MODAL POPUP (OPENS ON SCREEN AS MODAL)
             ================================================================== */}
         <AnimatePresence>
           {selectedPkg && (
             <motion.div 
-              key={selectedPkg.id}
-              id={`panel-${selectedPkg.id}`}
-              role="tabpanel"
-              className="pkg-details-showcase"
-              initial={{ opacity: 0, y: 20, scale: 0.98 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -20, scale: 0.98 }}
-              transition={{ duration: 0.35 }}
+              className="pkg-modal-overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setActiveTier(null)}
             >
-              {/* Close Button */}
-              <button 
-                type="button"
-                className="showcase-close-btn"
-                onClick={() => setActiveTier(null)}
-                title="Close details panel"
-                aria-label="Close details panel"
+              <motion.div 
+                key={selectedPkg.id}
+                id={`panel-${selectedPkg.id}`}
+                role="dialog"
+                aria-modal="true"
+                aria-label={`${selectedPkg.name} Details`}
+                className="pkg-modal-content"
+                initial={{ y: 50, scale: 0.9, opacity: 0 }}
+                animate={{ y: 0, scale: 1, opacity: 1 }}
+                exit={{ y: 20, scale: 0.9, opacity: 0 }}
+                transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+                onClick={(e) => e.stopPropagation()}
               >
-                <X size={18} />
-              </button>
+                {/* Close Button */}
+                <button 
+                  type="button"
+                  className="close-modal pkg-modal-close"
+                  onClick={() => setActiveTier(null)}
+                  title="Close details popup"
+                  aria-label="Close details popup"
+                >
+                  <X size={20} />
+                </button>
 
               {/* Showcase Top Bar */}
               <div className="showcase-topbar">
@@ -536,8 +554,9 @@ export default function ExhibitionPackagesSection({ onBookPackage }) {
                 </div>
               </div>
             </motion.div>
-          )}
-        </AnimatePresence>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
         {/* ==================================================================
             D. TRANSITION TO STANDARD EXHIBITION STALLS
