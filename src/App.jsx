@@ -9,7 +9,7 @@ import { FaInstagram, FaFacebookF, FaYoutube, FaWhatsapp } from 'react-icons/fa'
 import { motion, AnimatePresence } from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
 import Confetti from 'react-confetti';
-import { useMeasure, useWindowSize } from 'react-use';
+import { useWindowSize } from 'react-use';
 import ExhibitionPackagesSection from './components/ExhibitionPackagesSection';
 import BookingForm from './components/BookingForm';
 import './index.css';
@@ -23,8 +23,7 @@ function App() {
   const [selectedPackageForModal, setSelectedPackageForModal] = useState('');
   const [mousePos, setMousePos] = useState({ x: -500, y: -500 }); // Start off-screen
   
-  const { width: windowWidth } = useWindowSize();
-  const [confettiRef, { width: confettiWidth, height: confettiHeight }] = useMeasure();
+  const { width: windowWidth, height: windowHeight } = useWindowSize();
 
   useEffect(() => {
     const targetDate = new Date('October 25, 2026 00:00:00').getTime();
@@ -112,6 +111,28 @@ function App() {
 
   return (
     <div className="min-h-screen">
+      {/* Continuous All-Time Falling Confetti Across Entire Website */}
+      {windowWidth > 0 && windowHeight > 0 && (
+        <Confetti 
+          width={windowWidth} 
+          height={windowHeight} 
+          recycle={true}
+          run={true}
+          numberOfPieces={120} 
+          gravity={0.06} 
+          style={{ 
+            position: 'fixed', 
+            top: 0, 
+            left: 0, 
+            width: '100vw',
+            height: '100vh',
+            pointerEvents: 'none', 
+            zIndex: 40, 
+            opacity: 0.8 
+          }} 
+        />
+      )}
+
       {/* Floating Social Media Bar (Left) */}
       <div className="floating-socials">
         <a href="https://www.instagram.com/bobisgroup/" target="_blank" rel="noreferrer" className="social-icon instagram" title="Instagram"><FaInstagram size={22} /></a>
@@ -281,16 +302,6 @@ function App() {
         </div>
       </header>
 
-      {/* Confetti Animation Wrapper */}
-      <div ref={confettiRef} style={{ position: 'relative', background: 'var(--bg-cream)', zIndex: 1, overflow: 'hidden' }}>
-        <Confetti 
-          width={confettiWidth || windowWidth} 
-          height={confettiHeight || 2000} 
-          numberOfPieces={200} 
-          gravity={0.05} 
-          style={{ position: 'absolute', top: 0, left: 0, zIndex: 0, opacity: 0.6 }} 
-        />
-        
       {/* About Section */}
       <section id="about" className="section-padding" style={{ position: 'relative', zIndex: 1, background: 'rgba(255,255,255,0.8)', borderTop: '1px solid rgba(0,0,0,0.05)' }}>
         <motion.div 
@@ -511,7 +522,6 @@ function App() {
           </motion.div>
         </div>
       </section>
-      </div> {/* End Confetti Wrapper */}
 
       {/* Footer Section */}
       <footer style={{ background: 'var(--bg-cream)', padding: '60px 0', borderTop: '1px solid rgba(0,0,0,0.05)' }}>
