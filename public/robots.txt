@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap Index
+Sitemap: https://www.patnaexpo.com/sitemap.xml
