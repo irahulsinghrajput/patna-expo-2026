@@ -10,6 +10,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
 import Confetti from 'react-confetti';
 import { useMeasure, useWindowSize } from 'react-use';
+import ExhibitionPackagesSection from './components/ExhibitionPackagesSection';
 import './index.css';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
   });
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPackageForModal, setSelectedPackageForModal] = useState('');
   const [formStatus, setFormStatus] = useState(''); // '', 'submitting', 'success', 'error'
   const [mousePos, setMousePos] = useState({ x: -500, y: -500 }); // Start off-screen
   
@@ -75,14 +77,6 @@ function App() {
     { img: "/images/highlight_11.png" }
   ];
 
-  const packages = [
-    { title: "Automobile Exhibit", details: "20x10 FT", price: "₹6 Lakh", icon: Car },
-    { title: "Two Wheeler Exhibit", details: "20x10 FT", price: "₹6 Lakh", icon: Bike },
-    { title: "Real Estate Exhibit", details: "10x10 FT", price: "₹5 Lakh", icon: Building },
-    { title: "AC Hanger Stall", details: "10x10 FT", price: "₹2 Lac", icon: AirVent },
-    { title: "Non-AC Hanger Stall", details: "10x10 FT", price: "₹1.5 Lac", icon: Tent }
-  ];
-
   const activities = [
     { name: "Painting Competition", icon: Palette },
     { name: "Photography Competition", icon: Camera },
@@ -95,9 +89,17 @@ function App() {
   ];
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-  const openModal = () => setIsModalOpen(true);
+  const openModal = (pkgName) => {
+    if (typeof pkgName === 'string') {
+      setSelectedPackageForModal(pkgName);
+    } else {
+      setSelectedPackageForModal('');
+    }
+    setIsModalOpen(true);
+  };
   const closeModal = () => {
     setIsModalOpen(false);
+    setSelectedPackageForModal('');
     setFormStatus(''); // Reset status on close
   };
 
@@ -172,9 +174,17 @@ function App() {
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
             >
               <button className="close-modal" onClick={closeModal}><X size={20} /></button>
-              <h2 className="section-heading" style={{ fontSize: '2rem', marginBottom: '20px', color: 'var(--primary-red)' }}>Book Your Stall</h2>
-              <p style={{ color: 'var(--text-muted)', marginBottom: '30px' }}>Fill out your details and our team will contact you instantly.</p>
+              <h2 className="section-heading" style={{ fontSize: '2rem', marginBottom: '15px', color: 'var(--primary-red)' }}>Book Your Exhibition Space</h2>
+              <p style={{ color: 'var(--text-muted)', marginBottom: '20px' }}>Fill out your details and our executive team will contact you promptly.</p>
+              
+              {selectedPackageForModal && (
+                <div style={{ background: 'rgba(226, 43, 34, 0.08)', border: '1px solid rgba(226, 43, 34, 0.2)', padding: '10px 16px', borderRadius: '12px', marginBottom: '20px', fontSize: '0.95rem', color: 'var(--text-dark)' }}>
+                  Selected Tier: <strong style={{ color: 'var(--primary-red)' }}>{selectedPackageForModal}</strong>
+                </div>
+              )}
+
               <form onSubmit={handleBookingSubmit}>
+                <input type="hidden" name="package" value={selectedPackageForModal || 'General Exhibition Stall'} />
                 <div className="form-group">
                   <label>Full Name / Company</label>
                   <input type="text" name="name" className="form-control" placeholder="Bobis Entertainment" required />
@@ -230,6 +240,7 @@ function App() {
         <div className="nav-links desktop-only">
           <a href="#about">About</a>
           <a href="#categories">Sectors</a>
+          <a href="#packages">Packages</a>
           <a href="#contact">Contact</a>
           <button className="btn-primary" style={{ padding: '8px 20px', fontSize: '1rem' }} onClick={openModal}>Book Stall</button>
         </div>
@@ -253,6 +264,7 @@ function App() {
           >
             <a href="#about" onClick={toggleMenu}>About</a>
             <a href="#categories" onClick={toggleMenu}>Sectors</a>
+            <a href="#packages" onClick={toggleMenu}>Packages</a>
             <a href="#contact" onClick={toggleMenu}>Contact</a>
             <button className="btn-primary" style={{ marginTop: '10px' }} onClick={() => { toggleMenu(); openModal(); }}>Book Stall</button>
           </motion.div>
@@ -413,32 +425,8 @@ function App() {
         </div>
       </section>
 
-      {/* Exhibitor Packages Section */}
-      <section className="section-padding" style={{ position: 'relative', zIndex: 1, background: 'linear-gradient(to right, rgba(226, 43, 34, 0.05), rgba(71, 39, 154, 0.05))' }}>
-        <div className="container">
-          <motion.h2 className="section-heading center-text" style={{ color: 'var(--primary-blue)' }} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
-            Exhibitor Package Details
-          </motion.h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '30px', marginTop: '40px' }}>
-            {packages.map((p, i) => (
-              <Tilt key={i} glareEnable={true} glareMaxOpacity={0.3} scale={1.02} transitionSpeed={400} style={{ height: '100%' }}>
-                <div style={{ height: '100%', display: 'flex', flexDirection: 'column', background: 'white', borderRadius: '20px', padding: '30px', border: '1px solid rgba(0,0,0,0.1)', boxShadow: '0 10px 30px rgba(0,0,0,0.08)', position: 'relative', overflow: 'hidden' }}>
-                  <div style={{ position: 'absolute', top: '-20px', right: '-20px', opacity: 0.05 }}>
-                    <p.icon size={120} />
-                  </div>
-                  <p.icon size={36} color="var(--primary-red)" style={{ marginBottom: '20px' }} />
-                  <h3 style={{ fontSize: '1.4rem', color: 'var(--text-dark)', marginBottom: '10px' }}>{p.title}</h3>
-                  <p style={{ color: '#666', marginBottom: '20px', fontSize: '0.9rem', fontWeight: 600 }}>Stall Size: {p.details}</p>
-                  <div style={{ marginTop: 'auto' }}>
-                    <div style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--primary-purple)' }}>{p.price}</div>
-                    <div style={{ fontSize: '0.8rem', color: '#888' }}>+GST</div>
-                  </div>
-                </div>
-              </Tilt>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Redesigned Premium & Standard Exhibition Packages Section */}
+      <ExhibitionPackagesSection onBookPackage={openModal} />
 
       {/* Daily Activities Section */}
       <section className="section-padding" style={{ position: 'relative', zIndex: 1, background: 'rgba(255,255,255,0.9)' }}>
