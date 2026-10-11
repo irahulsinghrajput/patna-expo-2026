@@ -195,13 +195,43 @@ const PREMIUM_PACKAGES = [
   }
 ];
 
-// Standard Categories Data (Preserving exact prices, sizes & order)
+// Standard Categories Data (Preserving exact prices, sizes & order with newly uploaded images)
 const STANDARD_PACKAGES = [
-  { title: "Automobile Exhibit", details: "20 × 10 FT", price: "₹6 Lakh", icon: Car },
-  { title: "Two Wheeler Exhibit", details: "20 × 10 FT", price: "₹6 Lakh", icon: Bike },
-  { title: "Real Estate Exhibit", details: "10 × 10 FT", price: "₹5 Lakh", icon: Building },
-  { title: "AC Hanger Stall", details: "10 × 10 FT", price: "₹2 Lac", icon: AirVent },
-  { title: "Non-AC Hanger Stall", details: "10 × 10 FT", price: "₹1.5 Lac", icon: Tent }
+  { 
+    title: "Automobile Exhibit", 
+    details: "20 × 10 FT", 
+    price: "₹6 Lakh", 
+    icon: Car,
+    img: "/images/stall-automobile.jpg" 
+  },
+  { 
+    title: "Two Wheeler Exhibit", 
+    details: "20 × 10 FT", 
+    price: "₹6 Lakh", 
+    icon: Bike,
+    img: "/images/stall-two-wheeler.jpg" 
+  },
+  { 
+    title: "Real Estate Exhibit", 
+    details: "10 × 10 FT", 
+    price: "₹5 Lakh", 
+    icon: Building,
+    img: "/images/stall-real-estate.jpg" 
+  },
+  { 
+    title: "AC Hanger Stall", 
+    details: "10 × 10 FT", 
+    price: "₹2 Lac", 
+    icon: AirVent,
+    img: "/images/stall-ac-hanger.jpg" 
+  },
+  { 
+    title: "Non-AC Hanger Stall", 
+    details: "10 × 10 FT", 
+    price: "₹1.5 Lac", 
+    icon: Tent,
+    img: "/images/stall-non-ac-hanger.jpg" 
+  }
 ];
 
 export default function ExhibitionPackagesSection({ onBookPackage }) {
@@ -521,49 +551,39 @@ export default function ExhibitionPackagesSection({ onBookPackage }) {
           </p>
         </div>
 
-        {/* Standard 5 Stalls Grid (Retaining exact items, prices, sizes & order) */}
+        {/* Standard 5 Stalls Grid (With the uploaded high-res 3D graphic cards) */}
         <div className="standard-categories-grid">
-          {STANDARD_PACKAGES.map((p, i) => {
-            const Icon = p.icon;
-            return (
-              <Tilt 
-                key={i} 
-                glareEnable={true} 
-                glareMaxOpacity={0.2} 
-                scale={1.02} 
-                transitionSpeed={400} 
-                style={{ height: '100%' }}
-              >
-                <div className="standard-card">
-                  <div className="standard-card-icon-bg">
-                    <Icon size={120} />
-                  </div>
-                  
-                  <div className="standard-card-icon">
-                    <Icon size={24} color="#ffffff" />
-                  </div>
-
-                  <h4 className="standard-card-title">{p.title}</h4>
-                  <div className="standard-card-size">Stall Size: {p.details}</div>
-
-                  <div className="standard-card-footer">
-                    <div>
-                      <div className="standard-price-amount">{p.price}</div>
-                      <div className="standard-price-gst">+GST</div>
-                    </div>
-                    
-                    <button 
-                      type="button"
-                      className="standard-book-btn"
-                      onClick={() => handleBook(p.title)}
-                    >
-                      Book Stall
-                    </button>
-                  </div>
-                </div>
-              </Tilt>
-            );
-          })}
+          {STANDARD_PACKAGES.map((p, i) => (
+            <motion.div 
+              key={i} 
+              className="standard-graphic-card"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08 }}
+              onClick={() => handleBook(p.title)}
+            >
+              <img 
+                src={p.img} 
+                alt={`${p.title} - ${p.details} - ${p.price}`} 
+                className="standard-graphic-img" 
+                loading="lazy" 
+              />
+              <div className="standard-graphic-overlay">
+                <button 
+                  type="button" 
+                  className="standard-graphic-book-btn"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleBook(p.title);
+                  }}
+                >
+                  <span>Book {p.title}</span>
+                  <ArrowRight size={16} />
+                </button>
+              </div>
+            </motion.div>
+          ))}
         </div>
 
       </div>
