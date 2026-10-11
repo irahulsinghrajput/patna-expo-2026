@@ -471,35 +471,40 @@ a, button, .category-card, .highlight-item, .social-icon, .floating-widget, inpu
 
 .footer-contact-wrapper {
   display: flex;
-  align-items: center;
-  gap: 25px;
+  align-items: stretch;
+  gap: 18px;
+  max-width: 460px;
 }
 
 .contact-details-list {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  justify-content: space-between;
+  gap: 14px;
   flex: 1;
 }
 
 .footer-venue-card {
   flex-shrink: 0;
-  width: 170px;
+  width: 145px;
+  display: flex;
 }
 
 .venue-img-wrap {
   position: relative;
-  border-radius: 16px;
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.06);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
-  aspect-ratio: 4 / 5;
   background: #f1f5f9;
+  width: 100%;
+  height: 100%;
+  min-height: 145px;
 }
 
 .venue-img-wrap:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 16px 35px rgba(226, 43, 34, 0.18), 0 0 0 1px rgba(226, 43, 34, 0.25);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 14px 30px rgba(226, 43, 34, 0.18), 0 0 0 1px rgba(226, 43, 34, 0.25);
 }
 
 .venue-img {
@@ -511,22 +516,23 @@ a, button, .category-card, .highlight-item, .social-icon, .floating-widget, inpu
 
 .venue-badge {
   position: absolute;
-  bottom: 8px;
-  left: 8px;
-  right: 8px;
-  background: rgba(0, 0, 0, 0.72);
-  backdrop-filter: blur(8px);
+  bottom: 6px;
+  left: 6px;
+  right: 6px;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
   color: #ffffff;
-  padding: 5px 8px;
-  border-radius: 8px;
-  font-size: 0.72rem;
+  padding: 4px 6px;
+  border-radius: 6px;
+  font-size: 0.68rem;
   font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
-  letter-spacing: 0.3px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  letter-spacing: 0.2px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  white-space: nowrap;
 }
 
 .contact-item {
@@ -535,18 +541,20 @@ a, button, .category-card, .highlight-item, .social-icon, .floating-widget, inpu
   gap: 12px;
   color: var(--text-muted);
   font-weight: 600;
-  font-size: 0.98rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
 
 @media (max-width: 680px) {
   .footer-contact-wrapper {
     flex-direction: column-reverse;
     align-items: flex-start;
-    gap: 20px;
+    gap: 16px;
+    max-width: 100%;
   }
   .footer-venue-card {
-    width: 100%;
-    max-width: 260px;
+    width: 180px;
+    height: 180px;
   }
 }
 
