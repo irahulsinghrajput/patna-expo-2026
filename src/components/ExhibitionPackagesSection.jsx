@@ -556,7 +556,7 @@ export default function ExhibitionPackagesSection({ onBookPackage }) {
           {STANDARD_PACKAGES.map((p, i) => (
             <motion.div 
               key={i} 
-              className="standard-graphic-card"
+              className={`standard-graphic-card ${i === 4 ? 'standard-card-centered' : ''}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

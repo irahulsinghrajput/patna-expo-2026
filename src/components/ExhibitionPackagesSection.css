@@ -818,20 +818,28 @@
   color: var(--text-muted, #555555);
 }
 
-/* Standard Categories Grid - White Cards */
+/* Standard Categories Grid - 2 Columns on Desktop, 1 Column on Mobile */
 .standard-categories-grid {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 30px;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 900px) {
   .standard-categories-grid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
+}
+
+/* 5th Card (Non-AC Hanger Stall) Centered horizontally in the final row */
+.standard-card-centered {
+  grid-column: 1 / -1;
+  max-width: 580px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .standard-graphic-card {
