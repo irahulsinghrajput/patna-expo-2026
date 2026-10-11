@@ -5,7 +5,7 @@ import {
   CalendarDays, Store, Users, Handshake, PartyPopper, Grid, Lightbulb, Trophy, Baby, Cpu, Utensils,
   Bike, AirVent, Tent, Palette, Camera, Video, Music, PawPrint, Star, Crown, Mic, ChevronRight
 } from 'lucide-react';
-import { FaInstagram, FaFacebookF, FaYoutube } from 'react-icons/fa';
+import { FaInstagram, FaFacebookF, FaYoutube, FaWhatsapp } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
 import Confetti from 'react-confetti';
@@ -120,9 +120,9 @@ function App() {
       </div>
 
       {/* Floating WhatsApp Widget */}
-      <a href="https://wa.me/917903670000" target="_blank" rel="noreferrer" className="floating-widget">
-        <MessageCircle size={28} />
-        <span style={{ fontSize: '1.2rem', fontWeight: 800 }}>790367 0000</span>
+      <a href="https://wa.me/917903670000" target="_blank" rel="noreferrer" className="floating-widget" aria-label="WhatsApp Contact">
+        <FaWhatsapp size={32} style={{ flexShrink: 0 }} />
+        <span style={{ fontSize: '1.2rem', fontWeight: 800, letterSpacing: '0.5px' }}>790367 0000</span>
       </a>
 
       {/* Glassmorphism Booking Modal */}

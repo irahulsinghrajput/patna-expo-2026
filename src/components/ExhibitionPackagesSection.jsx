@@ -7,6 +7,7 @@ import {
   Presentation, Coffee, Trophy, CheckCircle2, ArrowRight,
   Phone, ShieldCheck, Layers, Car, Bike, Building, AirVent, Tent, X
 } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import './ExhibitionPackagesSection.css';
 
 // Premium Packages Data Extracted Directly from Patna Expo 2026 PDF (Pages 6-10)
@@ -546,7 +547,7 @@ export default function ExhibitionPackagesSection({ onBookPackage }) {
                   rel="noreferrer"
                   className="showcase-btn-secondary"
                 >
-                  <Phone size={18} />
+                  <FaWhatsapp size={20} />
                   <span>Executive WhatsApp Enquiry</span>
                 </a>
 
