@@ -36,7 +36,7 @@ const PACKAGES_OPTIONS = [
   "Non-AC Hangar Stall (₹25,000)"
 ];
 
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyKu5wrLuV3Awz8C6JcZx__QLEZ_9DvNbjI8AiM6umicb7g_6v7jAhHMiUEeuLOhrs/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxh6LJmFU8uvuTlI3j8OAASjMX0oIMPFYpSm4TItwUEl4dSv2O8wJwbhjECfZeML34/exec";
 
 export default function BookingForm({ 
   isModal = false, 
