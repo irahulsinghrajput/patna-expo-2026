@@ -542,12 +542,26 @@ function App() {
             className="contact-bar"
             initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           >
-            <Phone fill="var(--primary-red)" color="var(--primary-red)" size={24} className="contact-icon" />
             <div className="contact-numbers">
-              <span>790367 0000</span> <span className="desktop-pipe">|</span>
-              <span>790377 0000</span> <span className="desktop-pipe">|</span>
-              <span>9308357668</span> <span className="desktop-pipe">|</span>
-              <span>8340487341</span>
+              <span className="contact-number-item">
+                <Phone fill="var(--primary-red)" color="var(--primary-red)" size={20} className="single-phone-icon" />
+                <a href="tel:7903670000" style={{ color: 'inherit', textDecoration: 'none' }}>790367 0000</a>
+              </span>
+              <span className="desktop-pipe">|</span>
+              <span className="contact-number-item">
+                <Phone fill="var(--primary-red)" color="var(--primary-red)" size={20} className="single-phone-icon" />
+                <a href="tel:7903770000" style={{ color: 'inherit', textDecoration: 'none' }}>790377 0000</a>
+              </span>
+              <span className="desktop-pipe">|</span>
+              <span className="contact-number-item">
+                <Phone fill="var(--primary-red)" color="var(--primary-red)" size={20} className="single-phone-icon" />
+                <a href="tel:9308357668" style={{ color: 'inherit', textDecoration: 'none' }}>9308357668</a>
+              </span>
+              <span className="desktop-pipe">|</span>
+              <span className="contact-number-item">
+                <Phone fill="var(--primary-red)" color="var(--primary-red)" size={20} className="single-phone-icon" />
+                <a href="tel:8340487341" style={{ color: 'inherit', textDecoration: 'none' }}>8340487341</a>
+              </span>
             </div>
           </motion.div>
 
