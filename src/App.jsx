@@ -228,13 +228,13 @@ function App() {
 
       {/* Header */}
       <nav className="navbar">
-        <h1 className="logo" style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-          <span style={{ color: 'var(--primary-red)' }}>PATNA</span>
-          <span style={{ display: 'flex', alignItems: 'center' }}>
-            <span className="gradient-text-red-orange" style={{ letterSpacing: '-1px' }}>EX</span>
-            <span className="gradient-text-blue-purple" style={{ letterSpacing: '-1px' }}>PO</span>
-          </span>
-        </h1>
+        <a href="#" className="logo-link" style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}>
+          <img 
+            src="/images/patna-expo-header-logo-transparent.png" 
+            alt="Patna Expo 2026" 
+            className="navbar-brand-logo" 
+          />
+        </a>
         
         {/* Desktop Nav */}
         <div className="nav-links desktop-only">
@@ -585,13 +585,13 @@ function App() {
           {/* Expanded Footer Grid */}
           <div className="footer-grid">
             <div className="footer-col">
-              <h1 className="logo" style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', marginBottom: '15px' }}>
-                <span style={{ color: 'var(--primary-red)' }}>PATNA</span>
-                <span style={{ display: 'flex', alignItems: 'center' }}>
-                  <span className="gradient-text-red-orange" style={{ letterSpacing: '-1px' }}>EX</span>
-                  <span className="gradient-text-blue-purple" style={{ letterSpacing: '-1px' }}>PO</span>
-                </span>
-              </h1>
+              <a href="#" className="logo-link" style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none', marginBottom: '15px' }}>
+                <img 
+                  src="/images/patna-expo-header-logo-transparent.png" 
+                  alt="Patna Expo 2026" 
+                  style={{ height: '38px', width: 'auto', display: 'block' }} 
+                />
+              </a>
               <p>
                 Patna Expo 2026 is Bihar's largest shopping carnival—a grand celebration of business, shopping, entertainment, and opportunities under one roof. Conceptualised and executed by Bobis Entertainment.
               </p>

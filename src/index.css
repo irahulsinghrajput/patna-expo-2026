@@ -83,6 +83,28 @@ a, button, .category-card, .highlight-item, .social-icon, .floating-widget, inpu
 }
 
 .logo { font-size: 1.5rem; font-weight: 900; color: var(--text-dark); }
+.logo-link {
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.25s ease;
+}
+.logo-link:hover {
+  transform: scale(1.03);
+}
+.navbar-brand-logo {
+  height: 40px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .navbar-brand-logo {
+    height: 32px;
+    max-width: 170px;
+  }
+}
 .nav-links { display: flex; gap: 30px; align-items: center; }
 .nav-links a {
   color: var(--text-dark);
