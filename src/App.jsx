@@ -230,7 +230,7 @@ function App() {
       <nav className="navbar">
         <a href="#" className="logo-link" style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}>
           <img 
-            src="/images/patna-expo-header-logo-transparent.png" 
+            src="/images/patna-expo-header-clean-transparent.png" 
             alt="Patna Expo 2026" 
             className="navbar-brand-logo" 
           />
@@ -284,7 +284,7 @@ function App() {
             style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
           >
             <motion.img 
-              src="/images/expo-logo-1.png" 
+              src="/images/patna-expo-hero-emblem-transparent.png" 
               alt="Patna Expo 2026 Logo"
               initial={{ scale: 0.8, y: 30, opacity: 0 }}
               animate={{ scale: 1, y: 0, opacity: 1 }}
@@ -292,8 +292,8 @@ function App() {
               whileHover={{ scale: 1.03, rotate: 1 }}
               style={{ 
                 width: '100%', 
-                maxWidth: '700px', 
-                filter: 'drop-shadow(0px 15px 35px rgba(0,0,0,0.2))',
+                maxWidth: '650px', 
+                filter: 'drop-shadow(0px 15px 35px rgba(0,0,0,0.18))',
                 cursor: 'pointer'
               }}
             />
@@ -587,7 +587,7 @@ function App() {
             <div className="footer-col">
               <a href="#" className="logo-link" style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none', marginBottom: '15px' }}>
                 <img 
-                  src="/images/patna-expo-header-logo-transparent.png" 
+                  src="/images/patna-expo-header-clean-transparent.png" 
                   alt="Patna Expo 2026" 
                   style={{ height: '38px', width: 'auto', display: 'block' }} 
                 />
