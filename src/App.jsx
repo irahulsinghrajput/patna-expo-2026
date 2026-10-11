@@ -9,8 +9,8 @@ import { FaInstagram, FaFacebookF, FaYoutube } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
 import Confetti from 'react-confetti';
-import { useMeasure, useWindowSize } from 'react-use';
 import ExhibitionPackagesSection from './components/ExhibitionPackagesSection';
+import BookingForm from './components/BookingForm';
 import './index.css';
 
 function App() {
@@ -20,7 +20,6 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPackageForModal, setSelectedPackageForModal] = useState('');
-  const [formStatus, setFormStatus] = useState(''); // '', 'submitting', 'success', 'error'
   const [mousePos, setMousePos] = useState({ x: -500, y: -500 }); // Start off-screen
   
   const { width: windowWidth } = useWindowSize();
@@ -100,40 +99,6 @@ function App() {
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedPackageForModal('');
-    setFormStatus(''); // Reset status on close
-  };
-
-  const handleBookingSubmit = async (e) => {
-    e.preventDefault();
-    setFormStatus('submitting');
-    
-    const formData = new FormData(e.target);
-    
-    // Prepare data for Google Sheets
-    const data = new URLSearchParams();
-    data.append("Name", formData.get("name"));
-    data.append("Phone", formData.get("phone"));
-    data.append("Category", formData.get("category"));
-    data.append("Timestamp", new Date().toLocaleString());
-
-    try {
-      // Google Apps Script Web App URL for expopatna@gmail.com Google Sheet
-      const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyKu5wrLuV3Awz8C6JcZx__QLEZ_9DvNbjI8AiM6umicb7g_6v7jAhHMiUEeuLOhrs/exec";
-      
-      // We use no-cors to bypass cross-origin restrictions on Google Scripts
-      await fetch(GOOGLE_SCRIPT_URL, {
-        method: "POST",
-        body: data,
-        mode: "no-cors"
-      });
-
-      console.log("🔥 Request sent to Google Sheets 🔥");
-      setFormStatus('success');
-      e.target.reset();
-    } catch (err) {
-      console.error(err);
-      setFormStatus('error');
-    }
   };
 
   useEffect(() => {
@@ -174,53 +139,14 @@ function App() {
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
             >
               <button className="close-modal" onClick={closeModal}><X size={20} /></button>
-              <h2 className="section-heading" style={{ fontSize: '2rem', marginBottom: '15px', color: 'var(--primary-red)' }}>Book Your Exhibition Space</h2>
-              <p style={{ color: 'var(--text-muted)', marginBottom: '20px' }}>Fill out your details and our executive team will contact you promptly.</p>
+              <h2 className="section-heading" style={{ fontSize: '1.85rem', marginBottom: '10px', color: 'var(--primary-red)' }}>Book Your Exhibition Space</h2>
+              <p style={{ color: 'var(--text-muted)', marginBottom: '22px', fontSize: '0.95rem' }}>Fill out your enterprise details and our executive team will contact you promptly.</p>
               
-              {selectedPackageForModal && (
-                <div style={{ background: 'rgba(226, 43, 34, 0.08)', border: '1px solid rgba(226, 43, 34, 0.2)', padding: '10px 16px', borderRadius: '12px', marginBottom: '20px', fontSize: '0.95rem', color: 'var(--text-dark)' }}>
-                  Selected Tier: <strong style={{ color: 'var(--primary-red)' }}>{selectedPackageForModal}</strong>
-                </div>
-              )}
-
-              <form onSubmit={handleBookingSubmit}>
-                <input type="hidden" name="package" value={selectedPackageForModal || 'General Exhibition Stall'} />
-                <div className="form-group">
-                  <label>Full Name / Company</label>
-                  <input type="text" name="name" className="form-control" placeholder="Bobis Entertainment" required />
-                </div>
-                <div className="form-group">
-                  <label>Industry Category</label>
-                  <select name="category" className="form-control" required defaultValue="">
-                    <option value="" disabled>Select an industry...</option>
-                    {categories.map((c, i) => <option key={i} value={c.name}>{c.name}</option>)}
-                  </select>
-                </div>
-                <div className="form-group">
-                  <label>Phone Number</label>
-                  <input type="tel" name="phone" className="form-control" placeholder="+91 00000 00000" required />
-                </div>
-                
-                <button 
-                  type="submit" 
-                  className="btn-primary" 
-                  style={{ width: '100%', marginTop: '10px', opacity: formStatus === 'submitting' ? 0.7 : 1 }}
-                  disabled={formStatus === 'submitting'}
-                >
-                  {formStatus === 'submitting' ? 'Sending Request...' : 'Submit Request'}
-                </button>
-
-                {formStatus === 'success' && (
-                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ color: '#25D366', marginTop: '15px', fontWeight: 'bold', fontSize: '0.9rem', textAlign: 'center' }}>
-                    ✅ Request sent successfully! We will contact you soon.
-                  </motion.div>
-                )}
-                {formStatus === 'error' && (
-                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ color: 'red', marginTop: '15px', fontWeight: 'bold', fontSize: '0.9rem', textAlign: 'center' }}>
-                    ❌ Something went wrong. Please ensure you added the Access Key in App.jsx.
-                  </motion.div>
-                )}
-              </form>
+              <BookingForm 
+                isModal={true} 
+                selectedPackage={selectedPackageForModal} 
+                categories={categories} 
+              />
             </motion.div>
           </motion.div>
         )}
@@ -486,44 +412,34 @@ function App() {
         </div>
       </section>
 
-      {/* Registration / Google Form Section - Premium Integration */}
-      <section id="register" className="section-padding" style={{ position: 'relative', zIndex: 1, background: 'linear-gradient(to bottom, rgba(255,255,255,0), rgba(252,250,242,0.9))' }}>
+      {/* Registration & Stall Booking Section */}
+      <section id="register" className="section-padding" style={{ position: 'relative', zIndex: 1, background: 'linear-gradient(to bottom, rgba(255,255,255,0), rgba(252,250,242,0.95))' }}>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <motion.h2 
             className="section-heading center-text" style={{ color: 'var(--text-dark)' }}
             initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           >
-            Register Your <span className="gradient-text-red-orange">Interest</span>
+            Book Your Stall / <span className="gradient-text-red-orange">Register Your Interest</span>
           </motion.h2>
-          <p className="section-text center-text" style={{ color: 'var(--text-muted)', maxWidth: '800px', margin: '0 auto 50px', fontSize: '1.2rem' }}>
-            Ready to showcase your brand at the biggest shopping carnival in Bihar? Fill out the official registration form below to secure your spot at Patna Expo 2026.
+          <p className="section-text center-text" style={{ color: 'var(--text-muted)', maxWidth: '800px', margin: '0 auto 40px', fontSize: '1.15rem' }}>
+            Ready to showcase your brand at Bihar's largest trade & shopping carnival? Fill out the official registration form below to secure your space at Gandhi Maidan, Patna.
           </p>
 
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
-            style={{ 
-              padding: '5px', 
-              borderRadius: '30px', 
-              background: 'linear-gradient(135deg, var(--primary-red), var(--primary-purple), var(--primary-blue))',
-              backgroundSize: '200% 200%',
-              animation: 'gradientBG 10s ease infinite',
-              boxShadow: '0 30px 60px rgba(226,43,34,0.3)' 
-            }}
+            className="onpage-form-card"
+            initial={{ opacity: 0, scale: 0.98, y: 25 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
           >
-            <div style={{ background: 'var(--bg-cream)', borderRadius: '25px', overflow: 'hidden' }}>
-              <iframe 
-                src="https://docs.google.com/forms/d/e/1FAIpQLSdPFmKqWUMI_ieJLl9hhz-xAw9abIPpia6w3ZL7BZV-E4z-tw/viewform?embedded=true" 
-                width="100%" 
-                height="800" 
-                frameBorder="0" 
-                marginHeight="0" 
-                marginWidth="0"
-                title="Google Registration Form"
-                style={{ display: 'block', background: 'transparent' }}
-              >
-                Loading…
-              </iframe>
+            <div className="onpage-card-header">
+              <h3 className="onpage-card-title">Official Exhibitor Registration Application</h3>
+              <p className="onpage-card-subtitle">
+                Official booking desk for Patna Expo 2026. All submissions are directly recorded and processed by our event executive desk.
+              </p>
             </div>
+
+            <BookingForm isModal={false} categories={categories} />
           </motion.div>
         </div>
       </section>
