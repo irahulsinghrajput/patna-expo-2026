@@ -557,13 +557,19 @@ function App() {
               <div className="footer-contact-wrapper">
                 <div className="contact-details-list">
                   <h3>Venue & Contact</h3>
-                  <div className="contact-item">
+                  <a 
+                    href="https://www.google.com/maps/place/Gandhi+Maidan/@25.6175504,85.1425353,17z/data=!3m1!4b1!4m6!3m5!1s0x39ed58598eb52405:0x7f6d196ac3dce5ce!8m2!3d25.6175504!4d85.1451102!16zL20vMDdoa196?entry=ttu&g_ep=EgoyMDI2MTAwNy4wIKXMDSoASAFQAw%3D%3D" 
+                    target="_blank" 
+                    rel="noreferrer" 
+                    className="contact-item"
+                    style={{ textDecoration: 'none', color: 'inherit' }}
+                  >
                     <MapPin size={22} color="var(--primary-red)" style={{ flexShrink: 0 }} />
                     <div>
                       <strong style={{ display: 'block', color: 'var(--text-dark)', fontSize: '1.05rem' }}>Gandhi Maidan</strong>
                       <span style={{ color: 'var(--text-muted)' }}>Patna, Bihar, India</span>
                     </div>
-                  </div>
+                  </a>
                   <div className="contact-item">
                     <Mail size={20} color="var(--primary-cyan)" style={{ flexShrink: 0 }} />
                     <a href="mailto:info@patnaexpo.com" style={{ color: 'inherit', textDecoration: 'none' }}>info@patnaexpo.com</a>
@@ -575,7 +581,7 @@ function App() {
                 </div>
 
                 <motion.a 
-                  href="https://www.google.com/maps/search/?api=1&query=place&query_place_id=ChIJNU9f-Nh3jDkRCBN747H5gSI"
+                  href="https://www.google.com/maps/place/Gandhi+Maidan/@25.6175504,85.1425353,17z/data=!3m1!4b1!4m6!3m5!1s0x39ed58598eb52405:0x7f6d196ac3dce5ce!8m2!3d25.6175504!4d85.1451102!16zL20vMDdoa196?entry=ttu&g_ep=EgoyMDI2MTAwNy4wIKXMDSoASAFQAw%3D%3D"
                   target="_blank"
                   rel="noreferrer"
                   className="footer-venue-card"
