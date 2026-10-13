@@ -7,78 +7,6 @@ import {
 } from 'lucide-react';
 import './CampusMasterplanSection.css';
 
-// Realistic Tree SVG Component for Gandhi Maidan Perimeter Boundary
-function RealisticTree({ size = 36, variant = 1, delay = 0 }) {
-  const gradId = `treeGrad-${variant}-${Math.floor(Math.random() * 1000)}`;
-  return (
-    <div 
-      className="realistic-tree-node"
-      style={{
-        width: `${size}px`,
-        height: `${size}px`,
-        animationDelay: `${delay}s`
-      }}
-    >
-      <div className="tree-spotlight-glow" />
-      <svg viewBox="0 0 100 100" className="tree-svg">
-        <defs>
-          <radialGradient id={gradId} cx="38%" cy="32%" r="65%">
-            <stop offset="0%" stopColor={variant === 1 ? "#86efac" : variant === 2 ? "#6ee7b7" : "#bbf7d0"} />
-            <stop offset="35%" stopColor={variant === 1 ? "#22c55e" : variant === 2 ? "#10b981" : "#16a34a"} />
-            <stop offset="70%" stopColor={variant === 1 ? "#15803d" : variant === 2 ? "#047857" : "#14532d"} />
-            <stop offset="100%" stopColor="#052e16" />
-          </radialGradient>
-        </defs>
-        <g className="tree-canopy-group">
-          {/* Layered Organic Canopy Lobes */}
-          <circle cx="50" cy="52" r="42" fill={`url(#${gradId})`} />
-          <circle cx="34" cy="38" r="22" fill={variant === 1 ? "#22c55e" : "#10b981"} opacity="0.65" />
-          <circle cx="66" cy="36" r="20" fill={variant === 1 ? "#4ade80" : "#34d399"} opacity="0.6" />
-          <circle cx="50" cy="64" r="24" fill={variant === 1 ? "#15803d" : "#047857"} opacity="0.75" />
-          <circle cx="48" cy="40" r="14" fill="#bbf7d0" opacity="0.4" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-// Realistic Palm Tree Component
-function RealisticPalm({ size = 34, delay = 0 }) {
-  const palmId = `palmGrad-${Math.floor(Math.random() * 1000)}`;
-  return (
-    <div 
-      className="realistic-palm-node"
-      style={{
-        width: `${size}px`,
-        height: `${size}px`,
-        animationDelay: `${delay}s`
-      }}
-    >
-      <div className="palm-spotlight-glow" />
-      <svg viewBox="0 0 100 100" className="palm-svg">
-        <defs>
-          <linearGradient id={palmId} x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#86efac" />
-            <stop offset="45%" stopColor="#16a34a" />
-            <stop offset="100%" stopColor="#14532d" />
-          </linearGradient>
-        </defs>
-        <g transform="translate(50, 50)">
-          {[0, 45, 90, 135, 180, 225, 270, 315].map((angle, i) => (
-            <path
-              key={i}
-              d="M0,0 Q-8,-26 0,-44 Q8,-26 0,0"
-              fill={`url(#${palmId})`}
-              transform={`rotate(${angle})`}
-            />
-          ))}
-          <circle cx="0" cy="0" r="6" fill="#78350f" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
 export default function CampusMasterplanSection({ onOpenBooking }) {
   const [activeZoneId, setActiveZoneId] = useState('P-1');
   const [selectedCategory, setSelectedCategory] = useState('ALL');
@@ -333,31 +261,6 @@ export default function CampusMasterplanSection({ onOpenBooking }) {
     ? allZones 
     : allZones.filter(z => z.category === selectedCategory);
 
-  // Generate Tree border rows
-  const topTrees = Array.from({ length: 30 }, (_, i) => ({
-    variant: (i % 3) + 1,
-    size: 32 + (i % 4) * 3,
-    delay: (i * 0.15) % 3
-  }));
-
-  const bottomTrees = Array.from({ length: 26 }, (_, i) => ({
-    variant: ((i + 1) % 3) + 1,
-    size: 34 + (i % 3) * 4,
-    delay: (i * 0.18) % 3
-  }));
-
-  const sideTreesLeft = Array.from({ length: 22 }, (_, i) => ({
-    variant: (i % 3) + 1,
-    size: 33 + (i % 3) * 3,
-    delay: (i * 0.2) % 3
-  }));
-
-  const sideTreesRight = Array.from({ length: 22 }, (_, i) => ({
-    variant: ((i + 2) % 3) + 1,
-    size: 33 + (i % 3) * 3,
-    delay: (i * 0.22) % 3
-  }));
-
   return (
     <section id="masterplan" className="masterplan-section">
       <div className="container">
@@ -414,78 +317,8 @@ export default function CampusMasterplanSection({ onOpenBooking }) {
             </div>
           </div>
 
-          {/* 3D Architectural Viewport with Gandhi Maidan Realistic Tree Boundaries */}
+          {/* 3D Architectural Viewport */}
           <div className="masterplan-viewport-container">
-
-            {/* TOP BOUNDARY TREES */}
-            <div className="tree-boundary-strip boundary-top">
-              <div className="boundary-hedge-base" />
-              <div className="trees-cluster-flex">
-                {topTrees.map((t, idx) => (
-                  <RealisticTree key={`top-${idx}`} size={t.size} variant={t.variant} delay={t.delay} />
-                ))}
-              </div>
-            </div>
-
-            {/* LEFT BOUNDARY TREES */}
-            <div className="tree-boundary-strip boundary-left">
-              <div className="boundary-hedge-base-v" />
-              <div className="trees-cluster-flex-v">
-                {sideTreesLeft.map((t, idx) => (
-                  <RealisticTree key={`left-${idx}`} size={t.size} variant={t.variant} delay={t.delay} />
-                ))}
-              </div>
-            </div>
-
-            {/* RIGHT BOUNDARY TREES */}
-            <div className="tree-boundary-strip boundary-right">
-              <div className="boundary-hedge-base-v" />
-              <div className="trees-cluster-flex-v">
-                {sideTreesRight.map((t, idx) => (
-                  <RealisticTree key={`right-${idx}`} size={t.size} variant={t.variant} delay={t.delay} />
-                ))}
-              </div>
-            </div>
-
-            {/* BOTTOM BOUNDARY TREES (with South Gate Clearance) */}
-            <div className="tree-boundary-strip boundary-bottom">
-              <div className="boundary-hedge-base" />
-              <div className="bottom-trees-split-wrap">
-                <div className="bottom-trees-half">
-                  {bottomTrees.slice(0, 13).map((t, idx) => (
-                    <RealisticTree key={`bot-l-${idx}`} size={t.size} variant={t.variant} delay={t.delay} />
-                  ))}
-                  <RealisticPalm size={36} delay={0.4} />
-                </div>
-                <div className="bottom-entry-clearance">
-                  <span className="red-carpet-accent" />
-                </div>
-                <div className="bottom-trees-half">
-                  <RealisticPalm size={36} delay={0.8} />
-                  {bottomTrees.slice(13).map((t, idx) => (
-                    <RealisticTree key={`bot-r-${idx}`} size={t.size} variant={t.variant} delay={t.delay} />
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Four Corner Foliage Clusters */}
-            <div className="corner-foliage corner-tl">
-              <RealisticTree size={44} variant={1} delay={0.1} />
-              <RealisticTree size={36} variant={2} delay={0.4} />
-            </div>
-            <div className="corner-foliage corner-tr">
-              <RealisticTree size={44} variant={2} delay={0.2} />
-              <RealisticTree size={36} variant={1} delay={0.5} />
-            </div>
-            <div className="corner-foliage corner-bl">
-              <RealisticTree size={44} variant={1} delay={0.3} />
-              <RealisticTree size={36} variant={3} delay={0.6} />
-            </div>
-            <div className="corner-foliage corner-br">
-              <RealisticTree size={44} variant={3} delay={0.2} />
-              <RealisticTree size={36} variant={2} delay={0.5} />
-            </div>
 
             {/* Interactive 3D Architectural Image Frame */}
             <div className="masterplan-canvas-frame">

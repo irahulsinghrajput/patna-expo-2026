@@ -137,173 +137,19 @@
 }
 
 /* =======================================================
-   3D Architectural Viewport with Gandhi Maidan Boundary Trees
+   3D Architectural Viewport Container
    ======================================================= */
 .masterplan-viewport-container {
   position: relative;
   width: 100%;
   max-width: 1100px;
   margin: 0 auto 24px;
-  background: #112818;
-  border: 3px solid #1e4620;
-  border-radius: 24px;
-  padding: 32px 32px 38px;
-  box-shadow: 
-    0 20px 50px rgba(0, 0, 0, 0.25),
-    inset 0 0 40px rgba(0, 0, 0, 0.4);
+  background: #0f172a;
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.12);
   overflow: hidden;
-}
-
-/* Tree Boundary Strips */
-.tree-boundary-strip {
-  position: absolute;
-  z-index: 5;
-  pointer-events: none;
-}
-
-/* Top Boundary */
-.boundary-top {
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 48px;
-  background: linear-gradient(180deg, #091a0f 0%, rgba(17, 40, 24, 0.85) 60%, transparent 100%);
-}
-
-.trees-cluster-flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 2px 28px 0;
-}
-
-/* Left & Right Boundaries */
-.boundary-left {
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 48px;
-  background: linear-gradient(90deg, #091a0f 0%, rgba(17, 40, 24, 0.85) 60%, transparent 100%);
-}
-
-.boundary-right {
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 48px;
-  background: linear-gradient(270deg, #091a0f 0%, rgba(17, 40, 24, 0.85) 60%, transparent 100%);
-}
-
-.trees-cluster-flex-v {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
-  padding: 34px 2px;
-}
-
-/* Bottom Boundary */
-.boundary-bottom {
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 52px;
-  background: linear-gradient(0deg, #091a0f 0%, rgba(17, 40, 24, 0.85) 60%, transparent 100%);
-}
-
-.bottom-trees-split-wrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  padding: 0 24px;
-}
-
-.bottom-trees-half {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  flex: 1;
-}
-
-.bottom-entry-clearance {
-  width: 90px;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.red-carpet-accent {
-  width: 24px;
-  height: 100%;
-  background: linear-gradient(180deg, #b91c1c 0%, #dc2626 50%, #7f1d1d 100%);
-  border-left: 2px solid #fbbf24;
-  border-right: 2px solid #fbbf24;
-  box-shadow: 0 0 10px rgba(251, 191, 36, 0.4);
-}
-
-/* Corner Foliage Clusters */
-.corner-foliage {
-  position: absolute;
-  z-index: 6;
-  pointer-events: none;
-  display: flex;
-  gap: -8px;
-}
-
-.corner-tl { top: 4px; left: 4px; }
-.corner-tr { top: 4px; right: 4px; }
-.corner-bl { bottom: 4px; left: 4px; }
-.corner-br { bottom: 4px; right: 4px; }
-
-/* Tree Node Animation & Styling */
-.realistic-tree-node,
-.realistic-palm-node {
-  position: relative;
-  display: inline-block;
-  flex-shrink: 0;
-  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5));
-  animation: treeBreeze 4.5s ease-in-out infinite alternate;
-  transform-origin: bottom center;
-}
-
-@keyframes treeBreeze {
-  0% {
-    transform: rotate(0deg) scale(1);
-  }
-  50% {
-    transform: rotate(1.2deg) scale(1.02);
-  }
-  100% {
-    transform: rotate(-0.8deg) scale(0.99);
-  }
-}
-
-.tree-spotlight-glow,
-.palm-spotlight-glow {
-  position: absolute;
-  bottom: -2px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #fbbf24 20%, #f59e0b 60%, transparent 100%);
-  opacity: 0.75;
-  filter: blur(2px);
-  pointer-events: none;
-}
-
-.tree-svg,
-.palm-svg {
-  width: 100%;
-  height: 100%;
-  display: block;
 }
 
 /* =======================================================
@@ -741,24 +587,8 @@
     border-radius: 20px;
   }
   .masterplan-viewport-container {
-    padding: 8px 6px 12px;
+    padding: 6px;
     border-radius: 14px;
-  }
-  .boundary-top, .boundary-bottom {
-    height: 18px;
-  }
-  .boundary-left, .boundary-right {
-    width: 14px;
-  }
-  .trees-cluster-flex {
-    padding: 0 10px;
-  }
-  .trees-cluster-flex-v {
-    padding: 10px 0;
-  }
-  .realistic-tree-node,
-  .realistic-palm-node {
-    transform: scale(0.65);
   }
   .badge-name {
     display: none; /* Show only code like P-1 on small mobile screens */
