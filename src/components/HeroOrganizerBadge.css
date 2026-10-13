@@ -1,0 +1,207 @@
+/* Hero Organizer & Management Badge Styling */
+.hero-organizer-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 24px;
+  position: relative;
+  z-index: 10;
+}
+
+/* 89% Transparent Glassmorphic Div */
+.hero-organizer-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  
+  /* Exactly 89% Transparent (11% White Glass Tint) */
+  background: rgba(255, 255, 255, 0.11);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  border-radius: 22px;
+  padding: 16px 28px;
+  box-shadow: 
+    0 12px 36px rgba(0, 0, 0, 0.08),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.hero-organizer-container:hover {
+  border-color: rgba(226, 43, 34, 0.35);
+  box-shadow: 
+    0 16px 42px rgba(0, 0, 0, 0.12),
+    inset 0 1px 1px rgba(255, 255, 255, 0.7);
+}
+
+.organizer-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.organizer-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--primary-red, #E22B22);
+}
+
+.organizer-badge-icon {
+  flex-shrink: 0;
+  color: var(--primary-red, #E22B22);
+}
+
+.organizer-body {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.govt-official-logo {
+  height: 52px;
+  width: auto;
+  max-width: 130px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.08));
+}
+
+.bobis-official-logo {
+  height: 48px;
+  width: auto;
+  max-width: 110px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.08));
+}
+
+.organizer-text-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 3px;
+}
+
+.organizer-main-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #111827;
+  line-height: 1.25;
+  letter-spacing: -0.2px;
+}
+
+.organizer-sub-title {
+  margin: 0;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #374151;
+  line-height: 1.35;
+}
+
+.bobis-secondary-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 1px;
+}
+
+.bobis-registered-tag {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.bobis-separator {
+  color: #94a3b8;
+  font-size: 0.8rem;
+}
+
+.bobis-enterprise-tag {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+/* Glass Divider Line */
+.organizer-divider-line {
+  position: relative;
+  width: 1.5px;
+  height: 64px;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.2), transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.divider-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--primary-orange, #F26522);
+  box-shadow: 0 0 10px rgba(242, 101, 34, 0.8);
+}
+
+/* Responsive Mobile View */
+@media (max-width: 900px) {
+  .hero-organizer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 18px 20px;
+    gap: 16px;
+  }
+
+  .organizer-cell {
+    align-items: center;
+    width: 100%;
+  }
+
+  .organizer-eyebrow {
+    justify-content: center;
+  }
+
+  .organizer-body {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .organizer-text-info {
+    text-align: center;
+    align-items: center;
+  }
+
+  .bobis-secondary-row {
+    justify-content: center;
+  }
+
+  .organizer-divider-line {
+    width: 100%;
+    height: 1.5px;
+    background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.18), transparent);
+  }
+
+  .govt-official-logo {
+    height: 48px;
+  }
+
+  .bobis-official-logo {
+    height: 42px;
+  }
+}

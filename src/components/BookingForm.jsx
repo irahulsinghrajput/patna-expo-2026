@@ -28,12 +28,15 @@ const PACKAGES_OPTIONS = [
   "Platinum Package (₹25 Lakh)",
   "Diamond Package (₹15 Lakh)",
   "Gold Package (₹10 Lakh)",
-  "Auto Expo / Commercial Vehicles (₹60,000)",
-  "Real Estate & Corporate Pavilion (₹60,000)",
-  "AC German Hangar (₹50,000)",
-  "Semi-Hangar AC Stalls (₹35,000)",
-  "Open Space / Food Zone (₹30,000)",
-  "Non-AC Hangar Stall (₹25,000)"
+  "Car & SUV Pavilion (₹6 Lakh + GST)",
+  "Two-Wheeler & EV Pavilion (₹6 Lakh + GST)",
+  "Real Estate Stall (₹5 Lakh + GST)",
+  "AC Hangar Stall (₹2 Lakh + GST)",
+  "Non-AC Hangar Stall (₹1.5 Lakh + GST)",
+  "3-Day Event Area Stall (On Request)",
+  "Food Court Stall (On Request)",
+  "Promenade Kiosk (On Request)",
+  "Title Partner / Sponsorship Naming Rights"
 ];
 
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxh6LJmFU8uvuTlI3j8OAASjMX0oIMPFYpSm4TItwUEl4dSv2O8wJwbhjECfZeML34/exec";

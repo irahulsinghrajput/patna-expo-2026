@@ -1,0 +1,408 @@
+/* Grand Comeback Section Styling */
+.comeback-section {
+  padding: 70px 5vw 80px;
+  background: var(--bg-cream, #FCFAF2);
+  position: relative;
+  z-index: 1;
+}
+
+/* 1. Proposal Banner Card (Page 1) */
+.proposal-banner-card {
+  background: #ffffff url('/images/proposal-banner-bg.png') no-repeat center center / cover;
+  border: 2px solid rgba(226, 43, 34, 0.25);
+  border-radius: 26px;
+  padding: 55px 40px;
+  margin-bottom: 60px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(226, 43, 34, 0.12), 0 4px 20px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Semi-transparent soft radial vignette to ensure text contrast while keeping background art visible */
+.proposal-banner-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.90) 0%, rgba(255, 255, 255, 0.74) 55%, rgba(255, 255, 255, 0.35) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Top Decorative Accent Line */
+.proposal-banner-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--primary-red), var(--primary-orange), var(--primary-yellow));
+  z-index: 3;
+}
+
+.proposal-content-wrapper {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.proposal-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--primary-red, #E22B22);
+  border: 1px solid rgba(226, 43, 34, 0.3);
+  padding: 6px 20px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 15px rgba(226, 43, 34, 0.12);
+  backdrop-filter: blur(8px);
+}
+
+.proposal-headline {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 900;
+  color: #0f172a;
+  letter-spacing: 0.8px;
+  margin-bottom: 12px;
+  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.9);
+}
+
+.proposal-subheadline {
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  color: #b91c1c;
+  font-weight: 800;
+  margin-bottom: 28px;
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.95);
+}
+
+.proposal-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-proposal-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(90deg, #dc2626, #ea580c);
+  color: #ffffff;
+  padding: 14px 34px;
+  border-radius: 40px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(220, 38, 38, 0.4);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-proposal-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(220, 38, 38, 0.55);
+}
+
+.btn-proposal-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(6px);
+  color: #0f172a;
+  padding: 13px 28px;
+  border-radius: 40px;
+  font-size: 1rem;
+  font-weight: 800;
+  border: 1.5px solid #cbd5e1;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.25s ease;
+}
+
+.btn-proposal-secondary:hover {
+  background: #ffffff;
+  border-color: #0f172a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* 2. Comeback Grid (Pages 2 & 3) */
+.comeback-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 40px;
+  align-items: stretch;
+}
+
+.comeback-text-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.tag-pill-highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(139, 32, 187, 0.1);
+  color: var(--primary-purple, #8B20BB);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  width: fit-content;
+  margin-bottom: 16px;
+}
+
+.comeback-title {
+  font-size: clamp(2rem, 3.5vw, 2.7rem);
+  font-weight: 900;
+  line-height: 1.25;
+  color: var(--text-dark, #1A1A1A);
+  margin-bottom: 10px;
+}
+
+.comeback-motto {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--primary-orange, #F26522);
+  margin-bottom: 18px;
+  font-style: italic;
+}
+
+.comeback-tag-banner {
+  background: #0f172a;
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 22px;
+  border-left: 4px solid var(--primary-red);
+}
+
+.comeback-tag-banner strong {
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+  color: #fbbf24;
+}
+
+.comeback-tag-banner span {
+  font-size: 0.88rem;
+  color: #cbd5e1;
+}
+
+.comeback-paragraphs p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-muted, #555555);
+  margin-bottom: 16px;
+}
+
+.comeback-paragraphs strong {
+  color: var(--text-dark, #1A1A1A);
+}
+
+.comeback-quick-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 10px;
+  padding-top: 20px;
+  border-top: 1px dashed rgba(0, 0, 0, 0.15);
+}
+
+.quick-stat-item {
+  background: #ffffff;
+  padding: 16px 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.stat-val {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--primary-red, #E22B22);
+  line-height: 1.2;
+}
+
+.stat-lbl {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-dark, #1A1A1A);
+}
+
+/* Right Column - Page 3 Stamp Design */
+.comeback-business-col {
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+  padding: 34px 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.festive-stamp-header {
+  border: 2px dashed var(--primary-red, #E22B22);
+  border-radius: 16px;
+  padding: 16px 20px;
+  text-align: center;
+  background: #fffbf0;
+  margin-bottom: 22px;
+}
+
+.stamp-sub {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--text-muted, #555555);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.stamp-main {
+  font-size: 1.7rem;
+  font-weight: 900;
+  color: var(--primary-red, #E22B22);
+  letter-spacing: 0.5px;
+  margin: 4px 0;
+}
+
+.stamp-ribbon {
+  display: inline-block;
+  background: var(--primary-red, #E22B22);
+  color: #ffffff;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.business-content-box p {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--text-muted, #555555);
+  margin-bottom: 18px;
+}
+
+.feature-check-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--text-dark, #1A1A1A);
+}
+
+.check-icon {
+  color: #16a34a;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.heritage-quote-box {
+  background: #f8fafc;
+  border-left: 3px solid var(--primary-purple, #8B20BB);
+  padding: 14px 18px;
+  border-radius: 0 12px 12px 0;
+  margin-bottom: 22px;
+}
+
+.heritage-quote-box p {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #334155;
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+.expo-signature-banner {
+  background: linear-gradient(135deg, #1e1b4b, #0f172a);
+  color: #ffffff;
+  padding: 16px 20px;
+  border-radius: 14px;
+  text-align: center;
+  border: 1px solid rgba(251, 191, 36, 0.4);
+}
+
+.signature-title {
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: #fbbf24;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.signature-subtitle {
+  font-size: 0.82rem;
+  color: #e2e8f0;
+  line-height: 1.4;
+}
+
+@media (max-width: 1024px) {
+  .comeback-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .comeback-section {
+    padding: 50px 4vw 60px;
+  }
+  .proposal-banner-card {
+    padding: 34px 18px 28px;
+    border-radius: 20px;
+  }
+  .proposal-headline {
+    font-size: clamp(1.4rem, 6vw, 1.85rem);
+    letter-spacing: 0.3px;
+  }
+  .proposal-subheadline {
+    font-size: 0.98rem;
+    margin-bottom: 22px;
+  }
+  .proposal-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+  .btn-proposal-primary,
+  .btn-proposal-secondary {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 20px;
+    font-size: 0.95rem;
+  }
+  .comeback-quick-stats {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .business-content-box {
+    padding: 24px 16px;
+  }
+}

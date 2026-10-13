@@ -1,16 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  Menu, X, Phone, Calendar, MapPin, MessageCircle, Mail,
-  ShoppingCart, Building, GraduationCap, Gem, Car, Tractor, Laptop, Activity, HeartPulse, Landmark, Hammer, Armchair, Tv,
-  CalendarDays, Store, Users, Handshake, PartyPopper, Grid, Lightbulb, Trophy, Baby, Cpu, Utensils,
-  Bike, AirVent, Tent, Palette, Camera, Video, Music, PawPrint, Star, Crown, Mic, ChevronRight
+  Menu, X, Phone, Calendar, MapPin, Mail,
+  ShoppingCart, Building, GraduationCap, Gem, Car, Tractor, Laptop, HeartPulse, Landmark, Hammer, Armchair, Tv,
+  PartyPopper, Lightbulb, Utensils, Palette,
+  ShieldCheck, Home, Building2, Sparkles
 } from 'lucide-react';
 import { FaInstagram, FaFacebookF, FaYoutube, FaWhatsapp } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
 import Confetti from 'react-confetti';
 import { useWindowSize } from 'react-use';
+import HeroFireHeading from './components/HeroFireHeading';
+import HeroOrganizerBadge from './components/HeroOrganizerBadge';
+import GrandComebackSection from './components/GrandComebackSection';
+import BehindGrandExpoSection from './components/BehindGrandExpoSection';
+import TradePartnerInvitationSection from './components/TradePartnerInvitationSection';
+import FestivalMallOpportunitySection from './components/FestivalMallOpportunitySection';
+import TradeProjectionSection from './components/TradeProjectionSection';
+import CampusMasterplanSection from './components/CampusMasterplanSection';
 import ExhibitionPackagesSection from './components/ExhibitionPackagesSection';
+import DailyFestivalScheduleSection from './components/DailyFestivalScheduleSection';
+import FoundingExhibitorAndBankSection from './components/FoundingExhibitorAndBankSection';
 import BookingForm from './components/BookingForm';
 import './index.css';
 
@@ -21,7 +31,6 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPackageForModal, setSelectedPackageForModal] = useState('');
-  const [mousePos, setMousePos] = useState({ x: -500, y: -500 }); // Start off-screen
   
   const { width: windowWidth, height: windowHeight } = useWindowSize();
 
@@ -46,45 +55,26 @@ function App() {
   }, []);
 
   const categories = [
-    { name: "Real Estate & Plots", icon: Building, grad: "card-grad-1" },
-    { name: "Banking & Insurance Industry", icon: Landmark, grad: "card-grad-2" },
-    { name: "IT", icon: Laptop, grad: "card-grad-3" },
-    { name: "Automobiles", icon: Car, grad: "card-grad-4" },
-    { name: "Educational Institutes", icon: GraduationCap, grad: "card-grad-5" },
-    { name: "HealthCare", icon: HeartPulse, grad: "card-grad-1" },
-    { name: "MedTech", icon: Activity, grad: "card-grad-2" },
-    { name: "Jewellers", icon: Gem, grad: "card-grad-3" },
-    { name: "Agriculture", icon: Tractor, grad: "card-grad-4" },
-    { name: "Building Material", icon: Hammer, grad: "card-grad-5" },
-    { name: "Consumers", icon: ShoppingCart, grad: "card-grad-1" },
-    { name: "Home Decor and Interior", icon: Armchair, grad: "card-grad-2" },
-    { name: "Electronics", icon: Tv, grad: "card-grad-3" }
-  ];
-
-  const highlights = [
-    { img: "/images/highlight_0.png" },
-    { img: "/images/highlight_1.png" },
-    { img: "/images/highlight_2.png" },
-    { img: "/images/highlight_3.png" },
-    { img: "/images/highlight_4.png" },
-    { img: "/images/highlight_5.png" },
-    { img: "/images/highlight_6.png" },
-    { img: "/images/highlight_7.png" },
-    { img: "/images/highlight_8.png" },
-    { img: "/images/highlight_9.png" },
-    { img: "/images/highlight_10.png" },
-    { img: "/images/highlight_11.png" }
-  ];
-
-  const activities = [
-    { name: "Painting Competition", icon: Palette },
-    { name: "Photography Competition", icon: Camera },
-    { name: "Reel-Making Competition", icon: Video },
-    { name: "Dance Competition", icon: Music },
-    { name: "Dog Show", icon: PawPrint },
-    { name: "Evening Cultural Show", icon: Star },
-    { name: "Mr. & Miss Bihar", icon: Crown },
-    { name: "Everyday Artists Performance", icon: Mic }
+    { name: "Consumer & Shopping", icon: ShoppingCart, grad: "card-grad-1", image: "/images/sector-consumer-shopping.jpg" },
+    { name: "Automobiles & Bike", icon: Car, grad: "card-grad-2", image: "/images/sector-automobiles.png" },
+    { name: "Real Estate & Plots", icon: Building, grad: "card-grad-3", image: "/images/sector-real-estate.png" },
+    { name: "Handloom & Accessories", icon: Palette, grad: "card-grad-4", image: "/images/sector-handloom.png" },
+    { name: "Handicrafts & Art", icon: Sparkles, grad: "card-grad-5", image: "/images/sector-handicrafts.png" },
+    { name: "Banking & Finance", icon: Landmark, grad: "card-grad-1", image: "/images/sector-banking.png" },
+    { name: "Insurance Industry", icon: ShieldCheck, grad: "card-grad-2", image: "/images/sector-insurance.png" },
+    { name: "Education & Coaching", icon: GraduationCap, grad: "card-grad-3", image: "/images/sector-education.png" },
+    { name: "Educational Institutions", icon: Building2, grad: "card-grad-4", image: "/images/sector-education.png" },
+    { name: "Furniture & Living", icon: Armchair, grad: "card-grad-5", image: "/images/sector-furniture.png" },
+    { name: "Home Decor", icon: Lightbulb, grad: "card-grad-1", image: "/images/sector-home-decor.png" },
+    { name: "Home Interiors", icon: Home, grad: "card-grad-2", image: "/images/sector-home-interiors.png" },
+    { name: "Building Materials", icon: Hammer, grad: "card-grad-3", image: "/images/sector-building-materials.png" },
+    { name: "Jewelry, Fashion & Beauty", icon: Gem, grad: "card-grad-4", image: "/images/sector-jewelry.png" },
+    { name: "Healthcare & Medtech", icon: HeartPulse, grad: "card-grad-5", image: "/images/sector-healthcare.png" },
+    { name: "IT & Computers", icon: Laptop, grad: "card-grad-1", image: "/images/sector-it-computers.png" },
+    { name: "Electronics & Appliances", icon: Tv, grad: "card-grad-2", image: "/images/sector-electronics.png" },
+    { name: "Agriculture & Equipment", icon: Tractor, grad: "card-grad-3", image: "/images/sector-agriculture.png" },
+    { name: "Fun & Entertainment", icon: PartyPopper, grad: "card-grad-4", image: "/images/sector-entertainment.png" },
+    { name: "Food & Beverage Stalls", icon: Utensils, grad: "card-grad-5", image: "/images/sector-food-beverage.png" }
   ];
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -100,14 +90,6 @@ function App() {
     setIsModalOpen(false);
     setSelectedPackageForModal('');
   };
-
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
 
   return (
     <div className="min-h-screen">
@@ -192,11 +174,13 @@ function App() {
         
         {/* Desktop Nav */}
         <div className="nav-links desktop-only">
-          <a href="#about">About</a>
-          <a href="#categories">Sectors</a>
+          <a href="#behind-expo">Vision</a>
+          <a href="#trade-partner">Why Participate</a>
+          <a href="#projection">₹340 Cr Matrix</a>
           <a href="#packages">Packages</a>
-          <a href="#contact">Contact</a>
-          <button className="btn-primary" style={{ padding: '8px 20px', fontSize: '1rem' }} onClick={openModal}>Book Stall</button>
+          <a href="#schedule">Schedule</a>
+          <a href="#booking-desk">Bank Details</a>
+          <button className="btn-primary" style={{ padding: '8px 22px', fontSize: '0.95rem' }} onClick={() => openModal()}>Book Stall</button>
         </div>
 
         {/* Mobile Hamburger */}
@@ -216,10 +200,12 @@ function App() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
           >
-            <a href="#about" onClick={toggleMenu}>About</a>
-            <a href="#categories" onClick={toggleMenu}>Sectors</a>
-            <a href="#packages" onClick={toggleMenu}>Packages</a>
-            <a href="#contact" onClick={toggleMenu}>Contact</a>
+            <a href="#behind-expo" onClick={toggleMenu}>Vision &amp; Management</a>
+            <a href="#trade-partner" onClick={toggleMenu}>Why Participate (8 Reasons)</a>
+            <a href="#projection" onClick={toggleMenu}>₹340 Cr Trade Flow Matrix</a>
+            <a href="#packages" onClick={toggleMenu}>Sponsorship &amp; Stalls</a>
+            <a href="#schedule" onClick={toggleMenu}>13-Day Festival Schedule</a>
+            <a href="#booking-desk" onClick={toggleMenu}>Bank Details &amp; Booking</a>
             <button className="btn-primary" style={{ marginTop: '10px' }} onClick={() => { toggleMenu(); openModal(); }}>Book Stall</button>
           </motion.div>
         )}
@@ -229,106 +215,113 @@ function App() {
       <header className="hero-section">
         <div className="hero-overlay"></div>
         <div className="hero-content">
-          {/* Left Content */}
-          <motion.div 
-            className="hero-text-container"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
-          >
-            <h1 style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0, 0, 0, 0)', whiteSpace: 'nowrap', border: 0 }}>
-              Patna Expo 2026 - Official Website | Dussehra Mela Gandhi Maidan
-            </h1>
+          {/* 1st: The Fire Flaming Headline in Middle */}
+          <HeroFireHeading />
 
-            <motion.img 
-              src="/images/patna-expo-hero-emblem-transparent.png" 
-              alt="Patna Expo 2026 Logo - Dussehra Mela Gandhi Maidan"
-              title="Patna Expo 2026"
-              initial={{ scale: 0.8, y: 30, opacity: 0 }}
-              animate={{ scale: 1, y: 0, opacity: 1 }}
-              transition={{ type: "spring", stiffness: 200, damping: 20, delay: 0.2 }}
-              whileHover={{ scale: 1.03, rotate: 1 }}
-              style={{ 
-                width: '100%', 
-                maxWidth: '650px', 
-                filter: 'drop-shadow(0px 15px 35px rgba(0,0,0,0.18))',
-                cursor: 'pointer'
-              }}
-            />
-            
-            <motion.h2 
-              className="hero-subtitle"
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}
-              style={{ fontSize: 'clamp(1.4rem, 3vw, 2rem)', marginTop: '10px' }}
+          {/* 2nd: 89% Transparent Organizer & Management Div in Middle */}
+          <HeroOrganizerBadge />
+
+          <div className="hero-main-columns">
+            {/* Left Content */}
+            <motion.div 
+              className="hero-text-container"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
             >
-              The Biggest Shopping Carnival of Bihar 🔥
-            </motion.h2>
-          </motion.div>
+              <h1 style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0, 0, 0, 0)', whiteSpace: 'nowrap', border: 0 }}>
+                Patna Expo 2026 - Official Website | Dussehra Mela Gandhi Maidan
+              </h1>
 
-          {/* Right Content (Countdown) */}
-          <motion.div 
-            className="countdown-container"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          >
-            <div className="countdown-panel">
-              <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--text-dark)', marginBottom: '20px', letterSpacing: '2px', textAlign: 'center' }}>
-                EXPO STARTS IN
-              </h3>
-              <div className="countdown-grid">
-                <div className="countdown-box">
-                  <div className="countdown-value">{String(timeLeft.days).padStart(2, '0')}</div>
-                  <div className="countdown-label">Days</div>
-                </div>
-                <div className="countdown-box">
-                  <div className="countdown-value">{String(timeLeft.hours).padStart(2, '0')}</div>
-                  <div className="countdown-label">Hours</div>
-                </div>
-                <div className="countdown-box">
-                  <div className="countdown-value">{String(timeLeft.minutes).padStart(2, '0')}</div>
-                  <div className="countdown-label">Mins</div>
-                </div>
-                <div className="countdown-box">
-                  <div className="countdown-value">{String(timeLeft.seconds).padStart(2, '0')}</div>
-                  <div className="countdown-label">Secs</div>
-                </div>
+              <motion.img 
+                src="/images/patna-expo-hero-emblem-transparent.png" 
+                alt="Patna Expo 2026 Logo - Dussehra Mela Gandhi Maidan"
+                title="Patna Expo 2026"
+                initial={{ scale: 0.8, y: 30, opacity: 0 }}
+                animate={{ scale: 1, y: 0, opacity: 1 }}
+                transition={{ type: "spring", stiffness: 200, damping: 20, delay: 0.2 }}
+                whileHover={{ scale: 1.03, rotate: 1 }}
+                style={{ 
+                  width: '100%', 
+                  maxWidth: '650px', 
+                  filter: 'drop-shadow(0px 15px 35px rgba(0,0,0,0.18))',
+                  cursor: 'pointer'
+                }}
+              />
+              
+              <div className="hero-tagline-pills">
+                <span className="hero-pill-highlight">October 10 – 22, 2026</span>
+                <span className="hero-pill-badge">Historical Gandhi Maidan, Patna</span>
               </div>
-              <button className="btn-primary" style={{ marginTop: '30px', width: '100%' }} onClick={openModal}>Book Your Stall Now</button>
-            </div>
-          </motion.div>
+            </motion.div>
 
+            {/* Right Content (Countdown) */}
+            <motion.div 
+              className="countdown-container"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            >
+              <div className="countdown-panel">
+                <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--text-dark)', marginBottom: '20px', letterSpacing: '2px', textAlign: 'center' }}>
+                  EXPO STARTS IN
+                </h3>
+                <div className="countdown-grid">
+                  <div className="countdown-box">
+                    <div className="countdown-value">{String(timeLeft.days).padStart(2, '0')}</div>
+                    <div className="countdown-label">Days</div>
+                  </div>
+                  <div className="countdown-box">
+                    <div className="countdown-value">{String(timeLeft.hours).padStart(2, '0')}</div>
+                    <div className="countdown-label">Hours</div>
+                  </div>
+                  <div className="countdown-box">
+                    <div className="countdown-value">{String(timeLeft.minutes).padStart(2, '0')}</div>
+                    <div className="countdown-label">Mins</div>
+                  </div>
+                  <div className="countdown-box">
+                    <div className="countdown-value">{String(timeLeft.seconds).padStart(2, '0')}</div>
+                    <div className="countdown-label">Secs</div>
+                  </div>
+                </div>
+                <button className="btn-primary" style={{ marginTop: '30px', width: '100%' }} onClick={() => openModal()}>Book Your Stall Now</button>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </header>
 
-      {/* About Section */}
-      <section id="about" className="section-padding" style={{ position: 'relative', zIndex: 1, background: 'rgba(255,255,255,0.8)', borderTop: '1px solid rgba(0,0,0,0.05)' }}>
-        <motion.div 
-          className="container center-text"
-          initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
-        >
-          <h2 className="section-heading" style={{ color: 'var(--text-dark)' }}>
-            A Grand Celebration of <span className="gradient-text-red-orange">Business & Entertainment</span>
-          </h2>
-          <p className="section-text">
-            Get ready for Patna Expo 2026 — a grand celebration of business, shopping, entertainment and opportunities, happening from 25 October to 6 November 2026 at Gandhi Maidan, Patna.
-          </p>
-          <p className="section-text">
-            From Automobiles, Real Estate, Education, IT, Healthcare, Agriculture, Handloom & Handicrafts, Jewellery and more, Patna Expo brings diverse industries and consumers together under one roof.
-          </p>
-        </motion.div>
-      </section>
+      {/* 1. Grand Comeback (Pages 1, 2 & 3 of PDF) */}
+      <GrandComebackSection onOpenBooking={openModal} />
 
-      {/* Body / Categories Section */}
+      {/* 2. Behind The Grand Dussehra Mela & Patna Expo (Page 5 of PDF - Bobis Entertainment Vision & Credentials) */}
+      <BehindGrandExpoSection />
+
+      {/* 3. Official Letter To Esteemed Trade Partners & 8 Powerful Reasons (Pages 6 & 7 of PDF) */}
+      <TradePartnerInvitationSection onOpenBooking={openModal} />
+
+      {/* 4. The Festival Mall Advantage, Bihar Richest Market & Historical Proof (Pages 12 to 16 of PDF) */}
+      <FestivalMallOpportunitySection onOpenBooking={openModal} />
+
+      {/* 5. What The Ground Can Trade - ₹340 Crore Projection Matrix (Pages 17 & 18 of PDF) */}
+      <TradeProjectionSection />
+
+      {/* 6. Campus Masterplan & 8 Pavilions Layout (Pages 10 & 11 of PDF) */}
+      <CampusMasterplanSection onOpenBooking={openModal} />
+
+      {/* 7. Hello Patna - 500+ Exhibitors Across 20 Key Industry Sectors (Pages 8 & 9 of PDF) */}
       <section id="categories" className="section-padding" style={{ position: 'relative', zIndex: 1, background: 'transparent' }}>
         <div className="container">
-          <motion.h2 
-            className="section-heading center-text" style={{ color: 'var(--primary-purple)' }}
-            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-          >
-            Diverse Industries Under One Roof
-          </motion.h2>
+          <div className="hello-patna-banner">
+            <span className="hello-patna-badge">HELLO PATNA</span>
+            <h2 className="hello-patna-title">
+              500+ EXHIBITORS • EVERYTHING UNDER ONE ROOF
+            </h2>
+            <p className="hello-patna-sub">
+              The Biggest Business Gathering for the First Time at Gandhi Maidan • Your World of Shopping, Business &amp; Entertainment!
+            </p>
+          </div>
           
           <div className="category-grid">
             {categories.map((cat, idx) => {
@@ -336,17 +329,30 @@ function App() {
               return (
                 <motion.div 
                   key={idx}
-                  initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: idx * 0.05 }}
+                  initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: idx * 0.03 }}
                 >
-                  <Tilt glareEnable={true} glareMaxOpacity={0.4} scale={1.05} transitionSpeed={400} className={`category-card ${cat.grad}`}>
-                    {/* Curtain SVG */}
-                    <svg viewBox="0 0 100 30" preserveAspectRatio="none" className="card-curtain">
-                      <path d="M0,0 L100,0 L100,10 Q83,35 66,10 Q50,35 33,10 Q16,35 0,10 Z" />
-                    </svg>
-                    <div className="card-icon-wrapper">
-                      <Icon size={48} color="white" strokeWidth={1.5} />
-                    </div>
-                    <h4 className="category-title" style={{ color: 'white' }}>{cat.name}</h4>
+                  <Tilt glareEnable={true} glareMaxOpacity={0.3} scale={1.05} transitionSpeed={400} className={`category-card ${cat.image ? 'has-sector-img' : cat.grad}`}>
+                    {cat.image ? (
+                      <>
+                        <img src={cat.image} alt={cat.name} className="sector-full-bg-img" />
+                        <div className="sector-overlay-gradient"></div>
+                        <span className="sector-corner-badge" title={cat.name}>
+                          <Icon size={16} />
+                        </span>
+                        <h4 className="category-title sector-full-title">{cat.name}</h4>
+                      </>
+                    ) : (
+                      <>
+                        {/* Curtain SVG */}
+                        <svg viewBox="0 0 100 30" preserveAspectRatio="none" className="card-curtain">
+                          <path d="M0,0 L100,0 L100,10 Q83,35 66,10 Q50,35 33,10 Q16,35 0,10 Z" />
+                        </svg>
+                        <div className="card-icon-wrapper">
+                          <Icon size={44} color="white" strokeWidth={1.5} />
+                        </div>
+                        <h4 className="category-title" style={{ color: 'white' }}>{cat.name}</h4>
+                      </>
+                    )}
                   </Tilt>
                 </motion.div>
               );
@@ -355,7 +361,7 @@ function App() {
         </div>
       </section>
 
-      {/* Key Highlights Section */}
+      {/* 8. Key Highlights Section */}
       <section className="section-padding" style={{ position: 'relative', zIndex: 1, background: 'rgba(255,255,255,0.9)' }}>
         <div className="container">
           <motion.h2 className="section-heading center-text" style={{ color: 'var(--primary-red)' }} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
@@ -374,66 +380,14 @@ function App() {
         </div>
       </section>
 
-      {/* Redesigned Premium & Standard Exhibition Packages Section */}
+      {/* 9. Premium Sponsorship Suites & Standard Stalls (Pages 36 & 37 of PDF) */}
       <ExhibitionPackagesSection onBookPackage={openModal} />
 
-      {/* Daily Activities Section */}
-      <section className="section-padding" style={{ position: 'relative', zIndex: 1, background: 'rgba(255,255,255,0.9)' }}>
-        <div className="container">
-          <motion.h2 className="section-heading center-text" style={{ color: 'var(--primary-cyan)' }} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
-            Daily Activities
-          </motion.h2>
-          <motion.div 
-            style={{ marginTop: '40px', textAlign: 'center' }}
-            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
-          >
-            <img 
-              src="/images/daily-activities.png" 
-              alt="Daily Activities at Patna Expo" 
-              style={{ width: '100%', maxWidth: '900px', height: 'auto', margin: '0 auto', display: 'block' }} 
-            />
-          </motion.div>
-        </div>
-      </section>
+      {/* 10. 13 Days Day-by-Day Festival Schedule & City-Wide Marketing Campaign (Pages 33 to 35 of PDF) */}
+      <DailyFestivalScheduleSection />
 
-      {/* Bobis Entertainment Section - Custom Background Image Design */}
-      <section className="section-padding" style={{ 
-        background: 'transparent',
-        backgroundImage: 'url(/images/bobis-logo.png)',
-        backgroundSize: 'contain',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        position: 'relative', 
-        zIndex: 1
-      }}>
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} perspective={1000} scale={1.02} transitionSpeed={1000}>
-            <motion.div 
-              style={{ 
-                background: 'rgba(255,255,255,0.15)', 
-                border: '1px solid rgba(255,255,255,0.6)', 
-                borderRadius: '30px', 
-                padding: '60px 40px', 
-                textAlign: 'center',
-                boxShadow: '0 20px 50px rgba(0,0,0,0.1)',
-                backdropFilter: 'blur(6px)'
-              }}
-              initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
-            >
-              <h2 className="section-heading" style={{ color: 'var(--text-dark)', fontSize: 'clamp(2rem, 4vw, 3rem)', textShadow: '0 0 5px rgba(255,255,255,0.8)' }}>
-                Conceptualised, Planned & Executed by <br/>
-                <span style={{ color: 'var(--primary-red)', fontWeight: 900 }}>Bobis Entertainment</span>
-              </h2>
-              <p className="section-text" style={{ color: 'var(--text-dark)', fontSize: '1.25rem', maxWidth: '800px', margin: '0 auto 20px', lineHeight: '1.6', fontWeight: 800, textShadow: '0 0 5px rgba(255,255,255,0.8)' }}>
-                Patna Expo 2026 is a vision brought to life by Team Bobis — from the initial ideation and planning to complete event management and execution.
-              </p>
-              <p className="section-text" style={{ color: 'var(--text-dark)', fontSize: '1.1rem', maxWidth: '800px', margin: '0 auto', lineHeight: '1.6', fontWeight: 700, textShadow: '0 0 5px rgba(255,255,255,0.8)' }}>
-                With extensive experience in large-scale events, event production, brand activations, and on-ground execution, Bobis Entertainment is bringing together the scale, creativity, and expertise needed to create a landmark expo experience in Patna.
-              </p>
-            </motion.div>
-          </Tilt>
-        </div>
-      </section>
+      {/* 11. Built to Return Every Year - Why Be A Founding Exhibitor & ICICI Payment Desk (Pages 38 to 40 of PDF) */}
+      <FoundingExhibitorAndBankSection onOpenBooking={openModal} />
 
       {/* Registration & Stall Booking Section */}
       <section id="register" className="section-padding" style={{ position: 'relative', zIndex: 1, background: 'linear-gradient(to bottom, rgba(255,255,255,0), rgba(252,250,242,0.95))' }}>
@@ -524,10 +478,10 @@ function App() {
       </section>
 
       {/* Footer Section */}
-      <footer style={{ background: 'var(--bg-cream)', padding: '60px 0', borderTop: '1px solid rgba(0,0,0,0.05)' }}>
+      <footer className="site-footer">
         <div className="container">
           {/* Dussehra Banner */}
-          <div style={{ width: '100%', marginBottom: '60px' }}>
+          <div style={{ width: '100%', marginBottom: '50px' }}>
             <img 
               src="/images/dussehra-banner.png" 
               alt="Dussehra to Dhanteras" 
@@ -536,21 +490,21 @@ function App() {
           </div>
           {/* Expanded Footer Grid */}
           <div className="footer-grid">
-            <div className="footer-col">
-              <a href="#" className="logo-link" style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none', marginBottom: '15px' }}>
+            <div className="footer-col footer-col-brand">
+              <a href="#" className="footer-brand-logo-link" title="Patna Expo 2026">
                 <img 
-                  src="/images/patna-expo-header-clean-transparent.png" 
-                  alt="Patna Expo 2026" 
-                  style={{ height: '38px', width: 'auto', display: 'block' }} 
+                  src="/images/patna-expo-footer-emblem-trimmed.png" 
+                  alt="Dussehra Mela & Patna Expo 2026" 
+                  className="footer-brand-emblem" 
                 />
               </a>
-              <p>
+              <p className="footer-brand-text">
                 Patna Expo 2026 is Bihar's largest shopping carnival—a grand celebration of business, shopping, entertainment, and opportunities under one roof. Conceptualised and executed by Bobis Entertainment.
               </p>
-              <div style={{ display: 'flex', gap: '15px', marginTop: '20px' }}>
-                <a href="https://www.instagram.com/bobisgroup/" target="_blank" rel="noreferrer" style={{ color: 'var(--primary-purple)' }}><FaInstagram size={24} /></a>
-                <a href="https://www.facebook.com/BobisGroup" target="_blank" rel="noreferrer" style={{ color: 'var(--primary-blue)' }}><FaFacebookF size={24} /></a>
-                <a href="https://www.youtube.com/@bobisgroup" target="_blank" rel="noreferrer" style={{ color: 'var(--primary-red)' }}><FaYoutube size={24} /></a>
+              <div className="footer-social-links">
+                <a href="https://www.instagram.com/bobisgroup/" target="_blank" rel="noreferrer" className="footer-social-icon social-insta" title="Instagram"><FaInstagram size={18} /></a>
+                <a href="https://www.facebook.com/BobisGroup" target="_blank" rel="noreferrer" className="footer-social-icon social-fb" title="Facebook"><FaFacebookF size={18} /></a>
+                <a href="https://www.youtube.com/@bobisgroup" target="_blank" rel="noreferrer" className="footer-social-icon social-yt" title="YouTube"><FaYoutube size={18} /></a>
               </div>
             </div>
             <div className="footer-col footer-col-contact">
@@ -607,7 +561,7 @@ function App() {
             </div>
           </div>
 
-          <p style={{ marginTop: '50px', color: '#888', fontSize: '0.9rem', lineHeight: '1.8', textAlign: 'center', width: '100%' }}>
+          <p className="footer-copyright">
             © 2026 Patna Expo. Executed by Bobis Entertainment. All rights reserved.<br />
             Website created by <a href="https://www.brandmarksolutions.site/" target="_blank" rel="noreferrer" style={{ color: 'var(--primary-red)', textDecoration: 'none', fontWeight: 600 }}>Brandmark Solutions</a>
           </p>

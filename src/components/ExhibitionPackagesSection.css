@@ -974,6 +974,68 @@
   box-shadow: 0 4px 15px rgba(226, 43, 34, 0.3);
 }
 
+@media (max-width: 640px) {
+  .premium-packages-section {
+    padding: 55px 4vw 60px;
+  }
+  .pkg-tab-switcher {
+    gap: 6px;
+    padding: 4px;
+    border-radius: 30px;
+  }
+  .pkg-tab-btn {
+    padding: 8px 14px;
+    font-size: 0.84rem;
+  }
+  .pkg-card {
+    padding: 24px 18px 20px;
+    border-radius: 18px;
+  }
+  .showcase-topbar {
+    padding-top: 36px;
+    padding-right: 0;
+    gap: 14px;
+  }
+  .showcase-name {
+    font-size: 1.5rem;
+  }
+  .showcase-price-amount {
+    font-size: 1.85rem;
+  }
+  .inclusions-strip {
+    padding: 18px 14px;
+    border-radius: 14px;
+  }
+  .showcase-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .showcase-btn-primary,
+  .showcase-btn-secondary {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 14px 20px;
+  }
+  .showcase-helpline {
+    justify-content: center;
+    text-align: center;
+  }
+  .standard-stalls-divider {
+    margin: 30px auto 25px;
+    padding-top: 30px;
+  }
+  .standard-graphic-overlay {
+    justify-content: stretch;
+    padding: 12px 14px;
+  }
+  .standard-graphic-book-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .premium-packages-section,

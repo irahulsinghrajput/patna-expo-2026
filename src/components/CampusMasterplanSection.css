@@ -1,0 +1,800 @@
+/* Campus Masterplan Section Styling - 3D Realistic Architectural Layout */
+.masterplan-section {
+  padding: 85px 5vw 90px;
+  background: var(--bg-cream, #FCFAF2);
+  position: relative;
+  z-index: 1;
+}
+
+.masterplan-header {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 35px;
+}
+
+.plan-badge {
+  display: inline-block;
+  background: rgba(139, 32, 187, 0.08);
+  color: var(--primary-purple, #8B20BB);
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.plan-title {
+  font-size: clamp(2rem, 3.8vw, 2.8rem);
+  font-weight: 900;
+  color: var(--text-dark, #1A1A1A);
+  margin-bottom: 14px;
+}
+
+.plan-sub {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-muted, #555555);
+  margin-bottom: 20px;
+}
+
+.ac-announcement-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(90deg, #0284c7, #0369a1);
+  color: #ffffff;
+  padding: 8px 22px;
+  border-radius: 30px;
+  font-size: 0.86rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3);
+}
+
+/* Masterplan Card Container */
+.masterplan-layout-card {
+  background: #ffffff;
+  border-radius: 28px;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  padding: 28px 28px;
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.06);
+}
+
+/* Toolbar & Filter Bar */
+.map-toolbar-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.filter-pill-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-btn-pill {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn-pill:hover {
+  background: #e2e8f0;
+  color: #1e293b;
+}
+
+.filter-btn-pill.active-pill {
+  background: #0f172a;
+  border-color: #0f172a;
+  color: #fbbf24;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.25);
+}
+
+.map-view-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.action-btn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.action-btn-pill:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+}
+
+.action-btn-pill.active {
+  background: #ecfdf5;
+  border-color: #10b981;
+  color: #047857;
+}
+
+/* =======================================================
+   3D Architectural Viewport with Gandhi Maidan Boundary Trees
+   ======================================================= */
+.masterplan-viewport-container {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto 24px;
+  background: #112818;
+  border: 3px solid #1e4620;
+  border-radius: 24px;
+  padding: 32px 32px 38px;
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.25),
+    inset 0 0 40px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+/* Tree Boundary Strips */
+.tree-boundary-strip {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Top Boundary */
+.boundary-top {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: linear-gradient(180deg, #091a0f 0%, rgba(17, 40, 24, 0.85) 60%, transparent 100%);
+}
+
+.trees-cluster-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 2px 28px 0;
+}
+
+/* Left & Right Boundaries */
+.boundary-left {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 48px;
+  background: linear-gradient(90deg, #091a0f 0%, rgba(17, 40, 24, 0.85) 60%, transparent 100%);
+}
+
+.boundary-right {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 48px;
+  background: linear-gradient(270deg, #091a0f 0%, rgba(17, 40, 24, 0.85) 60%, transparent 100%);
+}
+
+.trees-cluster-flex-v {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 34px 2px;
+}
+
+/* Bottom Boundary */
+.boundary-bottom {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 52px;
+  background: linear-gradient(0deg, #091a0f 0%, rgba(17, 40, 24, 0.85) 60%, transparent 100%);
+}
+
+.bottom-trees-split-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 24px;
+}
+
+.bottom-trees-half {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+
+.bottom-entry-clearance {
+  width: 90px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.red-carpet-accent {
+  width: 24px;
+  height: 100%;
+  background: linear-gradient(180deg, #b91c1c 0%, #dc2626 50%, #7f1d1d 100%);
+  border-left: 2px solid #fbbf24;
+  border-right: 2px solid #fbbf24;
+  box-shadow: 0 0 10px rgba(251, 191, 36, 0.4);
+}
+
+/* Corner Foliage Clusters */
+.corner-foliage {
+  position: absolute;
+  z-index: 6;
+  pointer-events: none;
+  display: flex;
+  gap: -8px;
+}
+
+.corner-tl { top: 4px; left: 4px; }
+.corner-tr { top: 4px; right: 4px; }
+.corner-bl { bottom: 4px; left: 4px; }
+.corner-br { bottom: 4px; right: 4px; }
+
+/* Tree Node Animation & Styling */
+.realistic-tree-node,
+.realistic-palm-node {
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5));
+  animation: treeBreeze 4.5s ease-in-out infinite alternate;
+  transform-origin: bottom center;
+}
+
+@keyframes treeBreeze {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(1.2deg) scale(1.02);
+  }
+  100% {
+    transform: rotate(-0.8deg) scale(0.99);
+  }
+}
+
+.tree-spotlight-glow,
+.palm-spotlight-glow {
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fbbf24 20%, #f59e0b 60%, transparent 100%);
+  opacity: 0.75;
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.tree-svg,
+.palm-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* =======================================================
+   3D Masterplan Image Canvas & Hotspots Layer
+   ======================================================= */
+.masterplan-canvas-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1024 / 768;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  background: #000000;
+}
+
+.masterplan-3d-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Hotspots Overlay Layer */
+.hotspots-overlay-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+}
+
+/* Individual Hotspot Marker */
+.zone-hotspot-marker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  user-select: none;
+}
+
+.zone-hotspot-marker:hover {
+  transform: translate(-50%, -50%) scale(1.15);
+  z-index: 25;
+}
+
+.zone-hotspot-marker.is-selected {
+  transform: translate(-50%, -50%) scale(1.22);
+  z-index: 30;
+}
+
+/* Beacon Glowing Ping */
+.beacon-ping {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--zone-color, #fbbf24);
+  opacity: 0.6;
+  animation: beaconPulse 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes beaconPulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  70% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.beacon-dot {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--zone-color, #fbbf24);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4), 0 0 12px var(--zone-color);
+  font-weight: 900;
+}
+
+/* Hotspot Name Badge Tag */
+.hotspot-badge-pill {
+  margin-top: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.72rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+  white-space: nowrap;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.hotspot-badge-pill strong {
+  color: var(--zone-color, #fbbf24);
+  font-weight: 900;
+}
+
+.badge-name {
+  color: #f8fafc;
+  font-weight: 600;
+}
+
+.zone-hotspot-marker:hover .hotspot-badge-pill,
+.zone-hotspot-marker.is-selected .hotspot-badge-pill {
+  background: #0f172a;
+  border-color: var(--zone-color, #fbbf24);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* =======================================================
+   Quick Zone Chips Strip
+   ======================================================= */
+.quick-zone-chips-strip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+  overflow: hidden;
+}
+
+.chips-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #64748b;
+  letter-spacing: 0.6px;
+  white-space: nowrap;
+}
+
+.chips-scroll-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 4px 2px;
+  scrollbar-width: thin;
+}
+
+.chips-scroll-row::-webkit-scrollbar {
+  height: 4px;
+}
+
+.chips-scroll-row::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.zone-chip-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.zone-chip-btn:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.zone-chip-btn.active {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.2);
+}
+
+.chip-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* =======================================================
+   Detail Box for Selected Zone
+   ======================================================= */
+.selected-pavilion-detail-box {
+  background: #f8fafc;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  padding: 24px 26px;
+  margin-bottom: 25px;
+}
+
+.pav-detail-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pav-tag {
+  display: inline-block;
+  background: #e2e8f0;
+  color: #334155;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 8px;
+  margin-bottom: 6px;
+}
+
+.pav-title {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--text-dark, #1A1A1A);
+  margin: 0;
+}
+
+.pav-capacity-badge {
+  text-align: right;
+}
+
+.pav-capacity-badge strong {
+  display: block;
+  font-size: 1.25rem;
+  color: var(--primary-red, #E22B22);
+}
+
+.pav-capacity-badge span {
+  font-size: 0.8rem;
+  color: var(--text-muted, #555555);
+}
+
+.pav-description {
+  font-size: 0.98rem;
+  color: var(--text-muted, #555555);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.pav-facilities-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.f-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-dark, #1A1A1A);
+}
+
+.pav-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.pav-note-text {
+  font-size: 0.82rem;
+  color: var(--text-muted, #555555);
+  font-style: italic;
+}
+
+/* =======================================================
+   Campus Summary Strip
+   ======================================================= */
+.campus-summary-strip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  background: #0f172a;
+  border-radius: 16px;
+  padding: 16px 20px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.sum-item strong {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #fbbf24;
+  line-height: 1.2;
+}
+
+.sum-item span {
+  font-size: 0.76rem;
+  color: #cbd5e1;
+}
+
+/* =======================================================
+   High-Res Zoom Modal
+   ======================================================= */
+.zoom-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.zoom-modal-dialog {
+  background: #0f172a;
+  border-radius: 20px;
+  max-width: 1200px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+}
+
+.zoom-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.zoom-modal-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #fbbf24;
+}
+
+.close-zoom-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  line-height: 1;
+}
+
+.close-zoom-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.zoom-modal-body {
+  padding: 16px;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.full-masterplan-img {
+  width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+/* =======================================================
+   Responsive Design
+   ======================================================= */
+@media (max-width: 900px) {
+  .masterplan-layout-card {
+    padding: 18px 14px;
+  }
+  .masterplan-viewport-container {
+    padding: 16px 14px 20px;
+    border-radius: 16px;
+  }
+  .boundary-top, .boundary-bottom {
+    height: 28px;
+  }
+  .boundary-left, .boundary-right {
+    width: 24px;
+  }
+  .beacon-dot {
+    width: 16px;
+    height: 16px;
+  }
+  .hotspot-badge-pill {
+    padding: 2px 6px;
+    font-size: 0.64rem;
+  }
+  .pav-facilities-row {
+    grid-template-columns: 1fr;
+  }
+  .campus-summary-strip {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .masterplan-section {
+    padding: 50px 4vw 60px;
+  }
+  .masterplan-layout-card {
+    padding: 14px 10px;
+    border-radius: 20px;
+  }
+  .masterplan-viewport-container {
+    padding: 8px 6px 12px;
+    border-radius: 14px;
+  }
+  .boundary-top, .boundary-bottom {
+    height: 18px;
+  }
+  .boundary-left, .boundary-right {
+    width: 14px;
+  }
+  .trees-cluster-flex {
+    padding: 0 10px;
+  }
+  .trees-cluster-flex-v {
+    padding: 10px 0;
+  }
+  .realistic-tree-node,
+  .realistic-palm-node {
+    transform: scale(0.65);
+  }
+  .badge-name {
+    display: none; /* Show only code like P-1 on small mobile screens */
+  }
+  .hotspot-badge-pill {
+    padding: 1px 4px;
+    font-size: 0.58rem;
+  }
+  .beacon-dot {
+    width: 14px;
+    height: 14px;
+  }
+  .beacon-dot svg {
+    width: 8px;
+    height: 8px;
+  }
+  .campus-summary-strip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    padding: 12px;
+  }
+  .campus-summary-strip .sum-item:last-child {
+    grid-column: span 2;
+  }
+  .selected-pavilion-detail-box {
+    padding: 18px 14px;
+  }
+  .pav-detail-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .pav-capacity-badge {
+    text-align: left;
+  }
+  .pav-btn-group button {
+    width: 100%;
+    justify-content: center;
+  }
+}

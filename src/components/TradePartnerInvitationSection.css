@@ -1,0 +1,386 @@
+/* Trade Partner Invitation Section - Pages 6 & 7 */
+.trade-invitation-section {
+  padding: 85px 5vw 90px;
+  background: var(--bg-cream, #FCFAF2);
+  position: relative;
+  z-index: 1;
+}
+
+/* 1. Official Letter Card */
+.invitation-letter-card {
+  background: #ffffff;
+  border-radius: 28px;
+  border: 1.5px solid rgba(226, 43, 34, 0.2);
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.07);
+  padding: 48px 45px;
+  margin-bottom: 75px;
+  position: relative;
+  overflow: hidden;
+}
+
+.invitation-letter-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--primary-red), var(--primary-orange), var(--primary-yellow));
+}
+
+.letter-header-tag {
+  display: inline-block;
+  background: #0f172a;
+  color: #fbbf24;
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+}
+
+.letter-main-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+  font-weight: 900;
+  color: var(--text-dark, #1A1A1A);
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.letter-subtitle-red {
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  font-weight: 900;
+  color: var(--primary-red, #E22B22);
+  margin-bottom: 26px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.letter-scroll-paper {
+  background: #fffdf7;
+  border: 1px solid rgba(242, 101, 34, 0.15);
+  border-radius: 20px;
+  padding: 34px 30px;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+.letter-salutation strong {
+  display: block;
+  font-size: 1.25rem;
+  color: var(--text-dark, #1A1A1A);
+  margin-bottom: 4px;
+}
+
+.letter-salutation p {
+  font-size: 1.05rem;
+  color: var(--primary-orange, #F26522);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.letter-body-paragraphs p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--text-muted, #555555);
+  margin-bottom: 16px;
+}
+
+.letter-body-paragraphs strong {
+  color: var(--text-dark, #1A1A1A);
+}
+
+.letter-conclusion-box {
+  margin-top: 26px;
+  padding-top: 20px;
+  border-top: 1.5px dashed rgba(226, 43, 34, 0.25);
+}
+
+.sign-off-motto {
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: var(--primary-red, #E22B22);
+  margin-bottom: 18px;
+  letter-spacing: 0.5px;
+}
+
+.organizing-signatories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+
+.signatory-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sig-icon {
+  color: var(--primary-red, #E22B22);
+}
+
+.sig-divider {
+  font-size: 1.5rem;
+  color: #cbd5e1;
+}
+
+.signatory-item strong {
+  display: block;
+  font-size: 0.98rem;
+  color: var(--text-dark, #1A1A1A);
+}
+
+.signatory-item span {
+  font-size: 0.82rem;
+  color: var(--text-muted, #555555);
+}
+
+/* 2. Eight Powerful Reasons (Page 7) */
+.eight-reasons-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+.reasons-pill {
+  display: inline-block;
+  background: rgba(226, 43, 34, 0.08);
+  color: var(--primary-red, #E22B22);
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.reasons-title {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 900;
+  color: var(--text-dark, #1A1A1A);
+  margin-bottom: 12px;
+}
+
+.reasons-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted, #555555);
+  line-height: 1.6;
+}
+
+.eight-reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 45px;
+}
+
+.reason-card {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.reason-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--primary-orange, #F26522);
+  box-shadow: 0 16px 35px rgba(242, 101, 34, 0.15);
+}
+
+.reason-img-container {
+  position: relative;
+  width: 100%;
+  height: 195px;
+  overflow: hidden;
+  background: #f1f5f9;
+}
+
+.reason-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+.reason-card:hover .reason-photo {
+  transform: scale(1.08);
+}
+
+.reason-img-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.reason-placeholder-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.placeholder-icon {
+  color: #ffffff;
+  opacity: 0.95;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+}
+
+.reason-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, transparent 45%, rgba(0, 0, 0, 0.25) 100%);
+  pointer-events: none;
+}
+
+.reason-number-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-red), var(--primary-orange));
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(226, 43, 34, 0.4);
+}
+
+.reason-number-circle.on-img {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+}
+
+.reason-icon-floating {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(6px);
+  color: var(--primary-orange, #F26522);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.reason-card-body {
+  padding: 22px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.reason-card-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-dark, #1A1A1A);
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+
+.reason-card-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-muted, #555555);
+}
+
+/* Bottom CTA Banner */
+.reasons-bottom-cta {
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+  border-radius: 22px;
+  padding: 26px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.cta-banner-text strong {
+  display: block;
+  font-size: 1.3rem;
+  color: #fbbf24;
+  margin-bottom: 4px;
+}
+
+.cta-banner-text span {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+}
+
+@media (max-width: 1200px) {
+  .eight-reasons-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+}
+
+@media (max-width: 900px) {
+  .eight-reasons-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .trade-invitation-section {
+    padding: 50px 4vw 60px;
+  }
+  .invitation-letter-card {
+    padding: 24px 16px;
+    border-radius: 18px;
+  }
+  .letter-main-heading {
+    font-size: 1.35rem;
+  }
+  .sign-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .sign-col.text-right {
+    text-align: left;
+  }
+  .eight-reasons-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .reason-img-container {
+    height: 180px;
+  }
+  .reasons-bottom-cta {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px 16px;
+    border-radius: 18px;
+  }
+  .reasons-bottom-cta button {
+    width: 100%;
+    justify-content: center;
+  }
+}
