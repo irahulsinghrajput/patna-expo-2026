@@ -363,7 +363,11 @@ export default function ExhibitionPackagesSection({ onBookPackage }) {
                 {/* Top Badge & Booth Pill */}
                 <div className="pkg-card-top">
                   <div className="pkg-emblem-wrap">
-                    <img src={pkg.emblemImg} alt={`${pkg.name} Emblem`} className="pkg-emblem-img" />
+                    <img 
+                      src={pkg.emblemImg} 
+                      alt={`${pkg.name} – Patna Expo 2026 exhibitor and sponsorship pavilion booking`} 
+                      className="pkg-emblem-img" 
+                    />
                   </div>
                   <div className="pkg-booth-pill">
                     <Maximize2 size={13} />
@@ -450,7 +454,7 @@ export default function ExhibitionPackagesSection({ onBookPackage }) {
                 <div className="showcase-title-area">
                   <img 
                     src={selectedPkg.emblemImg} 
-                    alt={selectedPkg.name} 
+                    alt={`${selectedPkg.name} – Patna Expo 2026 exhibitor and sponsorship pavilion booking`} 
                     className="showcase-emblem" 
                   />
                   <div>
@@ -484,7 +488,7 @@ export default function ExhibitionPackagesSection({ onBookPackage }) {
                   <div className="booth-img-container">
                     <img 
                       src={selectedPkg.boothImg} 
-                      alt={`${selectedPkg.name} 3D Architecture`} 
+                      alt={`${selectedPkg.name} 3D Architecture – Patna Expo 2026 exhibitor and sponsorship pavilion booking`} 
                       className="booth-img" 
                     />
                   </div>
@@ -589,7 +593,7 @@ export default function ExhibitionPackagesSection({ onBookPackage }) {
             >
               <img 
                 src={p.img} 
-                alt={`${p.title} - ${p.details} - ${p.price}`} 
+                alt={`${p.title} - ${p.details} – Patna Expo 2026 exhibitor and sponsorship pavilion booking`} 
                 className="standard-graphic-img" 
                 loading="lazy" 
               />

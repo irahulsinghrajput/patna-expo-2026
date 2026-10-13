@@ -35,6 +35,19 @@ a, button, .category-card, .highlight-item, .social-icon, .floating-widget, inpu
 .center-text { text-align: center; }
 .section-padding { padding: 80px 5vw; }
 
+/* Accessibility & SEO utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 @media (max-width: 768px) {
   .section-padding { padding: 50px 5vw; }
 }

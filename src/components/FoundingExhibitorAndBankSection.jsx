@@ -113,7 +113,7 @@ export default function FoundingExhibitorAndBankSection({ onOpenBooking }) {
             <div className="bank-logo-wrap">
               <img 
                 src="/images/icici-bank-logo-trimmed.png" 
-                alt="ICICI Bank Ltd." 
+                alt="Official stall booking desk and exhibitor registration Patna Expo" 
                 className="bank-card-logo-img" 
               />
             </div>

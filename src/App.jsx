@@ -230,13 +230,13 @@ function App() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
             >
-              <h1 style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0, 0, 0, 0)', whiteSpace: 'nowrap', border: 0 }}>
-                Patna Expo 2026 - Official Website | Dussehra Mela Gandhi Maidan
+              <h1 className="sr-only">
+                Patna Expo 2026 – Bihar’s Festive Shopping &amp; Business Exhibition at Gandhi Maidan
               </h1>
 
               <motion.img 
                 src="/images/patna-expo-hero-emblem-transparent.png" 
-                alt="Patna Expo 2026 Logo - Dussehra Mela Gandhi Maidan"
+                alt="Patna Expo 2026 exhibition at Gandhi Maidan, Patna"
                 title="Patna Expo 2026"
                 initial={{ scale: 0.8, y: 30, opacity: 0 }}
                 animate={{ scale: 1, y: 0, opacity: 1 }}
@@ -334,7 +334,11 @@ function App() {
                   <Tilt glareEnable={true} glareMaxOpacity={0.3} scale={1.05} transitionSpeed={400} className={`category-card ${cat.image ? 'has-sector-img' : cat.grad}`}>
                     {cat.image ? (
                       <>
-                        <img src={cat.image} alt={cat.name} className="sector-full-bg-img" />
+                        <img 
+                          src={cat.image} 
+                          alt={`${cat.name} – Festive shopping stalls and consumer brands at Patna Expo`} 
+                          className="sector-full-bg-img" 
+                        />
                         <div className="sector-overlay-gradient"></div>
                         <span className="sector-corner-badge" title={cat.name}>
                           <Icon size={16} />

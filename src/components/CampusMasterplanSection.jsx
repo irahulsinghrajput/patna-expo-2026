@@ -491,7 +491,7 @@ export default function CampusMasterplanSection({ onOpenBooking }) {
             <div className="masterplan-canvas-frame">
               <img 
                 src="/images/patna-expo-masterplan-3d.jpg" 
-                alt="Patna Expo 2026 Gandhi Maidan 3D Masterplan Layout" 
+                alt="Gandhi Maidan Patna event venue and masterplan for Patna Expo 2026" 
                 className="masterplan-3d-img"
               />
 
@@ -657,7 +657,7 @@ export default function CampusMasterplanSection({ onOpenBooking }) {
             <div className="zoom-modal-body">
               <img 
                 src="/images/patna-expo-masterplan-3d.jpg" 
-                alt="Full Gandhi Maidan Masterplan" 
+                alt="Gandhi Maidan Patna event venue and masterplan for Patna Expo 2026" 
                 className="full-masterplan-img"
               />
             </div>
