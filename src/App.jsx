@@ -249,11 +249,6 @@ function App() {
                   cursor: 'pointer'
                 }}
               />
-              
-              <div className="hero-tagline-pills">
-                <span className="hero-pill-highlight">October 10 – 22, 2026</span>
-                <span className="hero-pill-badge">Historical Gandhi Maidan, Patna</span>
-              </div>
             </motion.div>
 
             {/* Right Content (Countdown) */}
