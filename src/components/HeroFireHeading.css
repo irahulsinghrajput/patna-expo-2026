@@ -16,29 +16,29 @@
   outline: none;
 }
 
-/* 3D Extruded Festive Typography */
+/* 3D Extruded Typography - Terracotta / Burnt Red-Orange (#CE4124 | rgb(206, 65, 36)) */
 .text-3d-content {
   font-family: 'Outfit', sans-serif;
   font-size: clamp(1.2rem, 3vw, 2.35rem);
   font-weight: 900;
   line-height: 1.25;
   letter-spacing: 0.5px;
-  color: #8C0D0D;
+  color: #CE4124;
   text-align: center;
   display: inline-block;
   user-select: none;
   
-  /* Multi-layered 3D Extrusion Shadows */
+  /* Multi-layered 3D Extrusion Shadows in Terracotta / Burnt Red-Orange Tones */
   text-shadow:
     0 -1px 0 rgba(255, 255, 255, 0.45),
-    1px 1px 0 #7A0A0A,
-    2px 2px 0 #680808,
-    3px 3px 0 #560606,
-    4px 4px 0 #440404,
-    5px 5px 0 #320303,
+    1px 1px 0 #B5361D,
+    2px 2px 0 #9C2D17,
+    3px 3px 0 #842311,
+    4px 4px 0 #6C1B0C,
+    5px 5px 0 #541308,
     6px 6px 2px rgba(0, 0, 0, 0.28),
     0 8px 18px rgba(0, 0, 0, 0.2),
-    0 0 12px rgba(226, 43, 34, 0.2);
+    0 0 14px rgba(206, 65, 36, 0.3);
 
   transition: transform 0.25s ease, text-shadow 0.25s ease;
 }
@@ -46,16 +46,16 @@
 .text-3d-content:hover {
   transform: translateY(-2px);
   text-shadow:
-    0 -1px 0 rgba(255, 255, 255, 0.6),
-    1px 1px 0 #7A0A0A,
-    2px 2px 0 #680808,
-    3px 3px 0 #560606,
-    4px 4px 0 #440404,
-    5px 5px 0 #320303,
-    6px 6px 0 #220202,
+    0 -1px 0 rgba(255, 255, 255, 0.65),
+    1px 1px 0 #B5361D,
+    2px 2px 0 #9C2D17,
+    3px 3px 0 #842311,
+    4px 4px 0 #6C1B0C,
+    5px 5px 0 #541308,
+    6px 6px 0 #3E0D05,
     7px 7px 3px rgba(0, 0, 0, 0.32),
     0 10px 22px rgba(0, 0, 0, 0.24),
-    0 0 16px rgba(226, 43, 34, 0.28);
+    0 0 18px rgba(206, 65, 36, 0.38);
 }
 
 /* 3D Dimensional Flame Icons */
@@ -63,7 +63,7 @@
   display: inline-block;
   font-size: clamp(1.35rem, 3.2vw, 2.25rem);
   line-height: 1;
-  filter: drop-shadow(1px 2px 0px #7A0A0A) drop-shadow(2px 3px 3px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(1px 2px 0px #9C2D17) drop-shadow(2px 3px 3px rgba(0, 0, 0, 0.25)) drop-shadow(0 0 8px rgba(206, 65, 36, 0.28));
   transform-origin: center bottom;
   user-select: none;
 }
@@ -100,11 +100,12 @@
     letter-spacing: 0.3px;
     text-shadow:
       0 -1px 0 rgba(255, 255, 255, 0.4),
-      1px 1px 0 #7A0A0A,
-      2px 2px 0 #680808,
-      3px 3px 0 #560606,
+      1px 1px 0 #B5361D,
+      2px 2px 0 #9C2D17,
+      3px 3px 0 #842311,
       4px 4px 2px rgba(0, 0, 0, 0.25),
-      0 4px 10px rgba(0, 0, 0, 0.18);
+      0 4px 10px rgba(0, 0, 0, 0.18),
+      0 0 10px rgba(206, 65, 36, 0.25);
   }
   .flame-3d {
     font-size: clamp(1.15rem, 4.2vw, 1.55rem);
