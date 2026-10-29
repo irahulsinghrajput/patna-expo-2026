@@ -53,6 +53,24 @@ export const galleryPhotos = [
     src: "/images/gallery/gallery-5-handloom-shopping.jpg",
     tag: "Handloom & Craft",
     aspect: "standard"
+  },
+  {
+    id: 6,
+    title: "Live Celebrity Stage Performance & Musical Fest",
+    category: "Live Concerts",
+    desc: "Renowned artist enthralling the massive festival audience from the grand central stage at Gandhi Maidan.",
+    src: "/images/gallery/gallery-6-celebrity-stage-performance.jpg",
+    tag: "Star Artist Live",
+    aspect: "featured"
+  },
+  {
+    id: 7,
+    title: "Executive Ground Inspection & Dignitary Delegation",
+    category: "VIP & Dignitaries",
+    desc: "Leadership and administration delegates reviewing campus operations and security across the festive pavilions.",
+    src: "/images/gallery/gallery-7-leadership-walkthrough.jpg",
+    tag: "Organizers & VIPs",
+    aspect: "featured"
   }
 ];
 
