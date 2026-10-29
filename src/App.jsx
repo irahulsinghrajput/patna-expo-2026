@@ -19,7 +19,6 @@ import FestivalMallOpportunitySection from './components/FestivalMallOpportunity
 import CampusMasterplanSection from './components/CampusMasterplanSection';
 import ExhibitionPackagesSection from './components/ExhibitionPackagesSection';
 import DailyFestivalScheduleSection from './components/DailyFestivalScheduleSection';
-import FoundingExhibitorAndBankSection from './components/FoundingExhibitorAndBankSection';
 import BookingForm from './components/BookingForm';
 import './index.css';
 
@@ -177,7 +176,7 @@ function App() {
           <a href="#trade-partner">Why Participate</a>
           <a href="#packages">Packages</a>
           <a href="#schedule">Schedule</a>
-          <a href="#booking-desk">Bank Details</a>
+          <a href="#register">Register</a>
           <button className="btn-primary" style={{ padding: '8px 22px', fontSize: '0.95rem' }} onClick={() => openModal()}>Book Stall</button>
         </div>
 
@@ -202,7 +201,7 @@ function App() {
             <a href="#trade-partner" onClick={toggleMenu}>Why Participate (8 Reasons)</a>
             <a href="#packages" onClick={toggleMenu}>Sponsorship &amp; Stalls</a>
             <a href="#schedule" onClick={toggleMenu}>13-Day Festival Schedule</a>
-            <a href="#booking-desk" onClick={toggleMenu}>Bank Details &amp; Booking</a>
+            <a href="#register" onClick={toggleMenu}>Registration &amp; Booking</a>
             <button className="btn-primary" style={{ marginTop: '10px' }} onClick={() => { toggleMenu(); openModal(); }}>Book Stall</button>
           </motion.div>
         )}
@@ -378,9 +377,6 @@ function App() {
 
       {/* 10. 13 Days Day-by-Day Festival Schedule & City-Wide Marketing Campaign (Pages 33 to 35 of PDF) */}
       <DailyFestivalScheduleSection />
-
-      {/* 11. Built to Return Every Year - Why Be A Founding Exhibitor & ICICI Payment Desk (Pages 38 to 40 of PDF) */}
-      <FoundingExhibitorAndBankSection onOpenBooking={openModal} />
 
       {/* Registration & Stall Booking Section */}
       <section id="register" className="section-padding" style={{ position: 'relative', zIndex: 1, background: 'linear-gradient(to bottom, rgba(255,255,255,0), rgba(252,250,242,0.95))' }}>
