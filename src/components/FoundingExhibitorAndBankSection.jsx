@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
-  Building, CreditCard, Phone, CheckCircle2, ShieldCheck, 
+  Building, CreditCard, Phone, CheckCircle2, 
   Copy, Check, Calendar, MapPin, ArrowRight 
 } from 'lucide-react';
 import './FoundingExhibitorAndBankSection.css';
@@ -34,67 +34,19 @@ export default function FoundingExhibitorAndBankSection({ onOpenBooking }) {
     <section id="booking-desk" className="founding-bank-section">
       <div className="container">
 
-        {/* ==============================================================
-            A. BUILT TO RETURN EVERY YEAR - WHY BE A FOUNDING EXHIBITOR (PAGE 38)
-            ============================================================== */}
-        <div className="founding-header text-center">
-          <div className="founding-badge">EDITION ONE OF MANY</div>
+        {/* Section Header */}
+        <div className="founding-header text-center" style={{ marginBottom: '36px' }}>
+          <div className="founding-badge">OFFICIAL BANKING &amp; ALLOTMENT DESK</div>
           <h2 className="founding-title">
-            Built to Return Every Year <br />
-            <span className="gradient-text-red-orange">Why Be a Founding Exhibitor</span>
+            Direct Stall Booking &amp; <span className="gradient-text-red-orange">Official Payment Desk</span>
           </h2>
           <p className="founding-sub">
-            India’s most loved fairs began as a single edition that a city decided to keep. 
-            Patna Expo claims the city’s richest buying fortnight — the days before Dhanteras — as a permanent annual fixture.
+            Direct official credentials and step-by-step guidance to secure your exhibition stall or commercial pavilion at Gandhi Maidan, Patna.
           </p>
         </div>
 
-        {/* 3 Benchmark Cards */}
-        <div className="benchmark-cards-grid">
-          <div className="bench-card">
-            <span className="bench-year">1985</span>
-            <strong>CRD PATNA BOOK FAIR</strong>
-            <p>Held at Gandhi Maidan every year since; its 41st edition ran in 2025.</p>
-          </div>
-          <div className="bench-card">
-            <span className="bench-year">1980</span>
-            <strong>INDIA INTL. TRADE FAIR</strong>
-            <p>44th edition in Nov 2025; drawing more than 10 Lakh+ visitors annually.</p>
-          </div>
-          <div className="bench-card">
-            <span className="bench-year">5×+ GROWTH</span>
-            <strong>BIHAR SARAS MELA</strong>
-            <p>From ₹5 Cr+ in 10 days (2022) to ₹28.52 Cr in 24 days at Gandhi Maidan (2025–26).</p>
-          </div>
-        </div>
-
-        {/* 3 Reasons to be Founding Exhibitor */}
-        <div className="founding-benefits-box">
-          <div className="f-benefit">
-            <CheckCircle2 size={20} className="text-green" />
-            <div>
-              <strong>Inaugural Legacy:</strong>
-              <span>Your brand becomes part of the founding story that Patna will retell every festive season.</span>
-            </div>
-          </div>
-          <div className="f-benefit">
-            <CheckCircle2 size={20} className="text-green" />
-            <div>
-              <strong>Ground &amp; Audience Advantage:</strong>
-              <span>Master the ground layout, the audience demographic, and buying rhythm before competitors do.</span>
-            </div>
-          </div>
-          <div className="f-benefit">
-            <CheckCircle2 size={20} className="text-green" />
-            <div>
-              <strong>First Right of Refusal:</strong>
-              <span>Founding exhibitors receive priority renewal &amp; category exclusivity options for 2027.</span>
-            </div>
-          </div>
-        </div>
-
         {/* ==============================================================
-            B. OFFICIAL BANKING DETAILS & 4 STEPS TO BOOK (PAGES 39 & 40)
+            OFFICIAL BANKING DETAILS & 4 STEPS TO BOOK
             ============================================================== */}
         <div className="payment-and-steps-grid">
           
@@ -105,15 +57,12 @@ export default function FoundingExhibitorAndBankSection({ onOpenBooking }) {
                 <CreditCard size={20} />
                 <span>OFFICIAL PAYMENT CREDENTIALS</span>
               </div>
-              <span className="secure-badge">
-                <ShieldCheck size={14} /> Verified Account
-              </span>
             </div>
 
             <div className="bank-logo-wrap">
               <img 
                 src="/images/icici-bank-logo-trimmed.png" 
-                alt="Official stall booking desk and exhibitor registration Patna Expo" 
+                alt="ICICI Bank" 
                 className="bank-card-logo-img" 
               />
             </div>

@@ -16,7 +16,6 @@ import GrandComebackSection from './components/GrandComebackSection';
 import BehindGrandExpoSection from './components/BehindGrandExpoSection';
 import TradePartnerInvitationSection from './components/TradePartnerInvitationSection';
 import FestivalMallOpportunitySection from './components/FestivalMallOpportunitySection';
-import TradeProjectionSection from './components/TradeProjectionSection';
 import CampusMasterplanSection from './components/CampusMasterplanSection';
 import ExhibitionPackagesSection from './components/ExhibitionPackagesSection';
 import DailyFestivalScheduleSection from './components/DailyFestivalScheduleSection';
@@ -176,7 +175,6 @@ function App() {
         <div className="nav-links desktop-only">
           <a href="#behind-expo">Vision</a>
           <a href="#trade-partner">Why Participate</a>
-          <a href="#projection">₹340 Cr Matrix</a>
           <a href="#packages">Packages</a>
           <a href="#schedule">Schedule</a>
           <a href="#booking-desk">Bank Details</a>
@@ -202,7 +200,6 @@ function App() {
           >
             <a href="#behind-expo" onClick={toggleMenu}>Vision &amp; Management</a>
             <a href="#trade-partner" onClick={toggleMenu}>Why Participate (8 Reasons)</a>
-            <a href="#projection" onClick={toggleMenu}>₹340 Cr Trade Flow Matrix</a>
             <a href="#packages" onClick={toggleMenu}>Sponsorship &amp; Stalls</a>
             <a href="#schedule" onClick={toggleMenu}>13-Day Festival Schedule</a>
             <a href="#booking-desk" onClick={toggleMenu}>Bank Details &amp; Booking</a>
@@ -299,10 +296,7 @@ function App() {
       {/* 4. The Festival Mall Advantage, Bihar Richest Market & Historical Proof (Pages 12 to 16 of PDF) */}
       <FestivalMallOpportunitySection onOpenBooking={openModal} />
 
-      {/* 5. What The Ground Can Trade - ₹340 Crore Projection Matrix (Pages 17 & 18 of PDF) */}
-      <TradeProjectionSection />
-
-      {/* 6. Campus Masterplan & 8 Pavilions Layout (Pages 10 & 11 of PDF) */}
+      {/* 5. Campus Masterplan & 8 Pavilions Layout (Pages 10 & 11 of PDF) */}
       <CampusMasterplanSection onOpenBooking={openModal} />
 
       {/* 7. Hello Patna - 500+ Exhibitors Across 20 Key Industry Sectors (Pages 8 & 9 of PDF) */}
