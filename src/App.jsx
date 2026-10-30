@@ -19,6 +19,7 @@ import FestivalMallOpportunitySection from './components/FestivalMallOpportunity
 import CampusMasterplanSection from './components/CampusMasterplanSection';
 import ExhibitionPackagesSection from './components/ExhibitionPackagesSection';
 import PhotoGallerySection from './components/PhotoGallerySection';
+import BrandMarqueeSection from './components/BrandMarqueeSection';
 import BookingForm from './components/BookingForm';
 import './index.css';
 
@@ -465,6 +466,9 @@ function App() {
           </motion.div>
         </div>
       </section>
+
+      {/* Brand Partners Marquee / Logo Ticker */}
+      <BrandMarqueeSection />
 
       {/* Footer Section */}
       <footer className="site-footer">
