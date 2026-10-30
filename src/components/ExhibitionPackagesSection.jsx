@@ -579,12 +579,12 @@ export default function ExhibitionPackagesSection({ onBookPackage }) {
           </p>
         </div>
 
-        {/* Standard 5 Stalls Grid (With the uploaded high-res 3D graphic cards) */}
+        {/* Standard 5 Stalls Grid (All 5 parallel in one line) */}
         <div className="standard-categories-grid">
           {STANDARD_PACKAGES.map((p, i) => (
             <motion.div 
               key={i} 
-              className={`standard-graphic-card ${i === 4 ? 'standard-card-centered' : ''}`}
+              className="standard-graphic-card"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
