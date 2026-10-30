@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 import './PhotoGallerySection.css';
 
-// 11 Curated High-Res Photos from Patna Expo at Gandhi Maidan
+// 12 Curated High-Res Photos from Patna Expo at Gandhi Maidan
 export const galleryPhotos = [
   {
     id: 1,
@@ -35,6 +35,14 @@ export const galleryPhotos = [
   },
   {
     id: 4,
+    title: "Grand Cultural Stage & Main Auditorium Hangar",
+    category: "Opening & Ceremonies",
+    desc: "State-of-the-art German Hangar auditorium with giant LED screen stage, VIP dais, and audience seating for ceremonies and cultural programs at Gandhi Maidan.",
+    src: "/images/gallery/gallery-12-cultural-stage-auditorium.jpg",
+    tag: "Main Stage Auditorium"
+  },
+  {
+    id: 5,
     title: "Mega Celebrity Concert & Packed Crowd",
     category: "Live Concerts",
     desc: "Electrifying live musical evening with thousands of festival-goers enjoying cultural performances under the open sky.",
@@ -42,7 +50,7 @@ export const galleryPhotos = [
     tag: "Celebrity Night"
   },
   {
-    id: 5,
+    id: 6,
     title: "Live Celebrity Stage Performance & Musical Fest",
     category: "Live Concerts",
     desc: "Renowned artist enthralling the massive festival audience from the grand central stage at Gandhi Maidan.",
@@ -50,7 +58,7 @@ export const galleryPhotos = [
     tag: "Live Music"
   },
   {
-    id: 6,
+    id: 7,
     title: "Festive Night Arena & Food Court Pavilions",
     category: "Food & Evening Arena",
     desc: "Illuminated festive evening at Gandhi Maidan featuring pagoda food counters, family seating arena, and vibrant mela buzz.",
@@ -58,7 +66,7 @@ export const galleryPhotos = [
     tag: "Food & Arena"
   },
   {
-    id: 7,
+    id: 8,
     title: "Royal Dry Fruits & Festive Gourmet Stalls",
     category: "Food & Evening Arena",
     desc: "Brisk shopping at the dry fruit and gourmet food counters showcasing authentic heritage delicacies.",
@@ -66,7 +74,7 @@ export const galleryPhotos = [
     tag: "Food & Delicacies"
   },
   {
-    id: 8,
+    id: 9,
     title: "Handicrafts & Terracotta Art Stall Interaction",
     category: "Handloom & Craft",
     desc: "Dignitaries and visitors engaging directly with skilled local artisans showcasing traditional handcrafted pottery and clay art.",
@@ -74,7 +82,7 @@ export const galleryPhotos = [
     tag: "Artisan Craft"
   },
   {
-    id: 9,
+    id: 10,
     title: "Festive Handloom, Silk & Lifestyle Pavilions",
     category: "Handloom & Craft",
     desc: "Shoppers exploring handcrafted Kashmiri shawls, traditional silks, and festive ethnic apparel inside covered hangars.",
@@ -82,7 +90,7 @@ export const galleryPhotos = [
     tag: "Silk & Handloom"
   },
   {
-    id: 10,
+    id: 11,
     title: "Executive Ground Inspection & Dignitary Delegation",
     category: "VIP & Dignitaries",
     desc: "Leadership and administration delegates reviewing campus operations, crowd movement, and security across the festive pavilions.",
@@ -90,7 +98,7 @@ export const galleryPhotos = [
     tag: "Ground Tour"
   },
   {
-    id: 11,
+    id: 12,
     title: "Official Dignitaries & Leadership Review",
     category: "VIP & Dignitaries",
     desc: "Government officials, key dignitaries, and event organizers reviewing pavilions and visitor amenities on-ground.",
