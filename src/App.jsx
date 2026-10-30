@@ -7,7 +7,6 @@ import {
 } from 'lucide-react';
 import { FaInstagram, FaFacebookF, FaYoutube, FaWhatsapp } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
-import Tilt from 'react-parallax-tilt';
 import Confetti from 'react-confetti';
 import { useWindowSize } from 'react-use';
 import HeroFireHeading from './components/HeroFireHeading';
@@ -250,60 +249,6 @@ function App() {
       {/* 5. Campus Masterplan & 8 Pavilions Layout (Pages 10 & 11 of PDF) */}
       <CampusMasterplanSection onOpenBooking={openModal} />
 
-      {/* 7. Hello Patna - 500+ Exhibitors Across 20 Key Industry Sectors (Pages 8 & 9 of PDF) */}
-      <section id="categories" className="section-padding" style={{ position: 'relative', zIndex: 1, background: 'transparent' }}>
-        <div className="container">
-          <div className="hello-patna-banner">
-            <span className="hello-patna-badge">HELLO PATNA</span>
-            <h2 className="hello-patna-title">
-              500+ EXHIBITORS • EVERYTHING UNDER ONE ROOF
-            </h2>
-            <p className="hello-patna-sub">
-              The Biggest Business Gathering for the First Time at Gandhi Maidan • Your World of Shopping, Business &amp; Entertainment!
-            </p>
-          </div>
-          
-          <div className="category-grid">
-            {categories.map((cat, idx) => {
-              const Icon = cat.icon;
-              return (
-                <motion.div 
-                  key={idx}
-                  initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: idx * 0.03 }}
-                >
-                  <Tilt glareEnable={true} glareMaxOpacity={0.3} scale={1.05} transitionSpeed={400} className={`category-card ${cat.image ? 'has-sector-img' : cat.grad}`}>
-                    {cat.image ? (
-                      <>
-                        <img 
-                          src={cat.image} 
-                          alt={`${cat.name} – Festive shopping stalls and consumer brands at Patna Expo`} 
-                          className="sector-full-bg-img" 
-                        />
-                        <div className="sector-overlay-gradient"></div>
-                        <span className="sector-corner-badge" title={cat.name}>
-                          <Icon size={16} />
-                        </span>
-                        <h4 className="category-title sector-full-title">{cat.name}</h4>
-                      </>
-                    ) : (
-                      <>
-                        {/* Curtain SVG */}
-                        <svg viewBox="0 0 100 30" preserveAspectRatio="none" className="card-curtain">
-                          <path d="M0,0 L100,0 L100,10 Q83,35 66,10 Q50,35 33,10 Q16,35 0,10 Z" />
-                        </svg>
-                        <div className="card-icon-wrapper">
-                          <Icon size={44} color="white" strokeWidth={1.5} />
-                        </div>
-                        <h4 className="category-title" style={{ color: 'white' }}>{cat.name}</h4>
-                      </>
-                    )}
-                  </Tilt>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
 
       {/* 9. Premium Sponsorship Suites & Standard Stalls (Pages 36 & 37 of PDF) */}
