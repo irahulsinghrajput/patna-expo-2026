@@ -1,9 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, Building2, Store } from 'lucide-react';
+import { Sparkles, Store } from 'lucide-react';
 import './BrandMarqueeSection.css';
 
-// Participating Brands & Exhibitors Collection (Easily extensible)
+// Participating Brands & Exhibitors Collection (10 Confirmed Brands)
 export const EXHIBITOR_BRANDS = [
   {
     id: 1,
@@ -14,27 +14,62 @@ export const EXHIBITOR_BRANDS = [
   },
   {
     id: 2,
+    name: "Royal Enfield",
+    category: "Iconic Motorcycles",
+    logo: "/images/brands/brand-royal-enfield.png",
+    alt: "Royal Enfield motorcycles at Patna Expo 2026"
+  },
+  {
+    id: 3,
     name: "KTM",
-    category: "Two-Wheelers & Performance",
+    category: "Two-Wheelers & Racing",
     logo: "/images/brands/brand-ktm.webp",
     alt: "KTM Motorcycles at Patna Expo 2026"
   },
   {
-    id: 3,
+    id: 4,
+    name: "TVS Motor",
+    category: "Two-Wheelers & EVs",
+    logo: "/images/brands/brand-tvs-motor.jpg",
+    alt: "TVS Motor Company at Patna Expo 2026"
+  },
+  {
+    id: 5,
+    name: "River EV",
+    category: "Electric Scooters & Mobility",
+    logo: "/images/brands/brand-river-ev.jpg",
+    alt: "River EV scooters at Patna Expo 2026"
+  },
+  {
+    id: 6,
     name: "Kanha Furniture",
     category: "Home Furniture & Electronics",
     logo: "/images/brands/brand-kanha-furniture.jpg",
     alt: "Kanha Furniture Company & Electronics at Patna Expo"
   },
   {
-    id: 4,
+    id: 7,
+    name: "Sudha Dairy",
+    category: "Dairy & Pure Milk Products",
+    logo: "/images/brands/brand-sudha-dairy.jpg",
+    alt: "Sudha Dairy COMFED Bihar at Patna Expo 2026"
+  },
+  {
+    id: 8,
+    name: "Ching's Secret",
+    category: "Desi Chinese & FMCG",
+    logo: "/images/brands/brand-chings-secret.jpg",
+    alt: "Ching's Secret food counter at Patna Expo 2026"
+  },
+  {
+    id: 9,
     name: "KFC",
     category: "Food Court & Global Dining",
     logo: "/images/brands/brand-kfc.jpg",
     alt: "KFC food stall at Patna Expo 2026"
   },
   {
-    id: 5,
+    id: 10,
     name: "Pizza Hut",
     category: "Food Court & Gourmet Treats",
     logo: "/images/brands/brand-pizza-hut.jpg",
@@ -44,7 +79,7 @@ export const EXHIBITOR_BRANDS = [
 
 export default function BrandMarqueeSection() {
   // Duplicate list to produce seamless, stutter-free infinite scroll
-  const marqueeItems = [...EXHIBITOR_BRANDS, ...EXHIBITOR_BRANDS, ...EXHIBITOR_BRANDS, ...EXHIBITOR_BRANDS];
+  const marqueeItems = [...EXHIBITOR_BRANDS, ...EXHIBITOR_BRANDS];
 
   return (
     <section id="brands" className="brand-marquee-section">
@@ -60,7 +95,7 @@ export default function BrandMarqueeSection() {
             Top Brands You Will Meet at <span className="gradient-text-red-orange">Patna Expo 2026</span>
           </h2>
           <p className="brand-marquee-sub">
-            Leading consumer brands, automobile giants, lifestyle furnishings, and international food court partners 
+            Leading automobile manufacturers, two-wheeler giants, lifestyle furnishings, dairy icons, and international food court partners 
             ready to welcome shoppers at Gandhi Maidan, Patna.
           </p>
         </div>
