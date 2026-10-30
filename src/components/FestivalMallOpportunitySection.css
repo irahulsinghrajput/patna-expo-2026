@@ -42,7 +42,7 @@
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 16px;
-  margin-bottom: 65px;
+  margin-bottom: 0;
 }
 
 .metric-card {
