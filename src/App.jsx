@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { 
   Menu, X, Phone, Calendar, MapPin, Mail,
   ShoppingCart, Building, GraduationCap, Gem, Car, Tractor, Laptop, HeartPulse, Landmark, Hammer, Armchair, Tv,
@@ -24,34 +24,11 @@ import BookingForm from './components/BookingForm';
 import './index.css';
 
 function App() {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0, hours: 0, minutes: 0, seconds: 0
-  });
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPackageForModal, setSelectedPackageForModal] = useState('');
   
   const { width: windowWidth, height: windowHeight } = useWindowSize();
-
-  useEffect(() => {
-    const targetDate = new Date('October 25, 2026 00:00:00').getTime();
-    const interval = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
-
-      if (distance < 0) {
-        clearInterval(interval);
-      } else {
-        setTimeLeft({
-          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((distance % (1000 * 60)) / 1000)
-        });
-      }
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
 
   const categories = [
     { name: "Consumer & Shopping", icon: ShoppingCart, grad: "card-grad-1", image: "/images/sector-consumer-shopping.jpg" },
@@ -218,14 +195,20 @@ function App() {
           {/* 2nd: 89% Transparent Organizer & Management Div in Middle */}
           <HeroOrganizerBadge />
 
-          <div className="hero-main-columns">
-            {/* Left Content */}
+          <div className="hero-main-columns" style={{ justifyContent: 'center', alignItems: 'center' }}>
             <motion.div 
               className="hero-text-container"
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
+              style={{ 
+                display: 'flex', 
+                flexDirection: 'column', 
+                alignItems: 'center', 
+                textAlign: 'center',
+                margin: '0 auto',
+                maxWidth: '680px'
+              }}
             >
               <h1 className="sr-only">
                 Patna Expo 2026 – Bihar’s Festive Shopping &amp; Business Exhibition at Gandhi Maidan
@@ -235,10 +218,11 @@ function App() {
                 src="/images/patna-expo-hero-emblem-transparent.png" 
                 alt="Patna Expo 2026 exhibition at Gandhi Maidan, Patna"
                 title="Patna Expo 2026"
-                initial={{ scale: 0.8, y: 30, opacity: 0 }}
+                initial={{ scale: 0.85, y: 20, opacity: 0 }}
                 animate={{ scale: 1, y: 0, opacity: 1 }}
                 transition={{ type: "spring", stiffness: 200, damping: 20, delay: 0.2 }}
-                whileHover={{ scale: 1.03, rotate: 1 }}
+                whileHover={{ scale: 1.03 }}
+                onClick={() => openModal()}
                 style={{ 
                   width: '100%', 
                   maxWidth: '650px', 
@@ -246,39 +230,6 @@ function App() {
                   cursor: 'pointer'
                 }}
               />
-            </motion.div>
-
-            {/* Right Content (Countdown) */}
-            <motion.div 
-              className="countdown-container"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            >
-              <div className="countdown-panel">
-                <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--text-dark)', marginBottom: '20px', letterSpacing: '2px', textAlign: 'center' }}>
-                  EXPO STARTS IN
-                </h3>
-                <div className="countdown-grid">
-                  <div className="countdown-box">
-                    <div className="countdown-value">{String(timeLeft.days).padStart(2, '0')}</div>
-                    <div className="countdown-label">Days</div>
-                  </div>
-                  <div className="countdown-box">
-                    <div className="countdown-value">{String(timeLeft.hours).padStart(2, '0')}</div>
-                    <div className="countdown-label">Hours</div>
-                  </div>
-                  <div className="countdown-box">
-                    <div className="countdown-value">{String(timeLeft.minutes).padStart(2, '0')}</div>
-                    <div className="countdown-label">Mins</div>
-                  </div>
-                  <div className="countdown-box">
-                    <div className="countdown-value">{String(timeLeft.seconds).padStart(2, '0')}</div>
-                    <div className="countdown-label">Secs</div>
-                  </div>
-                </div>
-                <button className="btn-primary" style={{ marginTop: '30px', width: '100%' }} onClick={() => openModal()}>Book Your Stall Now</button>
-              </div>
             </motion.div>
           </div>
         </div>
