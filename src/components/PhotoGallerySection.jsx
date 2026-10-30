@@ -3,84 +3,109 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
 import { 
   Camera, Maximize2, X, ChevronLeft, ChevronRight, 
-  Sparkles, Eye, Play, Pause, Grid, Layers, MapPin
+  Sparkles, Play, Pause, Grid, Layers, MapPin
 } from 'lucide-react';
 import './PhotoGallerySection.css';
 
-// Initial gallery collection (Extensible when more photos arrive)
+// 11 Curated High-Res Photos from Patna Expo at Gandhi Maidan
 export const galleryPhotos = [
   {
     id: 1,
     title: "Grand Entrance Arch & Festive Illumination",
-    category: "Grand Entrance",
+    category: "Opening & Ceremonies",
     desc: "Grand illuminated entry gate welcoming visitors and shoppers into the Patna Expo festival grounds at Gandhi Maidan.",
     src: "/images/gallery/gallery-2-grand-entry-gate.jpg",
-    tag: "Dussehra to Dhanteras",
-    aspect: "featured" // takes prominent space in grid
+    tag: "Grand Entrance"
   },
   {
     id: 2,
+    title: "Official Ribbon Cutting Ceremony",
+    category: "Opening & Ceremonies",
+    desc: "Auspicious ribbon cutting by distinguished government dignitaries and event organizers inaugurating Patna Expo 2026.",
+    src: "/images/gallery/gallery-11-ribbon-cutting-ceremony.jpg",
+    tag: "Inauguration"
+  },
+  {
+    id: 3,
+    title: "Ceremonial Deep Prajwalan & Auspicious Lamp Lighting",
+    category: "Opening & Ceremonies",
+    desc: "Ceremonial lighting of the lamp by esteemed dignitaries and Bobis Entertainment leadership on the central festival stage.",
+    src: "/images/gallery/gallery-9-ceremonial-lamp-lighting.jpg",
+    tag: "Lamp Lighting"
+  },
+  {
+    id: 4,
     title: "Mega Celebrity Concert & Packed Crowd",
     category: "Live Concerts",
     desc: "Electrifying live musical evening with thousands of festival-goers enjoying cultural performances under the open sky.",
     src: "/images/gallery/gallery-3-mega-celebrity-concert.jpg",
-    tag: "Cultural Evenings",
-    aspect: "featured"
-  },
-  {
-    id: 3,
-    title: "Royal Dry Fruits & Festive Gourmet Stalls",
-    category: "Food & Stalls",
-    desc: "Brisk shopping at the dry fruit and gourmet food counters showcasing authentic heritage delicacies.",
-    src: "/images/gallery/gallery-1-dryfruits-stall.jpg",
-    tag: "Food & Delicacies",
-    aspect: "standard"
-  },
-  {
-    id: 4,
-    title: "Official Dignitaries & Leadership Ground Tour",
-    category: "VIP & Dignitaries",
-    desc: "Government officials, key dignitaries, and event organizers reviewing pavilions and visitor amenities on-ground.",
-    src: "/images/gallery/gallery-4-dignitaries-officials.jpg",
-    tag: "VIP Visit",
-    aspect: "standard"
+    tag: "Celebrity Night"
   },
   {
     id: 5,
-    title: "Festive Handloom, Silk & Lifestyle Pavilions",
-    category: "Handloom & Shopping",
-    desc: "Shoppers exploring handcrafted Kashmiri shawls, traditional silks, and festive ethnic apparel inside covered hangars.",
-    src: "/images/gallery/gallery-5-handloom-shopping.jpg",
-    tag: "Handloom & Craft",
-    aspect: "standard"
-  },
-  {
-    id: 6,
     title: "Live Celebrity Stage Performance & Musical Fest",
     category: "Live Concerts",
     desc: "Renowned artist enthralling the massive festival audience from the grand central stage at Gandhi Maidan.",
     src: "/images/gallery/gallery-6-celebrity-stage-performance.jpg",
-    tag: "Star Artist Live",
-    aspect: "featured"
+    tag: "Live Music"
+  },
+  {
+    id: 6,
+    title: "Festive Night Arena & Food Court Pavilions",
+    category: "Food & Evening Arena",
+    desc: "Illuminated festive evening at Gandhi Maidan featuring pagoda food counters, family seating arena, and vibrant mela buzz.",
+    src: "/images/gallery/gallery-10-festival-night-foodcourt.jpg",
+    tag: "Food & Arena"
   },
   {
     id: 7,
+    title: "Royal Dry Fruits & Festive Gourmet Stalls",
+    category: "Food & Evening Arena",
+    desc: "Brisk shopping at the dry fruit and gourmet food counters showcasing authentic heritage delicacies.",
+    src: "/images/gallery/gallery-1-dryfruits-stall.jpg",
+    tag: "Food & Delicacies"
+  },
+  {
+    id: 8,
+    title: "Handicrafts & Terracotta Art Stall Interaction",
+    category: "Handloom & Craft",
+    desc: "Dignitaries and visitors engaging directly with skilled local artisans showcasing traditional handcrafted pottery and clay art.",
+    src: "/images/gallery/gallery-8-artisan-stall-interaction.jpg",
+    tag: "Artisan Craft"
+  },
+  {
+    id: 9,
+    title: "Festive Handloom, Silk & Lifestyle Pavilions",
+    category: "Handloom & Craft",
+    desc: "Shoppers exploring handcrafted Kashmiri shawls, traditional silks, and festive ethnic apparel inside covered hangars.",
+    src: "/images/gallery/gallery-5-handloom-shopping.jpg",
+    tag: "Silk & Handloom"
+  },
+  {
+    id: 10,
     title: "Executive Ground Inspection & Dignitary Delegation",
     category: "VIP & Dignitaries",
-    desc: "Leadership and administration delegates reviewing campus operations and security across the festive pavilions.",
+    desc: "Leadership and administration delegates reviewing campus operations, crowd movement, and security across the festive pavilions.",
     src: "/images/gallery/gallery-7-leadership-walkthrough.jpg",
-    tag: "Organizers & VIPs",
-    aspect: "featured"
+    tag: "Ground Tour"
+  },
+  {
+    id: 11,
+    title: "Official Dignitaries & Leadership Review",
+    category: "VIP & Dignitaries",
+    desc: "Government officials, key dignitaries, and event organizers reviewing pavilions and visitor amenities on-ground.",
+    src: "/images/gallery/gallery-4-dignitaries-officials.jpg",
+    tag: "VIP Visit"
   }
 ];
 
 const categories = [
   "All Photos",
-  "Grand Entrance",
+  "Opening & Ceremonies",
   "Live Concerts",
-  "Food & Stalls",
-  "VIP & Dignitaries",
-  "Handloom & Shopping"
+  "Food & Evening Arena",
+  "Handloom & Craft",
+  "VIP & Dignitaries"
 ];
 
 export default function PhotoGallerySection() {
@@ -206,7 +231,7 @@ export default function PhotoGallerySection() {
         </div>
 
         {/* ==============================================================
-            MODE 1: INTERACTIVE BENTO MASONRY GRID VIEW
+            MODE 1: BALANCED COMPACT PHOTO GRID
             ============================================================== */}
         {viewMode === 'grid' && (
           <motion.div 
@@ -221,20 +246,20 @@ export default function PhotoGallerySection() {
                 <motion.div
                   key={photo.id}
                   layout
-                  initial={{ opacity: 0, scale: 0.92, y: 20 }}
+                  initial={{ opacity: 0, scale: 0.94, y: 15 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.45, delay: idx * 0.05 }}
-                  className={`gallery-grid-item ${photo.aspect === 'featured' ? 'is-featured' : ''}`}
+                  transition={{ duration: 0.35, delay: idx * 0.04 }}
+                  className="gallery-grid-item"
                 >
                   <Tilt
-                    tiltMaxAngleX={6}
-                    tiltMaxAngleY={6}
+                    tiltMaxAngleX={5}
+                    tiltMaxAngleY={5}
                     perspective={1000}
                     scale={1.02}
-                    transitionSpeed={600}
+                    transitionSpeed={500}
                     glareEnable={true}
-                    glareMaxOpacity={0.25}
+                    glareMaxOpacity={0.2}
                     glareColor="#ffffff"
                     glarePosition="all"
                     className="gallery-tilt-card"
@@ -253,7 +278,7 @@ export default function PhotoGallerySection() {
                       {/* Top Badges */}
                       <div className="card-top-badges">
                         <span className="card-cat-badge">
-                          <Sparkles size={12} />
+                          <Sparkles size={11} />
                           {photo.tag}
                         </span>
                         <button 
@@ -262,7 +287,7 @@ export default function PhotoGallerySection() {
                           aria-label={`View ${photo.title} in full screen`}
                           title="Click to expand"
                         >
-                          <Maximize2 size={15} />
+                          <Maximize2 size={13} />
                         </button>
                       </div>
 
@@ -271,11 +296,6 @@ export default function PhotoGallerySection() {
                         <div className="card-caption-content">
                           <span className="card-cat-name">{photo.category}</span>
                           <h3 className="card-photo-title">{photo.title}</h3>
-                          <p className="card-photo-desc">{photo.desc}</p>
-                          <div className="card-location-meta">
-                            <MapPin size={13} />
-                            <span>Gandhi Maidan, Patna</span>
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -299,7 +319,7 @@ export default function PhotoGallerySection() {
                   initial={{ opacity: 0, scale: 0.96 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 1.02 }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  transition={{ duration: 0.45, ease: "easeOut" }}
                   onClick={() => openLightbox(activeSlide)}
                 >
                   <img 
@@ -320,7 +340,7 @@ export default function PhotoGallerySection() {
                           openLightbox(activeSlide);
                         }}
                       >
-                        <Maximize2 size={16} />
+                        <Maximize2 size={15} />
                         <span>View High-Res Photo</span>
                       </button>
                     </div>
@@ -335,7 +355,7 @@ export default function PhotoGallerySection() {
                 onClick={() => setActiveSlide(prev => (prev - 1 + filteredPhotos.length) % filteredPhotos.length)}
                 aria-label="Previous slide"
               >
-                <ChevronLeft size={24} />
+                <ChevronLeft size={22} />
               </button>
               <button 
                 type="button"
@@ -343,7 +363,7 @@ export default function PhotoGallerySection() {
                 onClick={() => setActiveSlide(prev => (prev + 1) % filteredPhotos.length)}
                 aria-label="Next slide"
               >
-                <ChevronRight size={24} />
+                <ChevronRight size={22} />
               </button>
             </div>
 
@@ -367,7 +387,7 @@ export default function PhotoGallerySection() {
         {/* Footer Note */}
         <div className="gallery-footer-note">
           <p>
-            📸 <strong>Live Patna Expo Moments</strong> — All photographs captured on-site during event celebrations at Gandhi Maidan, Patna.
+            📸 <strong>Live Patna Expo Moments</strong> — All photographs captured on-site during celebrations at Gandhi Maidan, Patna.
           </p>
         </div>
 
@@ -405,7 +425,7 @@ export default function PhotoGallerySection() {
                     onClick={() => setIsPlaying(p => !p)}
                     title={isPlaying ? "Pause Slideshow (Space)" : "Play Slideshow (Space)"}
                   >
-                    {isPlaying ? <Pause size={17} /> : <Play size={17} />}
+                    {isPlaying ? <Pause size={16} /> : <Play size={16} />}
                     <span className="action-btn-label">{isPlaying ? 'Pause' : 'Autoplay'}</span>
                   </button>
 
@@ -416,7 +436,7 @@ export default function PhotoGallerySection() {
                     title="Close (Esc)"
                     aria-label="Close Lightbox"
                   >
-                    <X size={22} />
+                    <X size={20} />
                   </button>
                 </div>
               </div>
@@ -430,7 +450,7 @@ export default function PhotoGallerySection() {
                   aria-label="Previous photo"
                   title="Previous (Left Arrow)"
                 >
-                  <ChevronLeft size={30} />
+                  <ChevronLeft size={28} />
                 </button>
 
                 <AnimatePresence mode="wait">
@@ -457,7 +477,7 @@ export default function PhotoGallerySection() {
                   aria-label="Next photo"
                   title="Next (Right Arrow)"
                 >
-                  <ChevronRight size={30} />
+                  <ChevronRight size={28} />
                 </button>
               </div>
 
