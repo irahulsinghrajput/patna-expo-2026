@@ -305,24 +305,6 @@ function App() {
         </div>
       </section>
 
-      {/* 8. Key Highlights Section */}
-      <section className="section-padding" style={{ position: 'relative', zIndex: 1, background: 'rgba(255,255,255,0.9)' }}>
-        <div className="container">
-          <motion.h2 className="section-heading center-text" style={{ color: 'var(--primary-red)' }} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
-            Key Highlights
-          </motion.h2>
-          <motion.div 
-            style={{ marginTop: '40px', textAlign: 'center', background: 'white', padding: '40px 20px', borderRadius: '30px', boxShadow: '0 10px 40px rgba(0,0,0,0.08)' }}
-            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
-          >
-            <img 
-              src="/images/key-highlights.png" 
-              alt="Key Highlights of Patna Expo" 
-              style={{ width: '100%', maxWidth: '1000px', height: 'auto', margin: '0 auto', display: 'block' }} 
-            />
-          </motion.div>
-        </div>
-      </section>
 
       {/* 9. Premium Sponsorship Suites & Standard Stalls (Pages 36 & 37 of PDF) */}
       <ExhibitionPackagesSection onBookPackage={openModal} />
