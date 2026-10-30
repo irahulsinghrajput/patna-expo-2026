@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, Store } from 'lucide-react';
+import { Store } from 'lucide-react';
 import './BrandMarqueeSection.css';
 
 // Participating Brands & Exhibitors Collection (10 Confirmed Brands)
@@ -126,16 +126,6 @@ export default function BrandMarqueeSection() {
         </div>
 
         <div className="marquee-fade-right" aria-hidden="true"></div>
-      </div>
-
-      {/* Bottom Counter Pill */}
-      <div className="container">
-        <div className="brand-marquee-footer text-center">
-          <span className="marquee-count-tag">
-            <Sparkles size={13} />
-            <span>500+ Regional, National &amp; Global Brands Showcasing Under One Roof</span>
-          </span>
-        </div>
       </div>
     </section>
   );
